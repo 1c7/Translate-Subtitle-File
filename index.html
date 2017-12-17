@@ -5,7 +5,7 @@
     <title>机器翻译字幕文件</title>
     <style>
       body{
-        font-family: PingFangSC;
+        font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
       }
       #button-area{
         width: 100%;
@@ -17,6 +17,7 @@
         color: white;
         font-size: 18px;
         cursor: pointer;
+        font-weight: 200;
       }
       #hint{
         display: flex;
@@ -64,9 +65,7 @@
     <link rel="stylesheet" href="./index.css">
   </head>
   <body>
-    <!-- <div id='file-drag-area'>
-
-    </div> -->
+    <input type="file" style='display:none;' id='file-input' />
 
     <!-- Animated borders on dropzone hover -->
     <div class="dropzone-wrapper">

@@ -1,14 +1,27 @@
 let $ = require('jquery')  // jQuery now loaded and assigned to $
-
+const shell = require('electron').shell
+const os = require('os')
+const ipc = require('electron').ipcRenderer
 
 $(function(){
-  console.log('1');
+
+  // animate
   $('.dropzone-wrapper').on('mouseenter', function () {
     $(this).addClass('animate');
-    console.log('mouseenter');
   }).on('mouseleave', function () { 
     $(this).removeClass('animate'); 
-    console.log('mouseleave');
   });
+
+  // choose file.
+  $('#hint').click(function(){
+    console.log('点击了')
+    $('#file-input').click();
+  })
+
+  // when file change.
+  $(document).on('change', '#file-input', function () { 
+    console.log('ha');
+  });
+
 })
 
