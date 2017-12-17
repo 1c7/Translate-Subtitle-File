@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require('electron')
+require('electron-reload')(__dirname);
 const path = require('path')
 const url = require('url')
 
@@ -9,7 +10,7 @@ let win
 
 function createWindow() {
   // 创建浏览器窗口。
-  win = new BrowserWindow({ width: 695, height: 348 })
+  win = new BrowserWindow({ width: 695, height: 368 })
 
   // 然后加载应用的 index.html。
   win.loadURL(url.format({

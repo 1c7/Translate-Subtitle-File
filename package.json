@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "main": "main.js",
   "dependencies": {
+    "electron-reload": "^1.2.2",
+    "jquery": "^3.2.1",
     "normalize.css": "^7.0.0"
   }
 }
