@@ -1,0 +1,8 @@
+{
+  "name": "your-app",
+  "version": "0.1.0",
+  "main": "main.js",
+  "dependencies": {
+    "normalize.css": "^7.0.0"
+  }
+}
