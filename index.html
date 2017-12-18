@@ -5,15 +5,33 @@
     <title>机器翻译字幕文件</title>
     <link rel="stylesheet" href="./assets/normalize.min.css">
     <link rel="stylesheet" href="./assets/index.css">
-    <style>
-
-    </style>
   </head>
   <body>
     <input type="file" style='display:none;' id='file-input' />
 
+    <!-- selected file -->
+    <div id='selected-file-area' style='display:none;'>
+      <div id="file-box">
+        <div id="file-info" style=''> 
+          <div id="file-info-left">
+            <!-- <img src="./assets/srt.svg" class="selected-file-icon"> -->
+            <img src="./assets/ass.svg" class="selected-file-icon">
+          </div>
+          <div id="file-info-right" style=''>
+            <div class="file-name" style=''>
+            <!-- 70 char max -->
+            Robot Chicken - 07x20 - Lots of Holidays Special.x264-KILLERS.Eng...srt
+            </div>
+            <div class="file-size" style=''>
+              29kb
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- file area -->
-    <div class="dropzone-wrapper">
+    <div class="dropzone-wrapper"  >
       <div class='topbottom'></div>
       <div class='leftright'></div>
       <div id="dropzone">
@@ -37,11 +55,8 @@
     <div id='button-area'>
       <div class='button-text'>开始翻译</div>
     </div>
-
   </body>
   
   <!-- script -->
   <script src="./assets/view.js"></script>
-  <script>
-  </script>
 </html>

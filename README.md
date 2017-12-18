@@ -2,6 +2,14 @@
 
 Electron Version: v1.7.9
 
+
+### How to run
+````
+cd [into this dir]
+electron .
+```
+
+
 ## Resources for Learning Electron
 
 - [electron.atom.io/docs](http://electron.atom.io/docs) - all of Electron's documentation

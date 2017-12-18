@@ -33,7 +33,7 @@ body{
 }
 #hint:hover{
   background: #E9E9E9;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 1px 1px rgba(0,0,0,0.24);
 }
 #hint img{
   width: 78px;
@@ -61,12 +61,49 @@ body{
   text-decoration: underline;
   margin-left: 10px;
 }
+#selected-file-area{
+  height: 302px;
+  /* border-radius: 1px; */
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#file-box{
+  height: 78px;
+  width: 86%;
+  background: red;
+  border-radius: 2px;
+	background-color: #efefef;
+  border: solid 1px #d3d3d3;
+  display: flex;
+  align-items: center;
+}
+#file-info{
+  margin-left: 18px;
+  display:flex;
+  height:48px;
+}
+.file-name{
+  font-size:14px; 
+  word-break: break-all;
+}
+.file-size{
+  font-size:12px;
+}
+#file-info-right{
+  padding-left:12px; 
+  padding-right:12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #708a9f;
+}
 
 .dropzone-wrapper {
   overflow: hidden;
   width: 695px;
   position: relative;
-  /* cursor: pointer; */
 }
 
 #dropzone {
@@ -77,8 +114,6 @@ body{
   align-items: center;
   background-color: rgba(0, 0, 0, 0.05);
   overflow: hidden;
-  /* text-align: center; */
-  /* padding-top: 110px; */
   font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   color: transparent;
