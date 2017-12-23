@@ -2,10 +2,11 @@ let $ = require('jquery')  // jQuery now loaded and assigned to $
 const shell = require('electron').shell
 const os = require('os')
 const ipc = require('electron').ipcRenderer
-const fs = require("fs");
+// const fs = require("fs");
 var parser = require('subtitles-parser'); // 解析字幕文件内容
-// const translate = require('google-translate-api'); // 翻译 API
-// not working, no on maintaining
+
+var length_limit_per_request = 5000;
+// 5000 this number is from https://translate.google.com/ input box bottom right cornor
 
 // 保存已提交文件
 var selectedFile = null;
@@ -38,25 +39,31 @@ $(function(){
   });
 
   $('#button-area').click(function(){
+
+    // translate('Hello', 'en', 'zh-cn').then(function (data) {
+    //   console.log(data[0][0][0]);
+    // });
+
+    // console.log(result);
     
     // console.log(selectedFile);
 
-    var root = 'https://jsonplaceholder.typicode.com';
+    // var root = 'https://jsonplaceholder.typicode.com';
 
-    $.ajax({
-      url: root + '/posts/1',
-      method: 'GET'
-    }).then(function (data) {
-      console.log(data);
-    });
+    // $.ajax({
+    //   url: root + '/posts/1',
+    //   method: 'GET'
+    // }).then(function (data) {
+    //   console.log(data);
+    // });
 
     // fs
     // var data = fs.readFileSync(selectedFile.path);
     // console.log("Synchronous read: " + data.toString());
     // console.log("Program Ended");
-    console.log('click!');
+    // console.log('click!');
 
-    console.log('asdasd');
+    // console.log('asdasd');
 
     if (selectedFile != null){
       var srt = fs.readFileSync(selectedFile.path, 'utf8');
@@ -66,8 +73,15 @@ $(function(){
 
       for (var index = 0; index < data.length; index++) {
         var element = data[index];
-        console.log(element.text);
-        console.log(remove_tag_keep_text(element.text));
+        var only_text = remove_tag_keep_text(element.text);
+
+        // 整块传过去翻译，一行发一次请求很低效。
+        // 1. GET 请求最大长度多少？
+        // 2. 刚好低于一点点这个最大长度。把字幕文件分块传递过去。
+
+        translate(only_text, 'en', 'zh-cn').then(function (data) {
+          console.log(data[0][0][0]);
+        });
       }
     }
 
@@ -84,4 +98,23 @@ function remove_tag_keep_text(str){
   div.innerHTML = str;
   var text = div.textContent || div.innerText || "";
   return text;
+}
+
+// Google Translate API
+function translate(sourceText, sourceLang, targetLang){
+  console.log('start');
+  var url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=" + sourceLang + "&tl=" + targetLang + "&dt=t&q=" + sourceText
+
+  return $.ajax({
+    url: url,
+    method: 'GET'
+  })
+
+  // $.ajax({
+  //   url: url,
+  //   method: 'GET'
+  // }).then(function (data) {
+  //   // console.log(data);
+  //   return data;
+  // });
 }
