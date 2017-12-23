@@ -1,18 +1,18 @@
 # Translate Subtitle File(.srt/.ass)
 Electron v1.7.9
 
-### How to run
+## How to run
 ```
 cd [into project dir]
 electron .
 ```
 
-### Translate Service Provider: Google
+## Translate Service Provider: Google
 Translate API there are only Google/Microsort/Yandex
 
-### Google doesn't have free quote:
-see FAQ: https://cloud.google.com/translate/faq?hl=en#pricing
-> Is there any free quota?
+## Google doesn't have free quote:
+FAQ: https://cloud.google.com/translate/faq?hl=en#pricing
+> Is there any free quota?         
 > No, the Google Cloud Translation API is only available as a paid service. Please see Pricing for more details.
 
 ### TODO
@@ -37,5 +37,5 @@ see FAQ: https://cloud.google.com/translate/faq?hl=en#pricing
 
 
 ### Tried
-// const translate = require('google-translate-api'); // 翻译 API
-// not working, no on maintaining
+tried google-translate-api,
+not working.
