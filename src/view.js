@@ -10,6 +10,8 @@ const assParser = require('ass-parser'); // for ASS, 'assParser'
 const LENGTH_LIMIT_PER_REQUEST = 5000; // 5000 is from https://translate.google.com/ input box bottom right cornor
 var data = null; // 存字幕文件解析后的 JS 对象。所有字幕数据都在这里。
 
+const line_break = '%0A';
+
 $(function(){
 
   // animate border
@@ -36,7 +38,7 @@ $(function(){
     if (get_suffix(selectedFile.name) == 'srt'){
       handle_SRT(content);
     } else if (get_suffix(selectedFile.name) == 'ass'){
-      handle_ASS(content)
+      handle_ASS(content);
     } else{
       alert('这是什么神秘的格式? 无法解读..');
       return false;
@@ -111,27 +113,36 @@ function translate_SRT(a_batch_original_text, line){
 // 用了外部的 data 变量
 // ajax promise 发请求和收到结果的顺序不会永远保持一致
 function translate_ASS(a_batch_original_text, line) {
-  // console.log(a_batch_original_text);
-  // console.log(a_batch_original_text.split('%0A'));
-  // console.log("结束行是" + line);
+  
   // console.log(data[3]['body'][line].Text);
   // console.log(data[3]['body'].length);
 
   translate_api(a_batch_original_text, 'en', 'zh-cn').then(function (result) {
+    // console.log(a_batch_original_text);
+    // console.log(a_batch_original_text.split('%0A'));
     // console.log(result);
-    // var result_array = result[0];
-    // console.log('结果长度是'+result_array.length);
-    // var starting_point = line - result_array.length + 1; // 算出这些结果从哪一行开始
+    var result_array = result[0];
+    // console.log(result_array);
+    // console.log("line: " + line);
+    // console.log('result_array: ' + result_array.length);
 
-    // for (var index = 0; index < result_array.length; index++) {
-    //   var result_text = result_array[index][0];
-    //   var line_position = parseInt(starting_point) + parseInt(index);
-    //   console.log(line_position);
-    //   console.log(result_text);
-    //   console.log(data[3]['body'][line_position]);
-    //   // data[line_position].text = result_text + data[line_position].text;
-    //   // data[line_position].result = result_text;
-    // }
+    var body = data[3]['body'];
+
+    // 算出从哪一行开始
+    var starting_point = line - result_array.length;
+    for (var index = 0; index < result_array.length; index++) {
+      var result_text = result_array[index][0];
+      // var original_text = result_array[index][1];
+      var line_position = parseInt(starting_point) + parseInt(index);
+      console.log('----------------------------');
+      console.log(line_position);
+      console.log(result_text);
+      // console.log(original_text);
+      console.log(data[3]['body'][line_position].value.Text);
+      console.log('----------------------------');
+      // data[line_position].text = result_text + data[line_position].text;
+      // data[line_position].result = result_text;
+    }
 
     // if (check_finish()) {
     //   // 转换结果到 SRT 格式。
@@ -160,27 +171,26 @@ function translate_ASS(a_batch_original_text, line) {
 
 function handle_ASS(raw_content){
   data = assParser(raw_content);
-  // console.log(data);
   var body = data[3]['body'];
   var a_batch_original_text = ''; // 一批一批的翻译。
+  
+  // translate_ASS(data[3]["body"][10].value.Text, 0);
   for (var index = 0; index < body.length; index++) {
     var element = body[index];
-    console.log(element.key);
-    // continue;
     if (element.key == 'Dialogue') {
       var text = element.value.Text;
       var only_text = remove_tag_keep_text(text);
       only_text = remove_curly_brace_keep_text(only_text);
       only_text = remove_all_line_break(only_text);
-      // console.log(only_text);
 
       var new_length = encodeURIComponent(a_batch_original_text + only_text + '%0A').length;
       if (new_length < LENGTH_LIMIT_PER_REQUEST) {
         a_batch_original_text += only_text + '%0A';
         // 如果到了最后一行还是没超过 LENGTH_LIMIT_PER_REQUEST
-        if (body.length - 1 == index) {
-          translate_ASS(a_batch_original_text, index);
+        if (index+1 >= body.length) {
+          translate_ASS(a_batch_original_text, index+1);
           // console.log(a_batch_original_text);
+          // index--; // 不然会掉一行没翻译。
         }
       } else {
         translate_ASS(a_batch_original_text, index);
@@ -190,6 +200,7 @@ function handle_ASS(raw_content){
       }
     }
   }
+
 }
 
 // return true | false
@@ -219,7 +230,7 @@ function check_finish_ASS() {
 
 // Google Translate API
 function translate_api(sourceText, sourceLang, targetLang){
-  var url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=" + sourceLang + "&tl=" + targetLang + "&dt=t&q=" + sourceText
+  var url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=" + sourceLang + "&tl=" + targetLang + "&dt=t&q=" + encodeURIfix(sourceText)
   return $.ajax({
     url: url,
     method: 'GET'
@@ -239,6 +250,7 @@ function handle_SRT(content){
       // 如果到了最后一行还是没超过 LENGTH_LIMIT_PER_REQUEST
       if (data.length - 1 == index) {
         translate_SRT(a_batch_original_text, index);
+        // index--; // 不然会掉一行没翻译。
       }
     } else {
       translate_SRT(a_batch_original_text, index);
@@ -247,3 +259,31 @@ function handle_SRT(content){
     }
   }
 }
+
+// 
+// Some little hack to fix Google Translate line break
+function encodeURIfix(str) {
+  str = str.replace(/!(\s)+/g, '!'); // "Hello! World" -> "Hello!World"
+  // reason for this is Google API would have line break if it see a "! " 
+  // (a examation exclamation mark follow by a white space)
+  // not sure why
+  // return encodeURIComponent(str.replace(/!(\s)+/g, '!'));
+
+  str = str.replace(/\./g, ''); // . 
+  str = str.replace(/\;/g, '');  // ;
+  str = str.replace(/\?(\s)+/g, '?'); // ?
+  // same reason as above. to avoid line break
+  return str;
+}
+
+
+
+// translate_ASS(data[3]["body"][10].value.Text, 0);
+// translate_ASS('hello! nice', 0);
+// translate_ASS(encodeURIfix('hello! nice'), 0);
+
+// translate_ASS(encodeURIComponent('hello! nice'), 0);
+// translate_ASS(encodeURIComponent(data[3]["body"][10].value.Text), 0);
+// translate_api(encodeURIfix(data[3]["body"][10].value.Text,'en','zh-cn'));
+// translate_api(encodeURIfix(data[3]["body"][10].value.Text,'en','zh-cn')).then(function(result){console.log(result)});
+// translate_api(data[3]["body"][10].value.Text,'en','zh-cn').then(function(result){console.log(result)});

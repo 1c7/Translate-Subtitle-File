@@ -1,0 +1,752 @@
+﻿1
+00:00:03,120 --> 00:00:06,040
+Hi, I’m Carrie Anne, and welcome to Crash Course Computer Science!
+
+2
+00:00:06,040 --> 00:00:08,219
+We’re here: the final episode!
+
+3
+00:00:08,219 --> 00:00:12,080
+If you’ve watched the whole series, hopefully you’ve developed a newfound appreciation
+
+4
+00:00:12,080 --> 00:00:14,700
+for the incredible breadth of computing applications and topics.
+
+5
+00:00:14,700 --> 00:00:18,410
+It’s hard to believe we’ve worked up from mere transistors and logic gates, all the
+
+6
+00:00:18,410 --> 00:00:21,460
+way to computer vision, machine learning, robotics and beyond.
+
+7
+00:00:21,460 --> 00:00:25,750
+We’ve stood on the shoulders of giants like Babbage and Lovelace, Hollerith and Turing,
+
+8
+00:00:25,750 --> 00:00:30,770
+Eckert and Hopper, Sutherland and Engelbart, Bush and Berners Lee, Gates and the Woz, and
+
+9
+00:00:30,770 --> 00:00:32,739
+many other computing pioneers.
+
+10
+00:00:32,739 --> 00:00:36,080
+My biggest hope is that these episodes have inspired you to learn more about how these
+
+11
+00:00:36,080 --> 00:00:37,540
+subjects affect your life.
+
+12
+00:00:37,540 --> 00:00:41,100
+Maybe you’ll even pick up programming or choose a career in computing.
+
+13
+00:00:41,100 --> 00:00:42,100
+It’s awesome!
+
+14
+00:00:42,100 --> 00:00:43,840
+It’s also a skill of the future.
+
+15
+00:00:43,840 --> 00:00:48,140
+I said in the very first episode that computer science isn’t magic, but it sort of is!
+
+16
+00:00:48,140 --> 00:00:52,120
+Knowing how to use and program computers is sorcery of the 21st century.
+
+17
+00:00:52,120 --> 00:00:55,400
+Instead of incantations and spells, it’s scripts and code.
+
+18
+00:00:55,400 --> 00:00:59,380
+Those who know how to wield that tremendous power will be able to craft great things,
+
+19
+00:00:59,380 --> 00:01:03,620
+not just to improve their own lives, but also their communities and humanity at large.
+
+20
+00:01:03,620 --> 00:01:08,480
+Computing is also going to be literally everywhere – not just the computers we see today, sitting
+
+21
+00:01:08,480 --> 00:01:13,780
+on desks and countertops, and carried in pockets and bags – but inside every object imaginable.
+
+22
+00:01:13,780 --> 00:01:18,990
+Inside all your kitchen appliances, embedded in your walls, nanotagged in your food, woven
+
+23
+00:01:18,990 --> 00:01:21,940
+into your clothes, and floating around inside your body.
+
+24
+00:01:21,940 --> 00:01:24,440
+This is the vision of the field of Ubiquitous Computing.
+
+25
+00:01:24,440 --> 00:01:28,500
+In some ways, it’s already here, and in other ways, we’ve got many decades to go.
+
+26
+00:01:28,500 --> 00:01:33,170
+Some might view this eventuality as dystopian, with computers everywhere surveilling us and
+
+27
+00:01:33,170 --> 00:01:34,960
+competing for our attention.
+
+28
+00:01:34,960 --> 00:01:39,360
+But the late Mark Weiser, who articulated this idea in the 1990s, saw the potential
+
+29
+00:01:39,360 --> 00:01:40,360
+very differently:
+
+30
+00:01:40,360 --> 00:01:44,340
+“For [fifty] years, most interface design, and most computer design, has been headed
+
+31
+00:01:44,340 --> 00:01:46,580
+down the path of the &quot;dramatic&quot; machine.
+
+32
+00:01:46,580 --> 00:01:51,710
+Its highest idea is to make a computer so exciting, so wonderful, so interesting, that
+
+33
+00:01:51,710 --> 00:01:53,310
+we never want to be without it.
+
+34
+00:01:53,310 --> 00:01:58,420
+A less-traveled path I call the &quot;invisible&quot;; its highest idea is to make a computer so
+
+35
+00:01:58,420 --> 00:02:03,530
+imbedded, so fitting, so natural, that we use it without even thinking about it …
+
+36
+00:02:03,530 --> 00:02:06,700
+The most profound technologies are those that disappear.
+
+37
+00:02:06,700 --> 00:02:11,700
+They weave themselves into the fabric of everyday life until they are indistinguishable from it.&quot;
+
+38
+00:02:11,700 --> 00:02:15,360
+That doesn’t describe computing of today – where people sit for hours upon end in
+
+39
+00:02:15,360 --> 00:02:19,540
+front of computer monitors, and social media notifications interrupt us at dinner.
+
+40
+00:02:19,540 --> 00:02:23,460
+But, it could describe computing of the future, our final topic.
+
+41
+00:02:23,460 --> 00:02:32,420
+INTRO
+
+42
+00:02:32,420 --> 00:02:37,060
+When people think of computing in the future, they often jump right to Artificial Intelligence.
+
+43
+00:02:37,060 --> 00:02:41,290
+No doubt there will be tremendous strides made in AI in the coming years, but not everything
+
+44
+00:02:41,290 --> 00:02:43,930
+will be, or need to be, AI-powered.
+
+45
+00:02:43,930 --> 00:02:48,030
+Your car might have an AI to self-drive, but the door locks might continue to be powered
+
+46
+00:02:48,030 --> 00:02:50,200
+by what are essentially if-statements.
+
+47
+00:02:50,200 --> 00:02:54,880
+AI technology is just as likely to enhance existing devices, like cars, as it is to open
+
+48
+00:02:54,880 --> 00:02:56,880
+up entirely new product categories.
+
+49
+00:02:56,880 --> 00:03:01,440
+The exact same thing happened with the advent of electrical power – lightbulbs replaced candles.
+
+50
+00:03:01,440 --> 00:03:06,300
+But electrification also led to the creation of hundreds of new electrically-powered gadgets.
+
+51
+00:03:06,300 --> 00:03:08,430
+And of course, we still have candles today.
+
+52
+00:03:08,430 --> 00:03:13,359
+It’s most likely that AI will be yet another tool that computer scientists can draw upon
+
+53
+00:03:13,359 --> 00:03:14,359
+to tackle problems.
+
+54
+00:03:14,359 --> 00:03:18,650
+What really gets people thinking, and sometimes sweating, is whether Artificial Intelligence
+
+55
+00:03:18,650 --> 00:03:20,709
+will surpass human intelligence.
+
+56
+00:03:20,709 --> 00:03:24,960
+This is a really tricky question for a multitude of reasons, including most immediately:
+
+57
+00:03:24,960 --> 00:03:26,240
+“what is intelligence?”
+
+58
+00:03:26,240 --> 00:03:31,400
+On one hand, we have computers that can drive cars, recognize songs with only a few seconds of audio,
+
+59
+00:03:31,400 --> 00:03:36,400
+translate dozens of languages, and totally dominate at games like chess, Jeopardy, and Go.
+
+60
+00:03:36,400 --> 00:03:37,820
+That sounds pretty smart!
+
+61
+00:03:37,820 --> 00:03:42,280
+But on the other hand, computers fail at some basic tasks, like walking up steps, folding
+
+62
+00:03:42,280 --> 00:03:46,420
+laundry, understanding speech at a cocktail party, and feeding themselves.
+
+63
+00:03:46,420 --> 00:03:51,680
+We’re a long way from Artificial Intelligence that’s as general purpose and capable as a human.
+
+64
+00:03:51,680 --> 00:03:56,100
+With intelligence being somewhat hard to quantify, people prefer to characterize computers and
+
+65
+00:03:56,100 --> 00:04:01,280
+creatures by their processing power instead, but that’s a pretty computing-centric view of intelligence.
+
+66
+00:04:01,280 --> 00:04:05,760
+Nonetheless, if we do this exercise, plotting computers and processors we’ve talked about
+
+67
+00:04:05,760 --> 00:04:10,349
+in this series, we find that computing today has very roughly equivalence in calculating
+
+68
+00:04:10,349 --> 00:04:11,939
+power to that of a mouse...
+
+69
+00:04:11,939 --> 00:04:16,590
+which, to be fair, also can’t fold laundry, although that would be super cute!
+
+70
+00:04:16,590 --> 00:04:21,919
+Human calculating power is up here, another 10 to the 5, or 100,000 times more powerful
+
+71
+00:04:21,919 --> 00:04:23,210
+than computers today.
+
+72
+00:04:23,210 --> 00:04:27,190
+That sounds like a big gap, but with the rate of change in computing technologies, we might
+
+73
+00:04:27,190 --> 00:04:31,680
+meet that point in as early as a decade, even though processor speeds are no longer following
+
+74
+00:04:31,680 --> 00:04:34,540
+Moore’s Law, like we discussed in Episode 17.
+
+75
+00:04:34,540 --> 00:04:39,190
+If this trend continues, computers would have more processing power, slash intelligence,
+
+76
+00:04:39,190 --> 00:04:43,780
+than the sum total of all human brains combined before the end of this century.
+
+77
+00:04:43,780 --> 00:04:48,800
+And this could snowball as such systems need less human input, with an artificial superintelligence
+
+78
+00:04:48,800 --> 00:04:51,229
+designing and training new versions of itself.
+
+79
+00:04:51,229 --> 00:04:55,280
+This runaway technological growth, especially with respect to an intelligence explosion,
+
+80
+00:04:55,280 --> 00:04:57,250
+is called the singularity.
+
+81
+00:04:57,250 --> 00:05:01,860
+The term was first used by our old friend from Episode 10, John von Neumann, who said:
+
+82
+00:05:01,860 --> 00:05:06,460
+&quot;The accelerating progress of technology and changes in the mode of human life, give the
+
+83
+00:05:06,460 --> 00:05:11,380
+appearance of approaching some essential singularity in the history of the race beyond which human
+
+84
+00:05:11,380 --> 00:05:13,740
+affairs, as we know them, could not continue.&quot;
+
+85
+00:05:13,740 --> 00:05:18,260
+And Von Neumann suggested this back in the 1950s, when computers were trillions of times
+
+86
+00:05:18,260 --> 00:05:19,710
+slower than they are today.
+
+87
+00:05:19,710 --> 00:05:24,220
+Sixty years later, though, the singularity is still just a possibility on the horizon.
+
+88
+00:05:24,220 --> 00:05:28,160
+Some experts believe this progress is going to level off, and be more of an S curve than
+
+89
+00:05:28,160 --> 00:05:33,800
+an exponential one, where as complexity increases, it becomes more difficult to make additional progress.
+
+90
+00:05:33,800 --> 00:05:37,220
+Microsoft co-founder Paul Allen calls it a “complexity brake”.
+
+91
+00:05:37,220 --> 00:05:42,050
+But, as a thought experiment, let’s just say that superintelligent computers will emerge.
+
+92
+00:05:42,050 --> 00:05:44,960
+What that would mean for humanity is a hotly debated topic.
+
+93
+00:05:44,960 --> 00:05:49,700
+There are people who eagerly await it, and those who are already working to stop it from happening.
+
+94
+00:05:49,700 --> 00:05:53,820
+Probably the most immediate effect would be technological unemployment, where workers
+
+95
+00:05:53,820 --> 00:05:58,479
+in many job sectors are rendered obsolete by computers – like AIs and Robots – that
+
+96
+00:05:58,479 --> 00:06:00,870
+can do their work better and for less pay.
+
+97
+00:06:00,870 --> 00:06:03,520
+Although computers are new, this effect is not.
+
+98
+00:06:03,520 --> 00:06:05,840
+Remember Jacquard's Loom from Episode 10?
+
+99
+00:06:05,840 --> 00:06:11,020
+That automated the task of skilled textile workers back in the 1800s, which led to riots.
+
+100
+00:06:11,020 --> 00:06:14,800
+Also, back then, most of the population of the US and Europe were farmers.
+
+101
+00:06:14,800 --> 00:06:20,069
+That’s dropped to under 5% today, due to advances like synthetic fertilizers and tractors.
+
+102
+00:06:20,069 --> 00:06:24,720
+More modern examples include telephone switchboard operators being replaced with automatic switchboards
+
+103
+00:06:24,720 --> 00:06:29,940
+in 1960, and robotic arms replacing human painters in car factories in the 1980s.
+
+104
+00:06:29,940 --> 00:06:31,471
+And the list goes on and on.
+
+105
+00:06:31,471 --> 00:06:34,409
+On one hand, these were jobs lost to automation.
+
+106
+00:06:34,409 --> 00:06:39,340
+And on the other hand, clothes, food, bicycles, toys, and a myriad of other products are all
+
+107
+00:06:39,340 --> 00:06:43,480
+plentiful today because they can be cheaply produced thanks to computing.
+
+108
+00:06:43,480 --> 00:06:48,960
+But, experts argue that AI, robots and computing technologies in general, are going to be even
+
+109
+00:06:48,960 --> 00:06:51,389
+more disruptive than these historical examples.
+
+110
+00:06:51,389 --> 00:06:55,010
+Jobs, at a very high level, can be summarized along two dimensions.
+
+111
+00:06:55,010 --> 00:06:59,340
+First, jobs can be either more manual – like assembling toys – or more cognitive – like
+
+112
+00:06:59,340 --> 00:07:00,580
+picking stocks.
+
+113
+00:07:00,580 --> 00:07:05,850
+These jobs can also be routine – the same tasks over and over again – or non-routine
+
+114
+00:07:05,850 --> 00:07:09,780
+– where tasks vary and workers need to problem solve and be creative.
+
+115
+00:07:09,780 --> 00:07:12,969
+We already know that routine-manual jobs can be automated by machines.
+
+116
+00:07:12,969 --> 00:07:16,669
+It has already happened for some jobs and is happening right now for others.
+
+117
+00:07:16,669 --> 00:07:21,100
+What’s getting people worried is that non-routine manual jobs, like cooks, waiters and security
+
+118
+00:07:21,100 --> 00:07:23,189
+guards, may get automated too.
+
+119
+00:07:23,189 --> 00:07:27,699
+And the same goes for routine cognitive work, like customer service agents, cashiers, bank
+
+120
+00:07:27,699 --> 00:07:29,419
+tellers, and office assistants.
+
+121
+00:07:29,419 --> 00:07:33,199
+That leaves us with just one quadrant that might be safe, at least for a little while:
+
+122
+00:07:33,199 --> 00:07:37,900
+non-routine cognitive work, which includes professions like teachers and artists, novelists
+
+123
+00:07:37,900 --> 00:07:39,880
+and lawyers, and doctors and scientists.
+
+124
+00:07:39,880 --> 00:07:43,820
+These types of jobs encompass roughly 40% of the US workforce.
+
+125
+00:07:43,820 --> 00:07:47,100
+That leaves 60% of jobs vulnerable to automation.
+
+126
+00:07:47,100 --> 00:07:52,500
+People argue that technological unemployment at this scale would be unprecedented and catastrophic,
+
+127
+00:07:52,500 --> 00:07:54,260
+with most people losing their jobs.
+
+128
+00:07:54,260 --> 00:07:58,509
+Others argue that this will be great, freeing people from less interesting jobs to pursue
+
+129
+00:07:58,509 --> 00:08:03,479
+better ones, all while enjoying a higher standard of living with the bounty of food and products
+
+130
+00:08:03,479 --> 00:08:06,720
+that will result from computers and robots doing most of the hard work.
+
+131
+00:08:06,720 --> 00:08:10,420
+No one really knows how this is going to shake out, but if history is any guide, it’ll
+
+132
+00:08:10,420 --> 00:08:12,220
+probably be ok in the long run.
+
+133
+00:08:12,220 --> 00:08:16,880
+Afterall, no one is advocating that 90% of people go back to farming and weaving textiles
+
+134
+00:08:16,880 --> 00:08:17,560
+by hand.
+
+135
+00:08:17,560 --> 00:08:22,080
+The tough question, which politicians are now discussing, is how to handle hopefully-short-term
+
+136
+00:08:22,080 --> 00:08:26,040
+economic disruption, for millions of people that might be suddenly out of a job.
+
+137
+00:08:26,040 --> 00:08:29,920
+Beyond the workplace, computers are also very likely to change our bodies.
+
+138
+00:08:29,920 --> 00:08:35,349
+For example, futurist Ray Kurzweil believes that “The Singularity will allow us to transcend
+
+139
+00:08:35,349 --> 00:08:38,469
+[the] limitations of our biological bodies and brains.
+
+140
+00:08:38,469 --> 00:08:40,219
+We will gain power over our fates.
+
+141
+00:08:40,219 --> 00:08:42,709
+... We will be able to live as long as we want.
+
+142
+00:08:42,709 --> 00:08:47,370
+We will fully understand human thinking and will vastly extend and expand its reach.”
+
+143
+00:08:47,370 --> 00:08:52,130
+Transhumanists see this happening in the form of cyborgs, where humans and technology merge,
+
+144
+00:08:52,130 --> 00:08:54,200
+enhancing our intellect and physiology.
+
+145
+00:08:54,200 --> 00:08:57,470
+There are already brain computer interfaces in use today.
+
+146
+00:08:57,470 --> 00:09:01,690
+And wearable computers, like Google Glass and Microsoft Hololens, are starting to blur
+
+147
+00:09:01,690 --> 00:09:02,440
+the line too.
+
+148
+00:09:02,440 --> 00:09:06,960
+There are also people who foresee &quot;Digital Ascension&quot;, which, in the words of Jaron Lanier,
+
+149
+00:09:06,960 --> 00:09:12,600
+“would involve people dying in the flesh and being uploaded into a computer and remaining conscious&quot;.
+
+150
+00:09:12,600 --> 00:09:18,080
+This transition from biological to digital beings might end up being our next evolutionary step...
+
+151
+00:09:18,080 --> 00:09:26,800
+and a new level of abstraction.
+
+152
+00:09:26,800 --> 00:09:31,520
+Others predict humans staying largely human, but with superintelligent computers as a benevolent
+
+153
+00:09:31,520 --> 00:09:36,740
+force, emerging as a caretaker for humanity – running all the farms, curing diseases,
+
+154
+00:09:36,740 --> 00:09:41,160
+directing robots to pick-up trash, building new homes and many other functions.
+
+155
+00:09:41,160 --> 00:09:45,060
+This would allow us to simply enjoy our time on this lovely pale blue dot.
+
+156
+00:09:45,060 --> 00:09:49,940
+Still others view AI with more suspicion – why would a superintelligent AI waste its time
+
+157
+00:09:49,940 --> 00:09:51,300
+taking care of us?
+
+158
+00:09:51,300 --> 00:09:55,200
+It’s not like we’ve taken on the role of being the benevolent caretaker of ants.
+
+159
+00:09:55,200 --> 00:09:59,860
+So maybe this play out like so many Sci-Fi movies where we’re at war with computers,
+
+160
+00:09:59,860 --> 00:10:01,829
+our own creation having turned on us.
+
+161
+00:10:01,829 --> 00:10:05,420
+It’s impossible to know what the future holds, but it’s great that this discussion
+
+162
+00:10:05,420 --> 00:10:10,720
+and debate is already happening, so as these technologies emerge, we can plan and react intelligently.
+
+163
+00:10:10,720 --> 00:10:15,100
+What’s much more likely, regardless of whether you see computers as future friend or foe,
+
+164
+00:10:15,100 --> 00:10:17,240
+is that they will outlive humanity.
+
+165
+00:10:17,240 --> 00:10:21,140
+Many futurists and science fiction writers have speculated that computers will head out
+
+166
+00:10:21,140 --> 00:10:26,120
+into space and colonize the galaxy, ambivalent to time scales, radiation, and all that other
+
+167
+00:10:26,120 --> 00:10:29,440
+stuff that makes long-distance space travel difficult for us humans.
+
+168
+00:10:29,440 --> 00:10:34,120
+And when the sun is burned up and the Earth is space dust, maybe our technological children
+
+169
+00:10:34,120 --> 00:10:38,160
+will be hard at work exploring every nook and cranny of the universe, hopefully in honor
+
+170
+00:10:38,160 --> 00:10:43,170
+of their parents’ tradition to build knowledge,improve the state of the universe, and to boldly go
+
+171
+00:10:43,170 --> 00:10:44,970
+where no one has gone before!
+
+172
+00:10:44,970 --> 00:10:48,720
+In the meantime, computers have a long way to go, and computer scientists are hard at
+
+173
+00:10:48,720 --> 00:10:52,980
+work advancing all of the topics we talked about over the past forty episodes.
+
+174
+00:10:52,980 --> 00:10:57,940
+In the next decade or so, we’ll likely see technologies like virtual and augmented reality,
+
+175
+00:10:57,940 --> 00:11:02,820
+self-driving vehicles, drones, wearable computers, and service robots go mainstream.
+
+176
+00:11:02,820 --> 00:11:08,700
+The internet will continue to evolve new services, stream new media, and connect people in different ways.
+
+177
+00:11:08,700 --> 00:11:13,010
+New programming languages and paradigms will be developed to facilitate the creation of
+
+178
+00:11:13,010 --> 00:11:14,780
+new and amazing software.
+
+179
+00:11:14,780 --> 00:11:20,800
+And new hardware will make complex operations blazingly fast, like neural networks and 3D graphics.
+
+180
+00:11:20,800 --> 00:11:25,510
+Personal computers are also ripe for innovation, perhaps shedding their forty-year old desktop
+
+181
+00:11:25,510 --> 00:11:30,160
+metaphor and being reborn as omnipresent and lifelong virtual assistants.
+
+182
+00:11:30,160 --> 00:11:34,320
+And there’s so much we didn’t get to talk about in this series, like cryptocurrencies,
+
+183
+00:11:34,320 --> 00:11:39,140
+wireless communication, 3D printing, bioinformatics, and quantum computing.
+
+184
+00:11:39,140 --> 00:11:44,240
+We’re in a golden age of computing and there’s so much going on, it’s impossible to summarize.
+
+185
+00:11:44,240 --> 00:11:49,070
+But most importantly, you can be a part of this amazing transformation and challenge,
+
+186
+00:11:49,070 --> 00:11:53,700
+by learning about computing, and taking what’s arguably humanity’s greatest invention,
+
+187
+00:11:53,700 --> 00:11:55,760
+to make the world a better place.
+
+188
+00:11:55,760 --> 00:11:55,765
+Thanks for watching.
+
