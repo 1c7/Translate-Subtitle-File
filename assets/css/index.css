@@ -78,7 +78,27 @@ body{
   border: solid 1px #d3d3d3;
   display: flex;
   align-items: center;
+  position: relative;
 }
+#file-close{
+  position: absolute;
+  right: 12px;
+  padding: 12px;
+  border-radius: 50%;
+  display: flex;
+  background: #e3e3e3;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s all ease-out;
+}
+#file-close:hover{
+  background: #ADADAD;
+}
+#file-close img{
+  height: 14px;
+}
+
 #file-info{
   margin-left: 18px;
   display:flex;

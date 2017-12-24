@@ -2,43 +2,48 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>机器翻译字幕文件</title>
-    <link rel="stylesheet" href="./assets/normalize.min.css">
-    <link rel="stylesheet" href="./assets/index.css">
+    <title>字幕组机翻小助手</title>
+    <link rel="stylesheet" href="./assets/css/normalize.min.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
+    
   </head>
   <body>
-    <input type="file" style='display:none;' id='file-input' />
+    <div id="vue-app">
+    <input type="file" style='display:none;' id='file-input' @change="process_file($event)"/>
 
-    <!-- selected file -->
+    <!-- selected file | 已选文件后显示这块 -->
     <div id='selected-file-area' style='display:none;'>
       <div id="file-box">
-        <div id="file-info" style=''> 
+        <div id="file-info"> 
           <div id="file-info-left">
-            <!-- <img src="./assets/srt.svg" class="selected-file-icon"> -->
-            <img src="./assets/ass.svg" class="selected-file-icon">
+            <img src="./assets/img/srt.svg" class="selected-file-icon" v-if="file_type == 'srt'">
+            <img src="./assets/img/ass.svg" class="selected-file-icon" v-if="file_type == 'ass'">
           </div>
-          <div id="file-info-right" style=''>
-            <div class="file-name" style=''>
-            <!-- 70 char max -->
-            Robot Chicken - 07x20 - Lots of Holidays Special.x264-KILLERS.Eng...srt
+          <div id="file-info-right">
+            <div class="file-name" v-bind:title='file_name'>
+              {{proper_length_file_name}}
             </div>
-            <div class="file-size" style=''>
-              29kb
+            <div class="file-size">
+              {{file_size}}
             </div>
           </div>
+        </div>
+        <div id='file-close' @click='cancel_file_select'>
+          <img src="./assets/img/close.svg">
         </div>
       </div>
     </div>
 
-    <!-- file area -->
-    <div class="dropzone-wrapper"  >
+    <!-- file area | 还没选择文件 -->
+    <div class="dropzone-wrapper" @show='!show_selected_file'>
       <div class='topbottom'></div>
       <div class='leftright'></div>
+      <!-- for animate border -->
       <div id="dropzone">
         <div id='hint'>
           <div id='image'>
-            <img src="./assets/srt logo.png" alt="srt logo" >
-            <img src="./assets/ass logo.png" alt="ass logo" style='margin-left:48px;'>
+            <img src="./assets/img/srt logo.png" alt="srt logo" >
+            <img src="./assets/img/ass logo.png" alt="ass logo" style='margin-left:48px;'>
           </div>
           <div id='text'>
             <div class='main-title'>
@@ -55,8 +60,71 @@
     <div id='button-area'>
       <div class='button-text'>开始翻译</div>
     </div>
+    </div>
   </body>
   
   <!-- script -->
-  <script src="./assets/view.js"></script>
+  <script src="./assets/js/vue.min.js"></script>
+  <script>
+    var app = new Vue({
+        el: '#vue-app',
+        data: {
+          message: 'Hello Vue!',
+          file_name: '',
+          file_size: '1111kb',
+          show_selected_file: false,
+          selectedFile: null,
+        },
+        computed: {
+            proper_length_file_name: function () {
+              return this.text_truncate(this.file_name, 70) + this.get_suffix(this.file_name);
+            },
+            file_type: function(){
+              return this.get_suffix(this.file_name);
+            }
+        },
+        methods: {
+          process_file(){
+              this.selectedFile = document.getElementById('file-input').files[0];
+              this.file_name = this.selectedFile.name;
+              // 界面切换
+              $('#selected-file-area').show();
+              $('.dropzone-wrapper').hide();
+          },
+          calculate_size(){
+
+          },
+          // 截断字符串(如果超过指定长度)
+          text_truncate(str, length, ending) {
+              if (length == null) {
+                length = 100;
+              }
+              if (ending == null) {
+                ending = '...';
+              }
+              if (str.length > length) {
+                return str.substring(0, length - ending.length) + ending;
+              } else {
+                return str;
+              }
+          },
+          // 返回文件后缀 "srt" / "ass"
+          get_suffix(filename) {
+            pos = filename.lastIndexOf('.')
+            suffix = ''
+            if (pos != -1) {
+              suffix = filename.substring(pos+1)
+            }
+            return suffix;
+          },
+          // 取消文件选择
+          cancel_file_select(){
+            $('#selected-file-area').hide();
+            $('.dropzone-wrapper').show();
+            document.getElementById('file-input').value = '';
+          }
+        }
+    })
+  </script>
+  <script src="./src/view.js"></script>
 </html>

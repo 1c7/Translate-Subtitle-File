@@ -1,17 +1,22 @@
 # 字幕组机翻小助手 (支持.srt/.ass) - 基于谷歌翻译
+Electron v1.7.9
 
-## 如何使用
+## How to run
+```
+cd [into project dir]
+electron .
+```
 
-
-## 翻译服务提供商：Google
-目前市面上只有三家：Google/Microsort/Yandex
+## Translate Service Provider: Google
+Translate API there are only Google/Microsort/Yandex
 
 ## Google doesn't have free quote:
 FAQ: https://cloud.google.com/translate/faq?hl=en#pricing
 > Is there any free quota?         
 > No, the Google Cloud Translation API is only available as a paid service. Please see Pricing for more details.
 
-### TODO，可以改进的点
+### TODO
+接下来处理翻译
 1. 发请求尽量高效，一次性发大块一点的数据。
 换行在 URL 里是 %0A
 返回的结果会用数组存不同行。很方便。
