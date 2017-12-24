@@ -9,7 +9,7 @@
   </head>
   <body>
     <div id="vue-app">
-    <input type="file" style='display:none;' id='file-input' @change="process_file($event)"/>
+    <input type="file" style='display:none;' id='file-input' @change="process_file($event)" accept=".srt,.ass,text/srt,text/ass"/>
 
     <!-- selected file | 已选文件后显示这块 -->
     <div id='selected-file-area' style='display:none;'>
@@ -67,10 +67,34 @@
   <!-- script -->
   <script src="./assets/js/vue.min.js"></script>
   <script>
+    // 截断字符串(如果超过指定长度)
+    function text_truncate(str, length, ending){
+      if (length == null) {
+        length = 60;
+      }
+      if (ending == null) {
+        ending = '...';
+      }
+      if (str.length > length) {
+        return str.substring(0, length - ending.length) + ending;
+      } else {
+        return str;
+      }
+    }
+
+    // 返回文件后缀 "srt" / "ass"
+    function get_suffix(filename){
+      pos = filename.lastIndexOf('.');
+      suffix = ''
+      if (pos != -1) {
+        suffix = filename.substring(pos + 1)
+      }
+      return suffix;
+    }
+
     var app = new Vue({
         el: '#vue-app',
         data: {
-          message: 'Hello Vue!',
           file_name: '',
           file_size: '1111kb',
           show_selected_file: false,
@@ -78,45 +102,34 @@
         },
         computed: {
             proper_length_file_name: function () {
-              return this.text_truncate(this.file_name, 70) + this.get_suffix(this.file_name);
+              var file_name_string = this.file_name;
+              var length = 60;
+              if (file_name_string.length <= length) {
+                return file_name_string;
+              } else {
+                return text_truncate(file_name_string, 60);
+              }
             },
             file_type: function(){
-              return this.get_suffix(this.file_name);
+              return get_suffix(this.file_name);
             }
         },
         methods: {
           process_file(){
               this.selectedFile = document.getElementById('file-input').files[0];
-              this.file_name = this.selectedFile.name;
-              // 界面切换
-              $('#selected-file-area').show();
-              $('.dropzone-wrapper').hide();
-          },
-          calculate_size(){
-
-          },
-          // 截断字符串(如果超过指定长度)
-          text_truncate(str, length, ending) {
-              if (length == null) {
-                length = 100;
-              }
-              if (ending == null) {
-                ending = '...';
-              }
-              if (str.length > length) {
-                return str.substring(0, length - ending.length) + ending;
+              // 判断类型是否正确
+              var suffix = get_suffix(this.selectedFile.name);
+              // console.log(suffix);
+              
+              if(suffix == 'srt' || suffix == 'ass'){
+                this.file_name = this.selectedFile.name;
+                // 界面切换
+                $('#selected-file-area').show();
+                $('.dropzone-wrapper').hide();
               } else {
-                return str;
+                alert("只能选择字幕文件，文件后缀必须是 srt 或 ass");
               }
-          },
-          // 返回文件后缀 "srt" / "ass"
-          get_suffix(filename) {
-            pos = filename.lastIndexOf('.')
-            suffix = ''
-            if (pos != -1) {
-              suffix = filename.substring(pos+1)
-            }
-            return suffix;
+              
           },
           // 取消文件选择
           cancel_file_select(){

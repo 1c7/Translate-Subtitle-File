@@ -3,12 +3,11 @@ const shell = require('electron').shell
 const os = require('os')
 const ipc = require('electron').ipcRenderer
 const fs = require("fs");
-const parser = require('subtitles-parser'); // 解析字幕文件内容
+const parser = require('subtitles-parser'); // for SRT, support 'fromSrt' and 'toSrt'
 const path = require('path');
+const assParser = require('ass-parser'); // for ASS, 'assParser'
 
-const LENGTH_LIMIT_PER_REQUEST = 5000;
-// 5000 this number is from https://translate.google.com/ input box bottom right cornor
-
+const LENGTH_LIMIT_PER_REQUEST = 5000; // 5000 is from https://translate.google.com/ input box bottom right cornor
 var data = null; // 存字幕文件解析后的 JS 对象。所有字幕数据都在这里。
 
 $(function(){
@@ -26,36 +25,23 @@ $(function(){
   })
 
   $('#button-area').click(function(){
-    // fs
-    // var data = fs.readFileSync(selectedFile.path);
-    // console.log("Synchronous read: " + data.toString());
-
     selectedFile = app.selectedFile; // from vue
-    // 这一大段 if 就是遍历字幕，然后一块块发请求出去，而不是一行字幕就发一个请求。
-    if (selectedFile != null){
-      var srt = fs.readFileSync(selectedFile.path, 'utf8');
-      data = parser.fromSrt(srt);
-
-      var a_batch_original_text = ''; // 一批一批的翻译。
-      for (var index = 0; index < data.length; index++) {
-        var element = data[index];
-        var only_text = remove_tag_keep_text(element.text);
-
-        var new_length = encodeURIComponent(a_batch_original_text + only_text + '%0A').length;
-        if (new_length < LENGTH_LIMIT_PER_REQUEST){
-          a_batch_original_text += only_text + '%0A';
-          // 如果到了最后一行还是没超过 LENGTH_LIMIT_PER_REQUEST
-          if(data.length - 1 == index){
-            translate(a_batch_original_text, index);
-          }
-        }else{
-          translate(a_batch_original_text, index);
-          a_batch_original_text = ''; // 清理掉这一批
-          index--; // 不然会掉一行没翻译。
-        }
-      }
-    }// if end
-  })// click end
+    // 如果没选文件
+    if (selectedFile == null) {
+      alert('请先选择一个文件再开始翻译');
+      return false;
+    }
+    // 如果选了文件
+    var content = fs.readFileSync(selectedFile.path, 'utf8');
+    if (get_suffix(selectedFile.name) == 'srt'){
+      handle_SRT(content);
+    } else if (get_suffix(selectedFile.name) == 'ass'){
+      handle_ASS(content)
+    } else{
+      alert('这是什么神秘的格式? 无法解读..');
+      return false;
+    }
+  })
 
 });
 
@@ -70,10 +56,21 @@ function remove_tag_keep_text(str){
   return text;
 }
 
-// 翻译
+//
+// Input: "{\c&HCC9933&}Subtitles by {\c\c&HFFFFFF &}MemoryOnSmells{\c} {\c&HCC9933&}Exclusive for http://UKsubtitles.ru{\c}"
+// Output: "Subtitles by MemoryOnSmells  Exclusive for http://UKsubtitles.ru"
+function remove_curly_brace_keep_text(str){
+  return str.replace(/\s*\{.*?\}\s*/g, ' ').trim();
+}
+
+function remove_all_line_break(str){
+  return str.replace(/\r?\n|\r/g, ' ');
+}
+
+// 翻译 srt
 // 用了外部的 data 变量
-// 顺序不会永远保持一致
-function translate(a_batch_original_text, line){
+// ajax promise 发请求和收到结果的顺序不会永远保持一致
+function translate_SRT(a_batch_original_text, line){
   translate_api(a_batch_original_text, 'en', 'zh-cn').then(function (result) {
     var result_array = result[0];
     var starting_point = line - result_array.length + 1; // 算出这些结果从哪一行开始
@@ -81,7 +78,7 @@ function translate(a_batch_original_text, line){
     for (var index = 0; index < result_array.length; index++) {
       var result_text = result_array[index][0];
       var line_position = parseInt(starting_point) + parseInt(index);
-      data[line_position].text = result_text + data[line_position].text;
+      data[line_position].text = result_text + data[line_position].text; // 修改 text 节点，这样 toSRT 的时候能保存下来。
       data[line_position].result = result_text;
     }
 
@@ -110,8 +107,106 @@ function translate(a_batch_original_text, line){
   });
 }
 
+// 翻译 ass
+// 用了外部的 data 变量
+// ajax promise 发请求和收到结果的顺序不会永远保持一致
+function translate_ASS(a_batch_original_text, line) {
+  // console.log(a_batch_original_text);
+  // console.log(a_batch_original_text.split('%0A'));
+  // console.log("结束行是" + line);
+  // console.log(data[3]['body'][line].Text);
+  // console.log(data[3]['body'].length);
+
+  translate_api(a_batch_original_text, 'en', 'zh-cn').then(function (result) {
+    // console.log(result);
+    // var result_array = result[0];
+    // console.log('结果长度是'+result_array.length);
+    // var starting_point = line - result_array.length + 1; // 算出这些结果从哪一行开始
+
+    // for (var index = 0; index < result_array.length; index++) {
+    //   var result_text = result_array[index][0];
+    //   var line_position = parseInt(starting_point) + parseInt(index);
+    //   console.log(line_position);
+    //   console.log(result_text);
+    //   console.log(data[3]['body'][line_position]);
+    //   // data[line_position].text = result_text + data[line_position].text;
+    //   // data[line_position].result = result_text;
+    // }
+
+    // if (check_finish()) {
+    //   // 转换结果到 SRT 格式。
+    //   var final_result = parser.toSrt(data);
+
+    //   // 获得原字幕文件路径
+    //   var onlyPath = path.dirname(app.selectedFile.path);
+
+    //   // 构造新路径和新文件名
+    //   var new_path = path.join(onlyPath, '(翻译后)' + app.selectedFile.name);
+
+    //   // 保存文件，并在文件夹中显示文件
+    //   try {
+    //     fs.writeFileSync(new_path, final_result, 'utf-8');
+    //     shell.showItemInFolder(new_path);
+    //   }
+    //   catch (e) {
+    //     alert('Failed to save the file !');
+    //   }
+
+    //   // 回到初始状态
+    //   app.cancel_file_select(); // from vue
+    // }
+  });
+}
+
+function handle_ASS(raw_content){
+  data = assParser(raw_content);
+  // console.log(data);
+  var body = data[3]['body'];
+  var a_batch_original_text = ''; // 一批一批的翻译。
+  for (var index = 0; index < body.length; index++) {
+    var element = body[index];
+    console.log(element.key);
+    // continue;
+    if (element.key == 'Dialogue') {
+      var text = element.value.Text;
+      var only_text = remove_tag_keep_text(text);
+      only_text = remove_curly_brace_keep_text(only_text);
+      only_text = remove_all_line_break(only_text);
+      // console.log(only_text);
+
+      var new_length = encodeURIComponent(a_batch_original_text + only_text + '%0A').length;
+      if (new_length < LENGTH_LIMIT_PER_REQUEST) {
+        a_batch_original_text += only_text + '%0A';
+        // 如果到了最后一行还是没超过 LENGTH_LIMIT_PER_REQUEST
+        if (body.length - 1 == index) {
+          translate_ASS(a_batch_original_text, index);
+          // console.log(a_batch_original_text);
+        }
+      } else {
+        translate_ASS(a_batch_original_text, index);
+        // console.log(a_batch_original_text);
+        a_batch_original_text = ''; // 清理掉这一批
+        index--; // 不然会掉一行没翻译。
+      }
+    }
+  }
+}
+
 // return true | false
 function check_finish(){
+  for (var i = 0; i < data.length; i++) {
+    if (data[i].hasOwnProperty('result')) {
+      continue;
+    } else {
+      return false;
+    }
+  }
+  return true;
+}
+
+
+// return true | false
+function check_finish_ASS() {
   for (var i = 0; i < data.length; i++) {
     if (data[i].hasOwnProperty('result')) {
       continue;
@@ -129,4 +224,26 @@ function translate_api(sourceText, sourceLang, targetLang){
     url: url,
     method: 'GET'
   })
+}
+
+function handle_SRT(content){
+  data = parser.fromSrt(content);
+  var a_batch_original_text = ''; // 一批一批的翻译。
+  for (var index = 0; index < data.length; index++) {
+    var element = data[index];
+    var only_text = remove_tag_keep_text(element.text);
+
+    var new_length = encodeURIComponent(a_batch_original_text + only_text + '%0A').length;
+    if (new_length < LENGTH_LIMIT_PER_REQUEST) {
+      a_batch_original_text += only_text + '%0A';
+      // 如果到了最后一行还是没超过 LENGTH_LIMIT_PER_REQUEST
+      if (data.length - 1 == index) {
+        translate_SRT(a_batch_original_text, index);
+      }
+    } else {
+      translate_SRT(a_batch_original_text, index);
+      a_batch_original_text = ''; // 清理掉这一批
+      index--; // 不然会掉一行没翻译。
+    }
+  }
 }
