@@ -25,3 +25,7 @@ FAQ: https://cloud.google.com/translate/faq?hl=en#pricing
 tried google-translate-api,
 not working.
 
+解析 ASS 用： eush77/ass-parser    https://github.com/eush77/ass-parser
+保存 ASS 用： eush77/ass-stringify https://github.com/eush77/ass-stringify
+npm install ass-stringify --save
+npm install ass-parser --save
