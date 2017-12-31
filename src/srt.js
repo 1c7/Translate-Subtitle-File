@@ -60,6 +60,8 @@ function translate_batch(a_batch_original_text, line) {
       }
       // 回到初始状态
       app.cancel_file_select(); // from vue
+      receive_many_request = 0;
+      send_many_request = 0;
     }
   });
 }

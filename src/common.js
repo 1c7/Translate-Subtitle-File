@@ -46,8 +46,19 @@ function get_suffix(filename) {
   return suffix;
 }
 
+function properFileSize(fileSizeInBytes) {
+  var i = -1;
+  var byteUnits = [' kB', ' MB', ' GB', ' TB', 'PB', 'EB', 'ZB', 'YB'];
+  do {
+    fileSizeInBytes = fileSizeInBytes / 1024;
+    i++;
+  } while (fileSizeInBytes > 1024);
+  return Math.max(fileSizeInBytes, 0.1).toFixed(1) + byteUnits[i];
+}
+
 exports.encodeURIfix = encodeURIfix
 exports.remove_tag_keep_text = remove_tag_keep_text
 exports.remove_curly_brace_keep_text = remove_curly_brace_keep_text
 exports.remove_all_line_break = remove_all_line_break
 exports.get_suffix = get_suffix
+exports.properFileSize = properFileSize

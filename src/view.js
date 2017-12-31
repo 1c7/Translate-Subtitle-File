@@ -2,6 +2,7 @@ const $ = require('jquery')  // jQuery now loaded and assigned to $
 const fs = require("fs");
 const ass = require('./src/ass.js');
 const srt = require('./src/srt.js');
+const common = require('./src/common.js');
 
 var droppedFiles = '';
 $(function () {
@@ -12,31 +13,31 @@ $(function () {
     $(this).removeClass('animate');
   });
 
+  // support drag & drop
   $dragzone = $('.dropzone-wrapper');
   $dragzone.on('drag dragstart dragend dragover dragenter dragleave drop', function (e) {
     e.preventDefault();
     e.stopPropagation();
   }).on('dragover dragenter', function () {
     $dragzone.addClass('is-dragover');
-    console.log('drag oer');
+    // console.log('drag oer');
   })
   .on('dragleave dragend drop', function () {
     $dragzone.removeClass('is-dragover');
-    console.log('drag oer');
+    // console.log('drag oer');
   })
   .on('drop', function (e) {
-    // console.log('drag dddddddrop');
     droppedFiles = e.originalEvent.dataTransfer.files;
     if (droppedFiles.length > 1){
       alert('一次只能拖入一个文件!');
       droppedFiles = '';
       return;
     }
-
     var file = droppedFiles[0];
     var suffix = get_suffix(file.name);
     if (suffix == 'srt' || suffix == 'ass') {
       app.file_name = file.name;
+      app.file_size = common.properFileSize(file.size);
       app.selectedFile = file;
       // 界面切换
       $('#selected-file-area').show();
@@ -63,8 +64,7 @@ $(function () {
     if (get_suffix(selectedFile.name) == 'srt') {
       srt.translate(content);
     } else if (get_suffix(selectedFile.name) == 'ass') {
-      // handle_ASS(content);
-      // console.log(content);
+      ass.translate(content);
     } else {
       alert('这是什么神秘的格式? 无法解读..');
       return false;

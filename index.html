@@ -92,11 +92,21 @@
       return suffix;
     }
 
+    function properFileSize(fileSizeInBytes){
+      var i = -1;
+      var byteUnits = [' kB', ' MB', ' GB', ' TB', 'PB', 'EB', 'ZB', 'YB'];
+      do {
+        fileSizeInBytes = fileSizeInBytes / 1024;
+        i++;
+      } while (fileSizeInBytes > 1024);
+      return Math.max(fileSizeInBytes, 0.1).toFixed(1) + byteUnits[i];
+    }
+
     var app = new Vue({
         el: '#vue-app',
         data: {
           file_name: '',
-          file_size: '1111kb',
+          file_size: '',
           show_selected_file: false,
           selectedFile: null,
         },
@@ -112,24 +122,21 @@
             },
             file_type: function(){
               return get_suffix(this.file_name);
-            }
+            },
         },
         methods: {
           process_file(){
               this.selectedFile = document.getElementById('file-input').files[0];
-              // 判断类型是否正确
-              var suffix = get_suffix(this.selectedFile.name);
-              // console.log(suffix);
-              
+              var suffix = get_suffix(this.selectedFile.name);              
               if(suffix == 'srt' || suffix == 'ass'){
                 this.file_name = this.selectedFile.name;
+                this.file_size = properFileSize(this.selectedFile.size);
                 // 界面切换
                 $('#selected-file-area').show();
                 $('.dropzone-wrapper').hide();
               } else {
                 alert("只能选择字幕文件，文件后缀必须是 srt 或 ass");
               }
-              
           },
           // 取消文件选择
           cancel_file_select(){
