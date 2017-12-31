@@ -2,7 +2,9 @@
 字幕组机翻小助手 (支持.srt/.ass) - 基于谷歌翻译
 
 ## Tech Stack
-Electron v1.7.9
+* Electron v1.7.9
+* jQuery
+* Vue
 
 ## How to run
 ```

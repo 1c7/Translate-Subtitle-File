@@ -37,7 +37,17 @@ function remove_all_line_break(str) {
   return str.replace(/\r?\n|\r/g, ' ');
 }
 
+function get_suffix(filename) {
+  pos = filename.lastIndexOf('.');
+  suffix = ''
+  if (pos != -1) {
+    suffix = filename.substring(pos + 1)
+  }
+  return suffix;
+}
+
 exports.encodeURIfix = encodeURIfix
 exports.remove_tag_keep_text = remove_tag_keep_text
 exports.remove_curly_brace_keep_text = remove_curly_brace_keep_text
 exports.remove_all_line_break = remove_all_line_break
+exports.get_suffix = get_suffix
