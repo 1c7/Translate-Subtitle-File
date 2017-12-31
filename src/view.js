@@ -66,7 +66,7 @@ $(function () {
     } else if (get_suffix(selectedFile.name) == 'ass') {
       ass.translate(content);
     } else {
-      alert('这是什么神秘的格式? 无法解读..');
+      alert('这是什么神秘的格式? 无法解读');
       return false;
     }
   })

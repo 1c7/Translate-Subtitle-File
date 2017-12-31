@@ -117,7 +117,7 @@
               if (file_name_string.length <= length) {
                 return file_name_string;
               } else {
-                return text_truncate(file_name_string, 60);
+                return text_truncate(file_name_string, 60) + get_suffix(file_name_string);
               }
             },
             file_type: function(){
