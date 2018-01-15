@@ -9,3 +9,12 @@ exports.google = function(sourceText, sourceLang, targetLang) {
     method: 'GET'
   })
 }
+
+// Baidu Translate API
+exports.baidu = function(sourceText, sourceLang, targetLang) {
+  var url = "https://crashcourse.club/api/translate/q=" +common.encodeURIfix(sourceText) + "&from="+ sourceLang + "&to=" + targetLang
+  return $.ajax({
+    url: url,
+    method: 'GET'
+  })
+}
