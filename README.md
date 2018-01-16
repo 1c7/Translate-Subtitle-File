@@ -7,7 +7,10 @@
 
 ### 使用方法
 拖入或选择 .srt .ass 后缀的字幕文件，点击绿色按钮"开始翻译"        
-1~2秒后就会翻译完成，自动在文件夹中显示。     
+1~2秒后就会翻译完成，自动在文件夹中显示。   
+
+视频演示使用（12秒）：https://www.bilibili.com/video/av18366241/            
+<img src="./image/bilibili.png" alt="demo video" width="480">       
 
 ### 下载地址 :star:
 Windows 用户下载地址：      
