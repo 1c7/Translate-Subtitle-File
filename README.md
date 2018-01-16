@@ -5,15 +5,15 @@
 <img src="./image/1.png" alt="how the app look like" width="380">
 
 
-## 使用方法
+### 使用方法
 拖入或选择 .srt .ass 后缀的字幕文件，点击绿色按钮"开始翻译"        
 1~2秒后就会翻译完成，自动在文件夹中显示。     
 
-## 下载地址
-Windows 用户下载地址：
+### 下载地址
+Windows 用户下载地址：      
 macOS 用户下载地址：
 
-## 重要说明
+### 重要说明
 请**自备科学上网工具**，因为使用了 Google 翻译。    
 如果点了"开始翻译"半天没有反应就是网络请求出错了。（无法连接上谷歌翻译）   
 
@@ -23,30 +23,12 @@ macOS 用户下载地址：
 
 <br/>
 
-#### 有疑问或是想反馈问题
-1. 欢迎在 Github 开 Issue
-2. 找 新浪微博@糖醋陈皮
-3. 邮件: guokrfans#gmail.com (#替换成@)
-
-#### 未来计划：保持免费易用
-因为只是个简单小工具，所以我想保持免费，那么就不能投入过多时间，           
-除了偶尔修复下影响正常使用的问题。不会有大改动（加新功能，UI 大改版）       
-除非有人愿意加入进来一起开发，不然会保持这种 "能用就行" 的状态。    
-如果投入过多时间可能会被迫要收费了，不管是广告还是一次性收费还是订阅付费都不太好。    
-
-#### 关于：为什么做这个工具
-这个小工具的用意是加快翻译速度，    
-
-我们 Crash Course 字幕组内部从 2015 年开始就用自己写的 Python+谷歌翻译 来翻字幕文件，
-然后再手工修改，加快翻译速度             
-把 .ass/.srt 字幕文件拖到 .py 文件上方，然后弹出黑窗口，逐行翻译。   
-发布 Python 程序比较费事，无法点开即用。
-
-这次用 Electron.js 写跨平台应用，有图形界面可以打开即用。    
-希望能节省你不少时间    
-
 #### 使用本工具的字幕组/个人 (欢迎填入)
-* [Crash Course 字幕组](https://weibo.com/u/5237129097/home)
-* [糖醋陈皮](https://weibo.com/2004104451/profile?rightmod=1&wvr=6&mod=personnumber)
+（填入方法 1.去新浪微博@糖醋陈皮 留言说一声，2. 开个 github issue（顶部可以看到一个 tab 写着"issue"）            
+  
+* [Crash Course 字幕组](https://weibo.com/u/5237129097/home)      
+* [糖醋陈皮](https://weibo.com/2004104451/profile?rightmod=1&wvr=6&mod=personnumber)    
 
-（填入方法 1.去新浪微博@糖醋陈皮 留言说一声，2. 开个 github issue（顶部可以看到一个 tab 写着"issue"）
+
+想了解更多？可以[阅读 wiki](https://github.com/1c7/translate-subtitle-file/wiki)
+
