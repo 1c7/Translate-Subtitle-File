@@ -14,21 +14,20 @@ Windows 用户下载地址：
 macOS 用户下载地址：
 
 ### 重要说明
-请**自备科学上网工具**，因为使用了 Google 翻译。    
+请 **自备科学上网工具**，因为用了 Google 翻译。    
 如果点了"开始翻译"半天没有反应就是网络请求出错了。（无法连接上谷歌翻译）   
 
-<br/>
-
----
-
-<br/>
-
-#### 使用本工具的字幕组/个人 (欢迎填入)
-（填入方法 1.去新浪微博@糖醋陈皮 留言说一声，2. 开个 github issue（顶部可以看到一个 tab 写着"issue"）            
-  
+#### 使用本工具的字幕组/个人 
 * [Crash Course 字幕组](https://weibo.com/u/5237129097/home)      
 * [糖醋陈皮](https://weibo.com/2004104451/profile?rightmod=1&wvr=6&mod=personnumber)    
 
+如果你正在使用并且喜欢这款工具，欢迎填入你的名字到列表，  
+填入方法       
+  1. 去新浪微博@糖醋陈皮 留言说一声
+  2. 开个 github issue（顶部可以看到一个 tab 写着"issue") 
+  3. 发 Pull Request
+ 
 
-想了解更多？可以[阅读 wiki](https://github.com/1c7/translate-subtitle-file/wiki)
+#### 想了解更多关于这个工具的信息？
+[阅读 Github Wiki](https://github.com/1c7/translate-subtitle-file/wiki)
 
