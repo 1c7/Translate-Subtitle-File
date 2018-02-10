@@ -1,4 +1,4 @@
-
+// 一些公用函数，比如清理换行，返回文件后缀之类的
 
 // Some little hack to fix Google Translate line break
 function encodeURIfix(str) {
@@ -6,7 +6,6 @@ function encodeURIfix(str) {
   // reason for this is Google API would have line break if it see a "! " 
   // (a examation exclamation mark follow by a white space)
   // not sure why, you can test it yourself, https://translate.google.com/
-
   str = str.replace(/\./g, ''); // . 
   str = str.replace(/\;/g, '');  // ;
   str = str.replace(/\?(\s)+/g, '?'); // ?

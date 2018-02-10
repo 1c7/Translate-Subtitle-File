@@ -52,21 +52,23 @@ $(function () {
     $('#file-input').click();
   })
 
-  // 开始翻译按钮
+  // click "开始翻译"按钮
   $('#button-area').click(function () {
     selectedFile = app.selectedFile; // from vue
     if (selectedFile == null) {
       alert('请先选择一个文件再开始翻译');
       return false;
     }
-
     var content = fs.readFileSync(selectedFile.path, 'utf8');
-    if (get_suffix(selectedFile.name) == 'srt') {
+    var suffix = get_suffix(selectedFile.name);
+    if (suffix == 'srt') {
       srt.translate(content);
-    } else if (get_suffix(selectedFile.name) == 'ass') {
+      
+    } else if (suffix == 'ass') {
       ass.translate(content);
+
     } else {
-      alert('这是什么神秘的格式? 无法解读');
+      alert('当前文件格式('+suffix+')不支持，目前只支持 srt 和 ass 格式');
       return false;
     }
   })
