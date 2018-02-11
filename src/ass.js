@@ -2,21 +2,29 @@ const assParser = require('ass-parser'); // for ASS
 const assStringify = require('ass-stringify'); // for ASS
 const shell = require('electron').shell
 const path = require('path');
-const translate_api = require('./translate_api.js');
+const T = require('./translate_api.js');
 const common = require('./common.js');
 const config = require('./config.js');
 
 var data = '';
+var body = '';
+var first_line_is_Format = '';
 var send_many_request = 0;
 var receive_many_request = 0;
+// var Dialogue_array = [];
 
-exports.translate = function(raw_content) {
+// if(it's dialog) put into array
+
+
+exports.translate = function (raw_content) {
   data = assParser(raw_content);
-  var body = data[3]['body'];
-  var a_batch_original_text = ''; // 一批一批的翻译。
+  body = data[3]['body'];
+  first_line_is_Format = body[0];
+  body.shift()
 
-  for (var index = 0; index < body.length; index++) {
-    var element = body[index];
+  var a_batch_original_text = ''; // 一批批翻译
+  for (var i = 0; i <= body.length-1; i++) {
+    var element = body[i];
     if (element.key == 'Dialogue') {
       var text = element.value.Text;
       var only_text = common.remove_tag_keep_text(text);
@@ -26,63 +34,65 @@ exports.translate = function(raw_content) {
       var new_length = encodeURIComponent(a_batch_original_text + only_text + config.LINE_BREAK).length;
       if (new_length < config.LENGTH_LIMIT_PER_REQUEST) {
         a_batch_original_text += only_text + config.LINE_BREAK;
-        // 如果到了最后一行还是没超过 LENGTH_LIMIT_PER_REQUEST
-        if (data.length - 1 == index) {
-          translate_batch(a_batch_original_text, index + 1);
+        // 如果到最后一行还是没超过 LENGTH_LIMIT_PER_REQUEST
+        if (body.length-1 == i) {
+          translate_batch(a_batch_original_text, i+1);
         }
       } else {
-        translate_batch(a_batch_original_text, index);
+        translate_batch(a_batch_original_text, i);
         a_batch_original_text = ''; // 清理掉这一批
-        index--; // 不然会掉一行没翻译。
+        i--; // 不然会掉一行没翻译
       }
     }
   }
-
 }
 
-// 代码大致能用，有点乱，之后再整理，
-// 现在下面这一段能用，但前提是字幕文件里没有"注释" (Aegisub 右上角打勾那种)
-// 注释会导致翻出来的汉语滑动到下一行（如果有一行注释的话）
-// 还有最后7行没有翻译，得看看咋回事，但是现在我先 commit 这段代码算是备份下先，
-// TODO: fix comment scrabble result problem(shirt result by 1 line or so)
-// TODO: last 7 line left untranslate, checkout why and fix it.
 // we use 2 line, not \N
 function translate_batch(a_batch_original_text, line) {
   send_many_request = send_many_request + 1;
+  // console.log(a_batch_original_text);
+  // console.log(line);
 
-  translate_api.google(a_batch_original_text, 'en', 'zh-cn').then(function (result) {
+  T.google(a_batch_original_text, 'en', 'zh-cn').then(function (result) {
+    // 下面这一堆做的是，把翻译结果赋值给那一行字幕的 CustomResult 属性，便于后面处理。
     var result_array = result[0];
-    var body = data[3]['body'];
-    var starting_point = line - result_array.length;
-
-    for (var index = 0; index < result_array.length; index++) {
-      var result_text = result_array[index][0];
-      var line_position = parseInt(starting_point) + parseInt(index);
-      // var original_line = data[3]['body'][line_position].value.Text
-      // data[3]['body'][line_position].value.Text = common.remove_all_line_break(result_text) + '\\N' + original_line
-      data[3]['body'][line_position].value.CustomResult = common.remove_all_line_break(result_text)
+    // console.log(line);
+    // console.log(result_array);
+    // var body = data[3]['body'];
+    var body_index = line - result_array.length; // body_index 用于找到 body 里那一行原始字幕
+    // console.log(line);
+    // console.log(result_array.length);
+    // console.log(body_index);
+    // console.log('--------------------------');
+    var result_index = 0; // result_index 用于拿翻译返回结果里的一行
+    for (body_index; body_index < line; body_index++) {
+      var element = body[body_index];
+      if (element.key == 'Dialogue') {
+        var result_text = result_array[result_index][0];
+        result_index = result_index + 1;
+        element.value.CustomResult = common.remove_all_line_break(result_text);
+      }
     }
-
+    // 如果全部请求都回来了
+    // return;
     receive_many_request = receive_many_request + 1;
     if (receive_many_request == send_many_request) {
+      // 因为我们要2行字幕，而不是\N分开，那么这里复制原字幕那一行，得到一行新的。
+      // 然后用 CustomResult 覆盖掉 text，然后新的这行中文字幕，推到一个临时数组里。
       var temp_arr = [];
       for (var index = 0; index < body.length; index++) {
         var element = body[index];
-        if (element.key == 'Dialogue') { // 如果是注释会是 "Comment"
-          var text = element.value.CustomResult;
+        if (element.key == 'Dialogue') {
           var new_element = JSON.parse(JSON.stringify(element)); // copy object
-          new_element.value.Text = text;
+          new_element.value.Text = element.value.CustomResult;
           temp_arr.push(new_element)
         }
       }
-      
-      // copy a object 
-      var format = data[3]['body'][0];
-      body.shift()
+      // 把 temp_arr 这个装满中文字幕的数组，一次性塞到文件后面。
       var new_arr = body.concat(temp_arr);
-      new_arr.unshift(format);
+      new_arr.unshift(first_line_is_Format);
       data[3]['body'] = new_arr;
-
+      
       var final_result = assStringify(data);
       var onlyPath = path.dirname(app.selectedFile.path);
       var new_path = path.join(onlyPath, '(翻译后)' + app.selectedFile.name);
