@@ -1,6 +1,6 @@
-// 一些公用函数，比如清理换行，返回文件后缀之类的
+// 公用函数，如清理换行，返回文件后缀等
 
-// Some little hack to fix Google Translate line break
+// Little hack to fix Google Translate line break
 function encodeURIfix(str) {
   str = str.replace(/!(\s)+/g, '!'); // "Hello! World" -> "Hello!World"
   // reason for this is Google API would have line break if it see a "! " 

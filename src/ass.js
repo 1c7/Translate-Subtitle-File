@@ -11,10 +11,6 @@ var body = '';
 var first_line_is_Format = '';
 var send_many_request = 0;
 var receive_many_request = 0;
-// var Dialogue_array = [];
-
-// if(it's dialog) put into array
-
 
 exports.translate = function (raw_content) {
   data = assParser(raw_content);
@@ -50,20 +46,11 @@ exports.translate = function (raw_content) {
 // we use 2 line, not \N
 function translate_batch(a_batch_original_text, line) {
   send_many_request = send_many_request + 1;
-  // console.log(a_batch_original_text);
-  // console.log(line);
 
   T.google(a_batch_original_text, 'en', 'zh-cn').then(function (result) {
     // 下面这一堆做的是，把翻译结果赋值给那一行字幕的 CustomResult 属性，便于后面处理。
     var result_array = result[0];
-    // console.log(line);
-    // console.log(result_array);
-    // var body = data[3]['body'];
     var body_index = line - result_array.length; // body_index 用于找到 body 里那一行原始字幕
-    // console.log(line);
-    // console.log(result_array.length);
-    // console.log(body_index);
-    // console.log('--------------------------');
     var result_index = 0; // result_index 用于拿翻译返回结果里的一行
     for (body_index; body_index < line; body_index++) {
       var element = body[body_index];
@@ -73,8 +60,6 @@ function translate_batch(a_batch_original_text, line) {
         element.value.CustomResult = common.remove_all_line_break(result_text);
       }
     }
-    // 如果全部请求都回来了
-    // return;
     receive_many_request = receive_many_request + 1;
     if (receive_many_request == send_many_request) {
       // 因为我们要2行字幕，而不是\N分开，那么这里复制原字幕那一行，得到一行新的。
