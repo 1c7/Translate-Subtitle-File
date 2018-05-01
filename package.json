@@ -19,9 +19,9 @@
       "category": "public.app-category.utilities"
     },
     "dmg": {
-      "window":{
-          "x": 240,
-          "y": 150
+      "window": {
+        "x": 240,
+        "y": 150
       },
       "contents": [
         {
@@ -45,12 +45,12 @@
     "ass-parser": "^0.1.2",
     "ass-stringify": "^0.1.3",
     "electron-reload": "^1.2.2",
-    "jquery": "^3.2.1",
+    "jquery": "^3.3.1",
     "normalize.css": "^7.0.0",
     "subtitles-parser": "0.0.2"
   },
   "devDependencies": {
-    "electron": "latest",
-    "electron-builder": "latest"
+    "electron": "^1.8.6",
+    "electron-builder": "^20.11.1"
   }
 }

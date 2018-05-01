@@ -3,9 +3,10 @@
 * jQuery
 * Vue
 
-## How to run
+## Run
 ```
-cd [into project dir]
+git clone https://github.com/1c7/translate-subtitle-file.git ~/Desktop/translate-subtitle-file
+cd ~/Desktop/translate-subtitle-file
 electron .
 ```
 
@@ -23,3 +24,8 @@ tried `google-translate-api` on Github, it's a node.js module or something, not 
 ### Third Party Lib
 eush77/ass-parser    https://github.com/eush77/ass-parser
 eush77/ass-stringify https://github.com/eush77/ass-stringify
+
+
+### Testing
+`test file/` folder have file to test.         
+because trasnlation is not the same everytime, it can only test by hand         
