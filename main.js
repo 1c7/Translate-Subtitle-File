@@ -6,7 +6,13 @@ const url = require('url')
 let win
 
 function createWindow() {
-  win = new BrowserWindow({ width: 695, height: 368 })
+  win = new BrowserWindow({
+    width: 695,
+    height: 368,
+    // backgroundColor: '#312450',
+    icon: path.join(__dirname, 'assets/icons/png/64x64.png')
+  })
+  // win = new BrowserWindow({ width: 695, height: 368 })
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',

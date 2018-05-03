@@ -1,14 +1,14 @@
 {
-  "name": "Translate-Helper",
+  "name": "Translation-Helper",
   "productName": "字幕组机翻小助手",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "license": "MIT",
-  "description": "减少打字疲劳",
+  "description": "减少字幕翻译打中文的疲劳",
   "author": "糖醋陈皮 <guokrfans@gmail.com>",
   "main": "main.js",
   "scripts": {
     "postinstall": "install-app-deps",
-    "start": "npm install && electron ./app",
+    "start": "electron .",
     "pack": "build --dir",
     "dist": "build"
   },
