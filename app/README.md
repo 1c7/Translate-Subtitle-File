@@ -1,14 +1,26 @@
 # Readme (for developer)
-I put all file into `app/`   
-just want the folder structure look more clean.   
+I put all file into `app/` for clean structure     
+(GitHub would display root folder `readme.md` higher, instead under a bunch of folder)          
 
+## 如果想来帮忙
+非常欢迎~ 
 
 ## 为什么 commit 那么少
 因为我想整理文件夹，把所有文件扔进了 `app/`，     
 因为大部分访问这个 git 库的人是用户，而不是开发者。顶部少占点空间 README 就在上面一点。      
 智商感人，整理的时候不小心把 node_modules 也提交上去了。        
 后面又要删，git push 70多 M 的文件，我一烦就重置了 git log      
-所以就这样了，所以 commit 那么少     
+所以就这样了，所以 commit 那么少        
+
+## 代码解释
+`app/src/` 目录里是最核心的代码，文件不多，解释如下：   
+
+  * `ass.js` 处理 ass 字幕
+  * `srt.js` 同样，只不过是处理 srt
+  * `config.js`  配置文件，目前就4行代码
+  * `common.js`  一堆常用函数
+  * `translate_api.js` 翻译的 API
+  * `view.js` 页面会载入的 js，有点击事件监听等代码
 
 ## Version
 * 0.0.1 release at 2018-5-8 (for Windows and macOS)
