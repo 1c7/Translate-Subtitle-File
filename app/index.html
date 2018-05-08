@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>字幕组机翻小助手</title>
+    <link rel="stylesheet" href="./assets/css/normalize.min.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
+  </head>
+  <body>
+    <div id="vue-app">
+    <input type="file" style='display:none;' id='file-input' @change="process_file($event)" accept=".srt,.ass,text/srt,text/ass"/>
+
+    <!-- selected file | 已选文件后显示这块 -->
+    <div id='selected-file-area' style='display:none;'>
+      <div id="file-box">
+        <div id="file-info"> 
+          <div id="file-info-left">
+            <img src="./assets/img/srt.svg" class="selected-file-icon" v-if="file_type == 'srt'">
+            <img src="./assets/img/ass.svg" class="selected-file-icon" v-if="file_type == 'ass'">
+          </div>
+          <div id="file-info-right">
+            <div class="file-name" v-bind:title='file_name'>
+              {{proper_length_file_name}}
+            </div>
+            <div class="file-size">
+              {{file_size}}
+            </div>
+          </div>
+        </div>
+        <div id='file-close' @click='cancel_file_select'>
+          <img src="./assets/img/close.svg">
+        </div>
+      </div>
+    </div>
+
+    <!-- file area | 还没选择文件 -->
+    <div class="dropzone-wrapper" @show='!show_selected_file'>
+      <!-- animate border -->
+      <div class='topbottom'></div>
+      <div class='leftright'></div>
+      <!-- 提示选择文件区 -->
+      <div id="dropzone">
+        <div id='hint'>
+          <div id='image'>
+            <img src="./assets/img/srt logo.png" alt="srt logo" >
+            <img src="./assets/img/ass logo.png" alt="ass logo" style='margin-left:48px;'>
+          </div>
+          <div id='text'>
+            <div class='main-title'>
+              <div>拖入文件或</div> 
+              <div class='click-here-to-select-file'>点击此处选择文件</div>  
+            </div>
+            <p class='secondary-title'>支持 .srt .ass 字幕文件</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- button area -->
+    <div id='button-area'>
+      <div class='button-text'>开始翻译</div>
+    </div>
+    </div>
+  </body>
+  
+  <!-- script -->
+  <script src="./assets/js/vue.min.js"></script>
+  <script src="./assets/js/jquery-3.2.1.min.js"></script>
+  <script>
+    // 截断字符串(如果超过指定长度)
+    function text_truncate(str, length, ending){
+      if (length == null) {
+        length = 60;
+      }
+      if (ending == null) {
+        ending = '...';
+      }
+      if (str.length > length) {
+        return str.substring(0, length - ending.length) + ending;
+      } else {
+        return str;
+      }
+    }
+
+    // 返回文件后缀 "srt" / "ass"
+    function get_suffix(filename){
+      pos = filename.lastIndexOf('.');
+      suffix = ''
+      if (pos != -1) {
+        suffix = filename.substring(pos + 1)
+      }
+      return suffix;
+    }
+
+    function properFileSize(fileSizeInBytes){
+      var i = -1;
+      var byteUnits = [' kB', ' MB', ' GB', ' TB', 'PB', 'EB', 'ZB', 'YB'];
+      do {
+        fileSizeInBytes = fileSizeInBytes / 1024;
+        i++;
+      } while (fileSizeInBytes > 1024);
+      return Math.max(fileSizeInBytes, 0.1).toFixed(1) + byteUnits[i];
+    }
+
+    var app = new Vue({
+        el: '#vue-app',
+        data: {
+          file_name: '',
+          file_size: '',
+          show_selected_file: false,
+          selectedFile: null,
+        },
+        computed: {
+            proper_length_file_name: function () {
+              var file_name_string = this.file_name;
+              var length = 60;
+              if (file_name_string.length <= length) {
+                return file_name_string;
+              } else {
+                return text_truncate(file_name_string, 60) + get_suffix(file_name_string);
+              }
+            },
+            file_type: function(){
+              return get_suffix(this.file_name);
+            },
+        },
+        methods: {
+          process_file(){
+              this.selectedFile = document.getElementById('file-input').files[0];
+              var suffix = get_suffix(this.selectedFile.name);              
+              if(suffix == 'srt' || suffix == 'ass'){
+                this.file_name = this.selectedFile.name;
+                this.file_size = properFileSize(this.selectedFile.size);
+                // 界面切换
+                $('#selected-file-area').show();
+                $('.dropzone-wrapper').hide();
+              } else {
+                alert("只能选择字幕文件，文件后缀必须是 srt 或 ass");
+              }
+          },
+          // 取消文件选择
+          cancel_file_select(){
+            $('#selected-file-area').hide();
+            $('.dropzone-wrapper').show();
+            document.getElementById('file-input').value = '';
+          }
+        }
+    })
+  </script>
+  <script src="./src/view.js"></script>
+</html>
