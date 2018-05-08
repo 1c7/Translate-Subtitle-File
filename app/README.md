@@ -2,6 +2,14 @@
 I put all file into `app/`   
 just want the folder structure look more clean.   
 
+
+## 为什么 commit 那么少
+因为我想整理文件夹，把所有文件扔进了 `app/`，     
+因为大部分访问这个 git 库的人是用户，而不是开发者。顶部少占点空间 README 就在上面一点。      
+智商感人，整理的时候不小心把 node_modules 也提交上去了。        
+后面又要删，git push 70多 M 的文件，我一烦就重置了 git log      
+所以就这样了，所以 commit 那么少     
+
 ## Version
 * 0.0.1 release at 2018-5-8 (for Windows and macOS)
 
