@@ -5,7 +5,8 @@
 ### 可以做的事情有
 1. 添加百度翻译 API：http://api.fanyi.baidu.com/api/trans/product/index
 2. 添加搜狗翻译 API：http://deepi.sogou.com/fanyi?from=translatepc
-3. 做个更美观的 LOGO 出来
+3. 做个更美观的 LOGO
+4. 做个 Web 版，这样就不用下载几十M的客户端
 
 ### 总体计划
 保持一个小而美的工具，而不是加一大堆东西越来越膨胀     
