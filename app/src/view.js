@@ -1,8 +1,6 @@
 const $ = require('jquery')  // jQuery now loaded and assigned to $
-const fs = require("fs");
-const ass = require('./src/ass.js');
-const srt = require('./src/srt.js');
 const common = require('./src/common.js');
+const { translate } = require('./src/translate.js');
 
 var droppedFiles = '';
 $(function () {
@@ -25,6 +23,7 @@ $(function () {
     $dragzone.removeClass('is-dragover');
   })
   .on('drop', function (e) {
+    // console.log(e);
     droppedFiles = e.originalEvent.dataTransfer.files;
 
     // 检查后缀
@@ -64,28 +63,16 @@ $(function () {
       return false;
     }
 
-    // console.log('到这里了');
-    // console.log(selectedFile);
-    // if(selectedFile.length == 1){
-    //   console.log('一个文件');
-    // }else{
-    //   console.log('多个文件');
-    // }
-
-    Array.from(selectedFile).forEach(file => { 
-      var content = fs.readFileSync(file.path, 'utf8');
-      var suffix = get_suffix(file.name);
-      try {
-        if (suffix == 'srt') {
-          var a = srt.translate(content);
-          console.log(a);
-        } else if (suffix == 'ass') {
-          var b = ass.translate(content);
-        }
-      } catch (err) {
-        console.log('错误');
-        console.log(err);
-      }
-    });
+    console.log('到这里了');
+    console.log(selectedFile);
+    if(selectedFile.length == 1){
+      console.log('1');
+      // translate(selectedFile[0]);
+    }else{
+      console.log('many');
+      Array.from(selectedFile).forEach(file => { 
+        translate(file);
+      });
+    }
   })
 });

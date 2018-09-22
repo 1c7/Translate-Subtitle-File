@@ -10,7 +10,6 @@ var send_many_request = 0;
 var receive_many_request = 0;
 var temp_arr = [];
 
-// 
 function translate(content) {
   // return new Promise(function(resolve, reject) {
   //   setTimeout(function() { 
@@ -28,16 +27,17 @@ function translate(content) {
       // 如果到了最后一行还是没超过 LENGTH_LIMIT_PER_REQUEST
       if (data.length - 1 == index) {
         translate_batch(a_batch_original_text, index+1).catch(e=>{
-          // console.log('请求这里出错了');
-          // console.log(e);
+          console.log('请求这里出错了');
+          console.log(e);
           // alert('网络请求出错，错误 HTTP 代码：' + e.status);
           // return e;
+          // require('electron').shell.openExternal(url);
         });
       }
     } else {
       translate_batch(a_batch_original_text, index).catch(e=>{
-        // console.log('请求这里出错了');
-        // console.log(e);
+        console.log('请求这里出错了');
+        console.log(e);
         // alert('网络请求出错，错误 HTTP 代码：' + e.status);
         // return e;
       });
@@ -92,4 +92,4 @@ function translate_batch(a_batch_original_text, line) {
   })
 }
 
-export { translate };
+exports.translate = translate;

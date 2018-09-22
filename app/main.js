@@ -1,7 +1,9 @@
 const { app, BrowserWindow } = require('electron')
-require('electron-reload')(__dirname);
 const path = require('path')
 const url = require('url')
+require('electron-reload')(__dirname, {
+  electron: require('${__dirname}/../../node_modules/electron')
+})
 
 let win
 
@@ -28,7 +30,7 @@ function createWindow() {
   }))
 
   // 开发者工具
-  // win.webContents.openDevTools()
+  win.webContents.openDevTools()
 
   win.on('closed', () => {
     win = null

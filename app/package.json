@@ -13,7 +13,7 @@
     "dist": "build"
   },
   "build": {
-    "appId": "yourappid",
+    "appId": "translation-helper",
     "mac": {
       "icon": "build/icon.icns",
       "category": "public.app-category.utilities"
@@ -51,14 +51,14 @@
   "dependencies": {
     "ass-parser": "^0.1.2",
     "ass-stringify": "^0.1.3",
-    "electron-reload": "^1.2.2",
+    "electron-reload": "^1.2.5",
     "jquery": "^3.3.1",
     "normalize.css": "^7.0.0",
     "subtitles-parser": "0.0.2",
-    "update-electron-app": "^1.1.2"
+    "update-electron-app": "^1.3.0"
   },
   "devDependencies": {
-    "electron": "^2.0.0",
-    "electron-builder": "^20.11.1"
+    "electron": "^3.0.0",
+    "electron-builder": "^20.28.4"
   }
 }
