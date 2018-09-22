@@ -10,7 +10,13 @@ var send_many_request = 0;
 var receive_many_request = 0;
 var temp_arr = [];
 
-exports.translate = function(content) {
+// 
+function translate(content) {
+  // return new Promise(function(resolve, reject) {
+  //   setTimeout(function() { 
+  //     resolve('foo');
+  //   }, 300);
+  // });
   data = parser.fromSrt(content);
   var a_batch_original_text = '';
   for (var index = 0; index < data.length; index++) {
@@ -21,10 +27,20 @@ exports.translate = function(content) {
       a_batch_original_text += only_text + config.LINE_BREAK;
       // 如果到了最后一行还是没超过 LENGTH_LIMIT_PER_REQUEST
       if (data.length - 1 == index) {
-        translate_batch(a_batch_original_text, index+1);
+        translate_batch(a_batch_original_text, index+1).catch(e=>{
+          // console.log('请求这里出错了');
+          // console.log(e);
+          // alert('网络请求出错，错误 HTTP 代码：' + e.status);
+          // return e;
+        });
       }
     } else {
-      translate_batch(a_batch_original_text, index);
+      translate_batch(a_batch_original_text, index).catch(e=>{
+        // console.log('请求这里出错了');
+        // console.log(e);
+        // alert('网络请求出错，错误 HTTP 代码：' + e.status);
+        // return e;
+      });
       a_batch_original_text = ''; // 清理掉这一批
       index--; // 不然会掉一行没翻译。
     }
@@ -34,7 +50,7 @@ exports.translate = function(content) {
 // not using \N, we use 2 line.
 function translate_batch(a_batch_original_text, line) {
   send_many_request = send_many_request + 1;
-  translate_api.google(a_batch_original_text, 'en', 'zh-cn').then(function (result) {
+  return translate_api.google(a_batch_original_text, 'en', 'zh-cn').then(function (result) {
     var result_array = result[0];
     var starting_point = line - result_array.length; // 算出这些结果从哪一行开始
     for (var index = 0; index < result_array.length; index++) {
@@ -44,7 +60,6 @@ function translate_batch(a_batch_original_text, line) {
     }
     receive_many_request = receive_many_request + 1;
     if (receive_many_request == send_many_request) {
-
       // 现在全部翻译完了，我们把中文都加到后面去。
       for (var i = 0; i < data.length; i++) {
         var one_line = data[i];
@@ -74,5 +89,7 @@ function translate_batch(a_batch_original_text, line) {
       receive_many_request = 0;
       send_many_request = 0;
     }
-  });
+  })
 }
+
+export { translate };

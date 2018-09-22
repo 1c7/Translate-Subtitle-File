@@ -1,29 +1,20 @@
-# Readme (for developer)
+# Readme for developer
 I put all file into `app/` for clean structure     
 (GitHub would display root folder `readme.md` higher, instead under a bunch of folder)          
 
-## 如果想来帮忙
-非常欢迎~ 
-
-## 为什么 commit 那么少
-因为我想整理文件夹，把所有文件扔进了 `app/`，     
-因为大部分访问这个 git 库的人是用户，而不是开发者。顶部少占点空间 README 就在上面一点。      
-智商感人，整理的时候不小心把 node_modules 也提交上去了。        
-后面又要删，git push 70多 M 的文件，我一烦就重置了 git log      
-所以就这样了，所以 commit 那么少        
-
 ## 代码解释
-`app/src/` 目录里是最核心的代码，文件不多，解释如下：   
+`app/src/` 目录是核心代码，文件不多，解释如下：   
 
   * `ass.js` 处理 ass 字幕
-  * `srt.js` 同样，只不过是处理 srt
-  * `config.js`  配置文件，目前就4行代码
-  * `common.js`  一堆常用函数
-  * `translate_api.js` 翻译的 API
-  * `view.js` 页面会载入的 js，有点击事件监听等代码
+  * `srt.js` 处理 srt 字幕
+  * `config.js`  配置文件
+  * `common.js`  常用函数
+  * `translate_api.js` 翻译 API
+  * `view.js` 页面会载入的 js，监听点击事件等
 
 ## Version
 * 0.0.1 release at 2018-5-8 (for Windows and macOS)
+<!-- * 0.0.2 release at 2018-9-20 -->
 
 ## Tech Stack
 * Electron (v2.0.0)
@@ -37,7 +28,7 @@ cd ~/Desktop/translate-subtitle-file
 electron .
 ```
 
-## 如何打包(Release)
+## 打包指南 (How to compile new release)
 ### macOS      
 ```bash
   npm run dist
@@ -63,13 +54,20 @@ FAQ: https://cloud.google.com/translate/faq?hl=en#pricing
 > Is there any free quota?         
 > No, the Google Cloud Translation API is only available as a paid service. Please see Pricing for more details.
 
-## 试过(Tried)
+## 试过 (Tried)
 tried `google-translate-api` on Github, it's a node.js module or something, not working.      
 
-## 第三方库(Third Party Lib)
+## 第三方库 (Third Party Lib)
 * eush77/ass-parser    https://github.com/eush77/ass-parser
 * eush77/ass-stringify https://github.com/eush77/ass-stringify
 
-### 测试(Testing)
+### 测试 (Testing)
 `test file/` folder have file to test.         
 because trasnlation is not the same everytime, it can only test by hand         
+
+### Changelog
+
+#### 0.0.2
+* [feature] translate multiple file
+
+

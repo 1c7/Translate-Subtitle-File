@@ -20,56 +20,72 @@ $(function () {
     e.stopPropagation();
   }).on('dragover dragenter', function () {
     $dragzone.addClass('is-dragover');
-    // console.log('drag oer');
   })
   .on('dragleave dragend drop', function () {
     $dragzone.removeClass('is-dragover');
-    // console.log('drag oer');
   })
   .on('drop', function (e) {
     droppedFiles = e.originalEvent.dataTransfer.files;
-    if (droppedFiles.length > 1){
-      alert('一次只能拖入一个文件!');
-      droppedFiles = '';
-      return;
-    }
-    var file = droppedFiles[0];
-    var suffix = get_suffix(file.name);
-    if (suffix == 'srt' || suffix == 'ass') {
+
+    // 检查后缀
+    Array.from(droppedFiles).forEach(file => { 
+      var suffix = get_suffix(file.name);
+      if (suffix != 'srt' && suffix != 'ass') {
+        alert('错误：您选择了后缀不为 .srt/.ass 的文件，请重新选择');
+      }
+    });
+
+    // 只有一个文件
+    if (droppedFiles.length == 1){
+      var file = droppedFiles[0];
       app.file_name = file.name;
       app.file_size = common.properFileSize(file.size);
-      app.selectedFile = file;
-      // 界面切换
+      app.selectedFile = droppedFiles;
+        // 界面切换
       $('#selected-file-area').show();
       $('.dropzone-wrapper').hide();
-    } else {
-      alert("只能选择字幕文件，文件后缀必须是 srt 或 ass");
+      return
+    }else{
+      // 多个文件
+      app.selectedFile = droppedFiles;
     }
   });
 
-  // choose file.
+  // 点击"提示区"，选择文件
   $('#hint').click(function () {
     $('#file-input').click();
   })
 
   // click "开始翻译"按钮
   $('#button-area').click(function () {
-    selectedFile = app.selectedFile; // from vue
+    var selectedFile = app.selectedFile; // from vue
     if (selectedFile == null) {
-      alert('请先选择一个文件再开始翻译');
+      alert('请先选择文件');
       return false;
     }
-    var content = fs.readFileSync(selectedFile.path, 'utf8');
-    var suffix = get_suffix(selectedFile.name);
-    if (suffix == 'srt') {
-      srt.translate(content);
-      
-    } else if (suffix == 'ass') {
-      ass.translate(content);
 
-    } else {
-      alert('当前文件格式('+suffix+')不支持，目前只支持 srt 和 ass 格式');
-      return false;
-    }
+    // console.log('到这里了');
+    // console.log(selectedFile);
+    // if(selectedFile.length == 1){
+    //   console.log('一个文件');
+    // }else{
+    //   console.log('多个文件');
+    // }
+
+    Array.from(selectedFile).forEach(file => { 
+      var content = fs.readFileSync(file.path, 'utf8');
+      var suffix = get_suffix(file.name);
+      try {
+        if (suffix == 'srt') {
+          var a = srt.translate(content);
+          console.log(a);
+        } else if (suffix == 'ass') {
+          var b = ass.translate(content);
+        }
+      } catch (err) {
+        console.log('错误');
+        console.log(err);
+      }
+    });
   })
 });

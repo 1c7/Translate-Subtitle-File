@@ -27,7 +27,7 @@ function createWindow() {
     slashes: true
   }))
 
-  // 打开开发者工具窗口
+  // 开发者工具
   // win.webContents.openDevTools()
 
   win.on('closed', () => {
