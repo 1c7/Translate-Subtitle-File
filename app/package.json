@@ -59,6 +59,7 @@
   },
   "devDependencies": {
     "electron": "^3.0.0",
-    "electron-builder": "^20.28.4"
+    "electron-builder": "^20.28.4",
+    "electron-prebuilt-compile": "^3.0.0"
   }
 }

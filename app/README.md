@@ -14,7 +14,7 @@ I put all file into `app/` for clean structure
 
 ## Version
 * 0.0.1 release at 2018-5-8 (for Windows and macOS)
-<!-- * 0.0.2 release at 2018-9-20 -->
+<!-- * 0.0.2 release at 2018-9-20 想更新支持多文件翻译，没坚持写完放弃了。没时间了。 -->
 
 ## Tech Stack
 * Electron (v2.0.0)
