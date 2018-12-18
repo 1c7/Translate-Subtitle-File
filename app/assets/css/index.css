@@ -87,6 +87,19 @@ body{
   position: relative;
 }
 
+.file-box.waiting {
+  background-color: #efefef;
+}
+.file-box.padding {
+  background-color: #fff4a2;
+}
+.file-box.success {
+  background-color: #cfffde;
+}
+.file-box.error {
+  background-color: #ffaebd;
+}
+
 .file-action .file-btn{
   /* position: absolute; */
   right: 12px;

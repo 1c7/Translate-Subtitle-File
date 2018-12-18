@@ -1,3 +1,5 @@
+const fs = require('fs')
+const { promisify } = require('util')
 // 公用函数，如清理换行，返回文件后缀等
 
 // Little hack to fix Google Translate line break
@@ -50,9 +52,14 @@ function properFileSize(fileSizeInBytes) {
   return Math.max(fileSizeInBytes, 0.1).toFixed(1) + byteUnits[i];
 }
 
+function downloadFile(content, filePath) {
+  return promisify(fs.writeFile)(filePath, content)
+}
+
 exports.encodeURIfix = encodeURIfix
 exports.remove_tag_keep_text = remove_tag_keep_text
 exports.remove_curly_brace_keep_text = remove_curly_brace_keep_text
 exports.remove_all_line_break = remove_all_line_break
 exports.get_suffix = get_suffix
 exports.properFileSize = properFileSize
+exports.downloadFile = downloadFile

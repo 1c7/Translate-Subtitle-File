@@ -13,7 +13,7 @@
     <input type="file" style='display:none;' id='file-input' @change="process_file($event)" ref="input" accept=".srt,.ass,text/srt,text/ass" aria-multiselectable="true" multiple />
 
     <!-- selected file | 选文件后显示这块 -->
-    <div id='selected-file-area' v-if="files.length">
+    <div id='selected-file-area' v-if="files.length" @drop="process_file($event)">
       <div class="translate-setting">
         源语言
         <select v-model="srcLang">
@@ -25,7 +25,7 @@
         </select>
         <button @click="startTranslate">开始翻译</button>
       </div>
-      <div class="file-box" v-for="file in files">
+      <div class="file-box" v-for="file in files" :class="statusText[file.status][0]">
         <div class="file-info">
           <div class="file-info-left">
             <img src="./assets/img/srt.svg" class="selected-file-icon" v-if="file.type == 'srt'">
@@ -37,17 +37,19 @@
             </div>
             <div class="file-size">
               {{file.size}}
+
+              <span style="margin-left: 10px;">{{statusText[file.status][1]}}</span>
             </div>
           </div>
         </div>
         <div class='file-action'>
-          <div class="file-btn file-edit" v-if="file.isTranslated" @click='editFile(file)'>
+          <!-- <div class="file-btn file-edit" v-if="file.status == 2" @click='editFile(file)'>
             <img src="./assets/img/edit.svg" >
-          </div>
-          <div class="file-btn file-download" v-if="file.isTranslated" @click='downloadFile(file)'>
+          </div> -->
+          <div class="file-btn file-download" v-if="file.status == 2" @click='downloadFile(file)'>
             <img src="./assets/img/download.svg" >
           </div>
-          <div class="file-btn file-close" v-if="!file.isTranslated" @click='removeFile(file)'>
+          <div class="file-btn file-close" @click='removeFile(file)'>
             <img src="./assets/img/close.svg">
           </div>
         </div>
@@ -76,11 +78,6 @@
         </div>
       </div>
     </div>
-
-    <!-- button area -->
-    <div id='button-area' v-if="files.length">
-      <div class='button-text'>开始翻译</div>
-    </div>
   </div>
 </body>
 
@@ -90,8 +87,8 @@
 <script>
   var pos = 0
   var $dragzone
-
-  const { translate } = require('./src/translate.js');
+  const {webContents} = require('electron').remote
+  const { translate, download } = require('./src/translate.js');
 
   // 返回文件后缀 "srt" / "ass"
   function get_suffix(filename) {
@@ -113,7 +110,9 @@
     data: {
       supportLang: {
         'auto': '自动识别',
-        'en': 'English',
+        'zh-cn': '简体中文',
+        'zh-tw': '繁体中文',
+        'en': '英语',
         'af': 'Afrikaans',
         'sq': 'Albanian',
         'am': 'Amharic',
@@ -128,8 +127,6 @@
         'ca': 'Catalan',
         'ceb': 'Cebuano',
         'ny': 'Chichewa',
-        'zh-cn': 'Chinese Simplified',
-        'zh-tw': 'Chinese Traditional',
         'co': 'Corsican',
         'hr': 'Croatian',
         'cs': 'Czech',
@@ -218,6 +215,12 @@
         'yo': 'Yoruba',
         'zu': 'Zulu'
       },
+      statusText: {
+        0: ['waiting', '等待翻译'],
+        1: ['padding', '正在翻译'],
+        2: ['success', '翻译完成'],
+        3: ['error', '翻译失败']
+      },
       files: [],
       srcLang: 'auto',
       distLang: 'zh-cn'
@@ -245,8 +248,8 @@
               size: properFileSize(file.size),
               type: get_suffix(file.name),
               origin: file, // 原始 File 对象
-              translateStatus: 0, // 0 未翻译, 1 正在翻译, 2 翻译完成, 3 翻译失败,
-              parser: [], // 字幕文件解析后数据
+              status: 0, // 0 未翻译, 1 正在翻译, 2 翻译完成, 3 翻译失败,
+              parse: [], // 字幕文件解析后数据
               translateData: [], // parser 翻译后数据
             }
           }
@@ -264,15 +267,26 @@
       // 开始翻译
       startTranslate() {
         const translateProcess = []
-        this.files.map(file => {
-          return translate(file.origin)
+        this.files.forEach(file => {
+          file.status = 1
+          try {
+            translate(file.origin, this.distLang, this.srcLang).then(res => {
+              file.parse = res.parse
+              file.translateData = res.translate
+              file.status = 2
+            }).catch(err => {
+              file.status = 3
+            })
+          } catch(e) {
+            file.status = 3
+          }
         })
       },
-      // cancel_file_select() {
-      //   $('#selected-file-area').hide();
-      //   $('.dropzone-wrapper').show();
-      //   document.getElementById('file-input').value = '';
-      // }
+      downloadFile(file) {
+        download(file, `[已翻译${this.srcLang} - ${this.distLang}]`).then(res => {
+          console.log('下载完成')
+        })
+      }
     }
   })
 </script>

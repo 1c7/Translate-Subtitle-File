@@ -2,7 +2,7 @@ const assParser = require('ass-parser'); // for ASS
 const assStringify = require('ass-stringify'); // for ASS
 const shell = require('electron').shell
 const path = require('path');
-const T = require('./translate_api.js');
+const {translate: translateAPI} = require('./translate_api.js');
 const common = require('./common.js');
 const config = require('./config.js');
 
@@ -12,35 +12,83 @@ var first_line_is_Format = '';
 var send_many_request = 0;
 var receive_many_request = 0;
 
-exports.translate = function (raw_content) {
-  data = assParser(raw_content);
-  body = data[3]['body'];
-  first_line_is_Format = body[0];
-  body.shift()
+exports.translate = function (raw_content, to, from) {
+  const parse = assParser(raw_content);
+  const data = parse[3]['body'];
+  // first_line_is_Format = body[0];
 
-  var a_batch_original_text = ''; // 一批批翻译
-  for (var i = 0; i <= body.length-1; i++) {
-    var element = body[i];
-    if (element.key == 'Dialogue') {
-      var text = element.value.Text;
-      var only_text = common.remove_tag_keep_text(text);
-      only_text = common.remove_curly_brace_keep_text(only_text);
-      only_text = common.remove_all_line_break(only_text);
 
-      var new_length = encodeURIComponent(a_batch_original_text + only_text + config.LINE_BREAK).length;
-      if (new_length < config.LENGTH_LIMIT_PER_REQUEST) {
-        a_batch_original_text += only_text + config.LINE_BREAK;
-        // 如果到最后一行还是没超过 LENGTH_LIMIT_PER_REQUEST
-        if (body.length-1 == i) {
-          translate_batch(a_batch_original_text, i+1);
-        }
-      } else {
-        translate_batch(a_batch_original_text, i);
-        a_batch_original_text = ''; // 清理掉这一批
-        i--; // 不然会掉一行没翻译
+  // 翻译分组批量翻译，快凑齐了 config.LENGTH_LIMIT_PER_REQUEST: 5000 字符数时一起翻译
+  const batchs = data.reduce((batch, block) => {
+    if (block.key !== 'Dialogue') {
+      return batch
+    }
+    let bat
+    if (batch.length) {
+      bat = batch.pop()
+    } else {
+      bat = {
+        content: '',
+        includes: []
       }
     }
-  }
+    const text = common.remove_tag_keep_text(block.value.Text)
+    const nextContent = bat.content + text + config.LINE_BREAK
+    const nextLength = encodeURIComponent(nextContent).length
+    if (nextLength < config.LENGTH_LIMIT_PER_REQUEST && bat.includes.length < 100) {
+      bat.content = nextContent
+      bat.includes.push(block)
+    } else {
+      batch.push(bat)
+      bat = {
+        content: text + config.LINE_BREAK,
+        includes: [block]
+      }
+    }
+    batch.push(bat)
+    return batch
+  }, [])
+
+  console.log(batchs)
+
+  const translateProcess = batchs.map(bat => {
+    return translateAPI(bat.content, to, from).then(res => {
+      bat.result = res.dist
+      return bat
+    }).catch(err => {
+      console.log('有一批翻译失败', err, bat.content)
+      bat.result = ''
+      return bat
+    })
+  })
+
+  return Promise.all(translateProcess).then(bats => {
+    const res = bats.reduce((list, bat) => {
+      const strs = bat.result.split(/[％|\%]?0A/)
+
+      const items = bat.includes.map((block, index) => {
+        const item = {
+          key: block.key,
+          value: JSON.parse(JSON.stringify(block.value)),
+        }
+        item.value.Text = (strs[index] || block.value.Text).trim()
+        return item
+      })
+      return list.concat(items)
+    }, [])
+    return {
+      parse: parse,
+      translate: res
+    }
+  })
+}
+
+exports.exportContent = function(data) {
+  data.parse[3].body = data.parse[3].body.concat(data.translateData)
+  const assData = JSON.parse(JSON.stringify(data.parse))
+  const content = assStringify(assData)
+  // console.log(content)
+  return content
 }
 
 // we use 2 line, not \N

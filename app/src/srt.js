@@ -1,7 +1,7 @@
 const parser = require('subtitles-parser'); // for SRT, support 'fromSrt' and 'toSrt'
 const common = require('./common.js');
 const config = require('./config.js');
-const translate_api = require('./translate_api.js');
+const {translate: translateAPI} = require('./translate_api.js');
 const shell = require('electron').shell
 const path = require('path');
 
@@ -10,42 +10,77 @@ var send_many_request = 0;
 var receive_many_request = 0;
 var temp_arr = [];
 
-function translate(content) {
-  // return new Promise(function(resolve, reject) {
-  //   setTimeout(function() { 
-  //     resolve('foo');
-  //   }, 300);
-  // });
-  data = parser.fromSrt(content);
-  var a_batch_original_text = '';
-  for (var index = 0; index < data.length; index++) {
-    var element = data[index];
-    var only_text = common.remove_tag_keep_text(element.text);
-    var new_length = encodeURIComponent(a_batch_original_text + only_text + config.LINE_BREAK).length;
-    if (new_length < config.LENGTH_LIMIT_PER_REQUEST) {
-      a_batch_original_text += only_text + config.LINE_BREAK;
-      // 如果到了最后一行还是没超过 LENGTH_LIMIT_PER_REQUEST
-      if (data.length - 1 == index) {
-        translate_batch(a_batch_original_text, index+1).catch(e=>{
-          console.log('请求这里出错了');
-          console.log(e);
-          // alert('网络请求出错，错误 HTTP 代码：' + e.status);
-          // return e;
-          // require('electron').shell.openExternal(url);
-        });
-      }
+function translate(content, to, from) {
+  const data = parser.fromSrt(content);
+  const lastID = data[data.length - 1].id
+
+  // 翻译分组批量翻译，快凑齐了 config.LENGTH_LIMIT_PER_REQUEST: 5000 字符数时一起翻译
+  const batchs = data.reduce((batch, block) => {
+    let bat
+    if (batch.length) {
+      bat = batch.pop()
     } else {
-      translate_batch(a_batch_original_text, index).catch(e=>{
-        console.log('请求这里出错了');
-        console.log(e);
-        // alert('网络请求出错，错误 HTTP 代码：' + e.status);
-        // return e;
-      });
-      a_batch_original_text = ''; // 清理掉这一批
-      index--; // 不然会掉一行没翻译。
+      bat = {
+        content: '',
+        includes: []
+      }
     }
-  }
+    const text = common.remove_tag_keep_text(block.text)
+    const nextContent = bat.content + text + config.LINE_BREAK
+    const nextLength = encodeURIComponent(nextContent).length
+    if (nextLength < config.LENGTH_LIMIT_PER_REQUEST && bat.includes.length < 100) {
+      bat.content = nextContent
+      bat.includes.push(block)
+    } else {
+      batch.push(bat)
+      bat = {
+        content: text + config.LINE_BREAK,
+        includes: [block]
+      }
+    }
+    batch.push(bat)
+    return batch
+  }, [])
+
+  console.log(batchs)
+
+  const translateProcess = batchs.map(bat => {
+    return translateAPI(bat.content, to, from).then(res => {
+      bat.result = res.dist
+      return bat
+    }).catch(err => {
+      console.log('有一批翻译失败', err, bat.content)
+      bat.result = ''
+      return bat
+    })
+  })
+  return Promise.all(translateProcess).then(bats => {
+    const res = bats.reduce((list, bat) => {
+      const strs = bat.result.split(/[％|\%]?0A/)
+      console.log(strs.length, bat.includes.length)
+      const items = bat.includes.map((block, index) => ({
+        endTime: block.endTime,
+        startTime: block.startTime,
+        id: String(Number(lastID) + Number(block.id)),
+        text: (strs[index] || block.text).trim(),
+      }))
+      
+      return list.concat(items)
+    }, [])
+    return {
+      parse: data,
+      translate: res
+    }
+  })
 }
+
+function exportContent(data) {
+  const srtData = data.parse.concat(data.translateData)
+  const content = parser.toSrt(srtData)
+  // console.log(content)
+  return content
+}
+
 
 // not using \N, we use 2 line.
 function translate_batch(a_batch_original_text, line) {
@@ -93,3 +128,4 @@ function translate_batch(a_batch_original_text, line) {
 }
 
 exports.translate = translate;
+exports.exportContent = exportContent;
