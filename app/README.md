@@ -67,6 +67,13 @@ because trasnlation is not the same everytime, it can only test by hand
 
 ### Changelog
 
+#### TODO
+
+1. 批量翻译
+2. 编辑翻译
+3. 无需翻墙
+4. 可选语言转换
+
 #### 0.0.2
 * [feature] translate multiple file
 

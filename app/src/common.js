@@ -37,12 +37,7 @@ function remove_all_line_break(str) {
 }
 
 function get_suffix(filename) {
-  pos = filename.lastIndexOf('.');
-  suffix = ''
-  if (pos != -1) {
-    suffix = filename.substring(pos + 1)
-  }
-  return suffix;
+  return filename.split('.').pop()
 }
 
 function properFileSize(fileSizeInBytes) {

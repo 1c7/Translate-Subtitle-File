@@ -10,39 +10,58 @@
 
 <body>
   <div id="vue-app">
-    <input type="file" style='display:none;' id='file-input' @change="process_file($event)" accept=".srt,.ass,text/srt,text/ass" />
+    <input type="file" style='display:none;' id='file-input' @change="process_file($event)" ref="input" accept=".srt,.ass,text/srt,text/ass" aria-multiselectable="true" multiple />
 
     <!-- selected file | 选文件后显示这块 -->
-    <div id='selected-file-area' style='display:none;'>
-      <div id="file-box">
-        <div id="file-info">
-          <div id="file-info-left">
-            <img src="./assets/img/srt.svg" class="selected-file-icon" v-if="file_type == 'srt'">
-            <img src="./assets/img/ass.svg" class="selected-file-icon" v-if="file_type == 'ass'">
+    <div id='selected-file-area' v-if="files.length">
+      <div class="translate-setting">
+        源语言
+        <select v-model="srcLang">
+            <option v-for="val, key in supportLang" :value="key" :key="key">{{val}}</option>
+        </select>
+        目标语言
+        <select v-model="distLang">
+            <option v-for="val, key in supportLang" :value="key" :key="key">{{val}}</option>
+        </select>
+        <button @click="startTranslate">开始翻译</button>
+      </div>
+      <div class="file-box" v-for="file in files">
+        <div class="file-info">
+          <div class="file-info-left">
+            <img src="./assets/img/srt.svg" class="selected-file-icon" v-if="file.type == 'srt'">
+            <img src="./assets/img/ass.svg" class="selected-file-icon" v-if="file.type == 'ass'">
           </div>
-          <div id="file-info-right">
-            <div class="file-name" v-bind:title='file_name'>
-              {{proper_length_file_name}}
+          <div class="file-info-right">
+            <div class="file-name">
+              {{file.name}}
             </div>
             <div class="file-size">
-              {{file_size}}
+              {{file.size}}
             </div>
           </div>
         </div>
-        <div id='file-close' @click='cancel_file_select'>
-          <img src="./assets/img/close.svg">
+        <div class='file-action'>
+          <div class="file-btn file-edit" v-if="file.isTranslated" @click='editFile(file)'>
+            <img src="./assets/img/edit.svg" >
+          </div>
+          <div class="file-btn file-download" v-if="file.isTranslated" @click='downloadFile(file)'>
+            <img src="./assets/img/download.svg" >
+          </div>
+          <div class="file-btn file-close" v-if="!file.isTranslated" @click='removeFile(file)'>
+            <img src="./assets/img/close.svg">
+          </div>
         </div>
       </div>
     </div>
 
     <!-- file area | 还没选择文件 -->
-    <div class="dropzone-wrapper" @show='!show_selected_file'>
+    <div class="dropzone-wrapper" v-if='!files.length' @drop="process_file($event)">
       <!-- animate border -->
       <div class='topbottom'></div>
       <div class='leftright'></div>
       <!-- 提示选择文件区 -->
       <div id="dropzone">
-        <div id='hint'>
+        <div id='hint' @click="toSelect">
           <div id='image'>
             <img src="./assets/img/srt logo.png" alt="srt logo">
             <img src="./assets/img/ass logo.png" alt="ass logo" style='margin-left:48px;'>
@@ -50,7 +69,7 @@
           <div id='text'>
             <div class='main-title'>
               <div>拖入文件或</div>
-              <div class='click-here-to-select-file'>点击此处选择文件</div>
+              <div class='click-here-to-select-file' >点击此处选择文件</div>
             </div>
             <p class='secondary-title'>支持 .srt .ass 字幕文件</p>
           </div>
@@ -59,7 +78,7 @@
     </div>
 
     <!-- button area -->
-    <div id='button-area'>
+    <div id='button-area' v-if="files.length">
       <div class='button-text'>开始翻译</div>
     </div>
   </div>
@@ -69,29 +88,14 @@
 <script src="./assets/js/vue.min.js"></script>
 <script src="./assets/js/jquery-3.2.1.min.js"></script>
 <script>
-  // 截断字符串(如果超过指定长度)
-  function text_truncate(str, length, ending) {
-    if (length == null) {
-      length = 60;
-    }
-    if (ending == null) {
-      ending = '...';
-    }
-    if (str.length > length) {
-      return str.substring(0, length - ending.length) + ending;
-    } else {
-      return str;
-    }
-  }
+  var pos = 0
+  var $dragzone
+
+  const { translate } = require('./src/translate.js');
 
   // 返回文件后缀 "srt" / "ass"
   function get_suffix(filename) {
-    pos = filename.lastIndexOf('.');
-    suffix = ''
-    if (pos != -1) {
-      suffix = filename.substring(pos + 1)
-    }
-    return suffix;
+    return filename.split('.').pop()
   }
 
   function properFileSize(fileSizeInBytes) {
@@ -107,46 +111,168 @@
   var app = new Vue({
     el: '#vue-app',
     data: {
-      file_name: '',
-      file_size: '',
-      show_selected_file: false,
-      selectedFile: null,
+      supportLang: {
+        'auto': '自动识别',
+        'en': 'English',
+        'af': 'Afrikaans',
+        'sq': 'Albanian',
+        'am': 'Amharic',
+        'ar': 'Arabic',
+        'hy': 'Armenian',
+        'az': 'Azerbaijani',
+        'eu': 'Basque',
+        'be': 'Belarusian',
+        'bn': 'Bengali',
+        'bs': 'Bosnian',
+        'bg': 'Bulgarian',
+        'ca': 'Catalan',
+        'ceb': 'Cebuano',
+        'ny': 'Chichewa',
+        'zh-cn': 'Chinese Simplified',
+        'zh-tw': 'Chinese Traditional',
+        'co': 'Corsican',
+        'hr': 'Croatian',
+        'cs': 'Czech',
+        'da': 'Danish',
+        'nl': 'Dutch',
+        'eo': 'Esperanto',
+        'et': 'Estonian',
+        'tl': 'Filipino',
+        'fi': 'Finnish',
+        'fr': 'French',
+        'fy': 'Frisian',
+        'gl': 'Galician',
+        'ka': 'Georgian',
+        'de': 'German',
+        'el': 'Greek',
+        'gu': 'Gujarati',
+        'ht': 'Haitian Creole',
+        'ha': 'Hausa',
+        'haw': 'Hawaiian',
+        'iw': 'Hebrew',
+        'hi': 'Hindi',
+        'hmn': 'Hmong',
+        'hu': 'Hungarian',
+        'is': 'Icelandic',
+        'ig': 'Igbo',
+        'id': 'Indonesian',
+        'ga': 'Irish',
+        'it': 'Italian',
+        'ja': 'Japanese',
+        'jw': 'Javanese',
+        'kn': 'Kannada',
+        'kk': 'Kazakh',
+        'km': 'Khmer',
+        'ko': 'Korean',
+        'ku': 'Kurdish (Kurmanji)',
+        'ky': 'Kyrgyz',
+        'lo': 'Lao',
+        'la': 'Latin',
+        'lv': 'Latvian',
+        'lt': 'Lithuanian',
+        'lb': 'Luxembourgish',
+        'mk': 'Macedonian',
+        'mg': 'Malagasy',
+        'ms': 'Malay',
+        'ml': 'Malayalam',
+        'mt': 'Maltese',
+        'mi': 'Maori',
+        'mr': 'Marathi',
+        'mn': 'Mongolian',
+        'my': 'Myanmar (Burmese)',
+        'ne': 'Nepali',
+        'no': 'Norwegian',
+        'ps': 'Pashto',
+        'fa': 'Persian',
+        'pl': 'Polish',
+        'pt': 'Portuguese',
+        'ma': 'Punjabi',
+        'ro': 'Romanian',
+        'ru': 'Russian',
+        'sm': 'Samoan',
+        'gd': 'Scots Gaelic',
+        'sr': 'Serbian',
+        'st': 'Sesotho',
+        'sn': 'Shona',
+        'sd': 'Sindhi',
+        'si': 'Sinhala',
+        'sk': 'Slovak',
+        'sl': 'Slovenian',
+        'so': 'Somali',
+        'es': 'Spanish',
+        'su': 'Sundanese',
+        'sw': 'Swahili',
+        'sv': 'Swedish',
+        'tg': 'Tajik',
+        'ta': 'Tamil',
+        'te': 'Telugu',
+        'th': 'Thai',
+        'tr': 'Turkish',
+        'uk': 'Ukrainian',
+        'ur': 'Urdu',
+        'uz': 'Uzbek',
+        'vi': 'Vietnamese',
+        'cy': 'Welsh',
+        'xh': 'Xhosa',
+        'yi': 'Yiddish',
+        'yo': 'Yoruba',
+        'zu': 'Zulu'
+      },
+      files: [],
+      srcLang: 'auto',
+      distLang: 'zh-cn'
     },
     computed: {
-      proper_length_file_name: function () {
-        var file_name_string = this.file_name;
-        var length = 60;
-        if (file_name_string.length <= length) {
-          return file_name_string;
-        } else {
-          return text_truncate(file_name_string, 60) + get_suffix(file_name_string);
-        }
-      },
-      file_type: function () {
-        return get_suffix(this.file_name);
-      },
+      hasFile() {
+        return !!this.files.length
+      }
     },
     methods: {
       process_file(e) {
         // console.log(e);
-        this.selectedFile = document.getElementById('file-input').files[0];
-        var suffix = get_suffix(this.selectedFile.name);
-        if (suffix == 'srt' || suffix == 'ass') {
-          this.file_name = this.selectedFile.name;
-          this.file_size = properFileSize(this.selectedFile.size);
-          // 界面切换
-          $('#selected-file-area').show();
-          $('.dropzone-wrapper').hide();
-        } else {
-          alert("只能选择字幕文件，文件后缀必须是 srt 或 ass");
-        }
+        const $input = this.$refs.input
+        const files = [
+          ...Array.from($input.files),
+          ...Array.from(e.dataTransfer && e.dataTransfer.files || []),
+        ]
+        this.files = files.map(file => {
+          const suffix = get_suffix(file.name)
+          if (~['srt', 'ass'].indexOf(suffix)) {
+            return {
+              id: Math.random(),
+              name: file.name,
+              path:file.path,
+              size: properFileSize(file.size),
+              type: get_suffix(file.name),
+              origin: file, // 原始 File 对象
+              translateStatus: 0, // 0 未翻译, 1 正在翻译, 2 翻译完成, 3 翻译失败,
+              parser: [], // 字幕文件解析后数据
+              translateData: [], // parser 翻译后数据
+            }
+          }
+        }).filter(i => i)
+        $input.value = ''
       },
       // 取消文件选择
-      cancel_file_select() {
-        $('#selected-file-area').hide();
-        $('.dropzone-wrapper').show();
-        document.getElementById('file-input').value = '';
-      }
+      removeFile(file) {
+        this.files = this.files.filter(f => f.id != file.id)
+      },
+      // 点击区域选择文件
+      toSelect() {
+        this.$refs.input.click()
+      },
+      // 开始翻译
+      startTranslate() {
+        const translateProcess = []
+        this.files.map(file => {
+          return translate(file.origin)
+        })
+      },
+      // cancel_file_select() {
+      //   $('#selected-file-area').hide();
+      //   $('.dropzone-wrapper').show();
+      //   document.getElementById('file-input').value = '';
+      // }
     }
   })
 </script>

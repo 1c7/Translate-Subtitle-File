@@ -10,7 +10,7 @@ let win
 function createWindow() {
   win = new BrowserWindow({
     width: 695,
-    height: 368,
+    height: 500,
     icon: path.join(__dirname, 'assets/icons/png/64x64.png'),
     title: '字幕组机翻小助手',
     resizable: false,
