@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>字幕组机翻小助手 0.0.2</title>
   <link rel="stylesheet" href="./assets/css/normalize.min.css">
+  <link rel="stylesheet" href="./assets/css/vue2-autocomplete.css">
   <link rel="stylesheet" href="./assets/css/index.css">
 </head>
 
@@ -13,7 +14,7 @@
     <input type="file" style='display:none;' id='file-input' @change="process_file($event)" ref="input" accept=".srt,.ass,text/srt,text/ass" aria-multiselectable="true" multiple />
 
     <!-- selected file | 选文件后显示这块 -->
-    <div id='selected-file-area' v-if="files.length" @drop="process_file($event)">
+    <div id='selected-file-area' v-if="files.length && !editing" @drop="process_file($event)">
       <div class="translate-setting">
         源语言
         <select v-model="srcLang">
@@ -43,9 +44,9 @@
           </div>
         </div>
         <div class='file-action'>
-          <!-- <div class="file-btn file-edit" v-if="file.status == 2" @click='editFile(file)'>
+          <div class="file-btn file-edit" v-if="file.status == 2" @click='editFile(file)'>
             <img src="./assets/img/edit.svg" >
-          </div> -->
+          </div>
           <div class="file-btn file-download" v-if="file.status == 2" @click='downloadFile(file)'>
             <img src="./assets/img/download.svg" >
           </div>
@@ -58,7 +59,7 @@
 
     <!-- file area | 还没选择文件 -->
     <div class="dropzone-wrapper" 
-      v-if='!files.length' 
+      v-if='!files.length && !editing' 
       @drop="process_file($event)" 
       :class="{animate: movingenter}" 
       @mouseenter="movingenter = true"
@@ -79,6 +80,41 @@
               <div class='click-here-to-select-file' >点击此处选择文件</div>
             </div>
             <p class='secondary-title'>支持 .srt .ass 字幕文件</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 编辑字幕翻译 -->
+    <div class="editing-wrap" v-if="editing && editData">
+      <div class="header">
+        <h2>文件名：{{editData.name}}</h2>
+        <div>
+          <span>大小：{{editData.size}}</span>
+          <button @click="quitEdit">返回</button>
+          <button @click="downloadFile(editingFile)">下载</button>
+          <span style="color: #bbb;">注: 编辑后会自动保存，点击下载会下载实时翻译后的文件</span>
+        </div>
+      </div>
+      <div class="editing-main">
+        <div class="edit-item" v-for="block in editData.list">
+          <div class="top">时间: {{block.time}}</div>
+          <div class="compare">
+            <div class="compare-item" v-for="b, i in block.items">
+              <span>{{b.id}}</span>
+              <label>{{b.lang}}</label>
+              <div v-if="i == 0" class="text">{{b.text}}</div>
+              <div v-if="i == 1" class="text">
+                <textarea :rows="b.text.split('\n').length" :value="b.text" @input="onEditBlock(block, $event)"></textarea>
+              </div>
+            </div>
+            <!-- <div class="compare-item">
+              <span>120</span>
+              <label>zh-cn</label>
+              <div class="text">
+                <input type="text">
+              </div>
+            </div> -->
           </div>
         </div>
       </div>

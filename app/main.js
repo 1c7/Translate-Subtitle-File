@@ -18,10 +18,10 @@ function createWindow() {
     height: 500,
     icon: path.join(__dirname, 'assets/icons/png/64x64.png'),
     title: '字幕组机翻小助手',
-    resizable: false,
-    kiosk: true,
+    resizable: true,
+    kiosk: false,
     fullscreen: false,
-    fullscreenable: false,
+    fullscreenable: true,
   })
   // https://github.com/electron/electron/blob/master/docs/api/browser-window.md
 

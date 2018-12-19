@@ -298,7 +298,7 @@ body{
   width: 150px;
 }
 
-.translate-setting button {
+button {
   height: 30px;
   background-color: #45b795;
   color: white;
@@ -308,4 +308,74 @@ body{
   border: none;
   border-radius: 5px;
   padding: 5px 20px;
+}
+
+/* 编辑页面 */
+.editing-wrap {
+  padding: 25px;
+  height: 100vh;
+  overflow: auto;
+}
+.editing-wrap .header {
+  margin-bottom: 25px;
+}
+.editing-wrap button {
+}
+
+.editing-main .edit-item {
+  border: 1px solid #eee;
+  margin-bottom: 15px;
+}
+.editing-main .compare {
+  
+}
+.editing-main .edit-item .top {
+  font-size: 13px;
+  height: 25px;
+  line-height: 25px;
+  border-bottom: 1px solid #eee;
+  padding-left: 25px;
+}
+.compare-item:first-of-type {
+  border-bottom: 1px solid #eee;
+}
+.compare-item {
+  padding: 0 15px;
+  
+}
+.editing-main .edit-item span {
+  display: inline-block;
+  width: 30px;
+  text-align: right;
+  font-size: 12px;
+}
+.editing-main .edit-item label {
+  width: 50px;
+  background: #0079b8;
+  color: #fff;
+  border-radius: 5px;
+  display: inline-block;
+  text-align: center;
+}
+.editing-main .compare-item:last-of-type span, .editing-main .compare-item:last-of-type label {
+  position: relative;
+  top: -16px;
+}
+.editing-main .edit-item .text {
+  display: inline-block;
+  line-height: 25px;
+  padding: 10px 0;
+  width: calc(100% - 100px);
+  white-space: pre-line;
+}
+.editing-main .edit-item input, .editing-main .edit-item textarea {
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  /* height: 35px; */
+  padding: 0 5px;
+  width: 100%;
+}
+.editing-main .edit-item textarea {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }

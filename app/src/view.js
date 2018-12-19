@@ -4,6 +4,7 @@ const common = require('./src/common')
 new Vue({
   el: '#vue-app',
   data: {
+    editing: '',
     movingenter: false,
     supportLang: {
       'auto': '自动识别',
@@ -125,6 +126,70 @@ new Vue({
   computed: {
     hasFile() {
       return !!this.files.length
+    },
+    editingFile() {
+      if (!this.editing) {
+        return null
+      }
+      const file = this.files.find(f => f.id == this.editing)
+      if (!file) {
+        return null
+      }
+      return file
+    },
+    editData() {
+      if (!this.editing) {
+        return null
+      }
+      const file = this.files.find(f => f.id == this.editing)
+      if (!file) {
+        return null
+      }
+      const data = Object.assign({}, file)
+      data.list = []
+      if (data.type == 'srt') {
+        data.list = data.parse.map((block, index) => {
+          let tBlock = data.translateData[index]
+          if (tBlock.startTime != block.startTime || tBlock.endTime != block.endTime) {
+            tBlock = data.translateData.find(b => b.startTime == block.startTime && b.endTime == block.endTime)
+          }
+
+          return {
+            time: `${block.startTime} - ${block.endTime}`,
+            id: `${block.id}-${tBlock.id}`,
+            items: [{
+              id: block.id,
+              text: block.text,
+              lang: this.srcLang,
+            }, {
+              id: tBlock.id,
+              text: tBlock.text,
+              lang: this.distLang,
+            }],
+          }
+        })
+      } else if (data.type == 'ass') {
+        data.list = data.parse[3].body.map(block => {
+          const time = `${block.value.Start} - ${block.value.End}`
+          const tBlock = data.translateData.find(b => b.key == 'Dialogue' && b.value.Start == block.value.Start && b.value.End == block.value.End)
+          if (tBlock) {
+            return {
+              time: time,
+              id: `${block.value.Start}-${block.value.End}`,
+              items: [{
+                id: '',
+                text: block.value.Text,
+                lang: this.srcLang,
+              }, {
+                id: '',
+                text: tBlock.value.Text,
+                lang: this.distLang,
+              }]
+            }
+          }
+        }).filter(i => i)
+      }
+      return data
     }
   },
   mounted() {
@@ -186,6 +251,23 @@ new Vue({
       download(file, `[已翻译${this.srcLang} - ${this.distLang}]`).then(res => {
         console.log('下载完成')
       })
-    }
+    },
+    editFile(file) {
+      this.editing = file.id
+    },
+    quitEdit() {
+      this.editing = ''
+    },
+    onEditBlock(block, e) {
+      const file = this.editingFile
+      if (file.type == 'srt') {
+        const [, distID] = block.id.split('-')
+        const distBlock = file.translateData.find(b => b.id == distID)
+        distBlock.text = e.target.value
+      } else if (file.type == 'ass') {
+        const distBlock = file.translateData.find(b => `${b.value.Start}-${b.value.End}` == block.id)
+        distBlock.value.Text = e.target.value
+      }
+    },
   }
 })
