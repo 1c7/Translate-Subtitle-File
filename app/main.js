@@ -1,9 +1,14 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
 const url = require('url')
-require('electron-reload')(__dirname, {
-  electron: require('${__dirname}/../../node_modules/electron')
-})
+
+const isDev = 'ELECTRON_IS_DEV' in process.env ? parseInt(process.env.ELECTRON_IS_DEV, 10) === 1 : !app.isPackaged
+
+if (isDev) {
+  require('electron-reload')(__dirname, {
+    electron: require('${__dirname}/../../node_modules/electron')
+  })
+}
 
 let win
 
