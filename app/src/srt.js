@@ -66,7 +66,8 @@ function translate(content, to, from) {
 }
 
 function exportContent(data) {
-  const srtData = data.parse.concat(data.translateData)
+  const origin = common.deepClone(data.parse)
+  const srtData = origin.concat(data.translateData)
   const content = parser.toSrt(srtData)
   // console.log(content)
   return content

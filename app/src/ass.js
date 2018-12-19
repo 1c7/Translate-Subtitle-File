@@ -76,9 +76,9 @@ exports.translate = function (raw_content, to, from) {
 }
 
 exports.exportContent = function(data) {
-  data.parse[3].body = data.parse[3].body.concat(data.translateData)
-  const assData = JSON.parse(JSON.stringify(data.parse))
-  const content = assStringify(assData)
-  // console.log(content)
+  const origin = common.deepClone(data.parse)
+  origin[3].body = origin[3].body.concat(data.translateData)
+  const content = assStringify(origin)
+
   return content
 }

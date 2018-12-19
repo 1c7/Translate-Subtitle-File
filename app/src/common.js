@@ -33,8 +33,13 @@ function downloadFile(content, filePath) {
   return promisify(fs.writeFile)(filePath, content)
 }
 
+function deepClone(obj) {
+  return JSON.parse(JSON.stringify(obj))
+}
+
 
 exports.remove_tag_keep_text = remove_tag_keep_text
 exports.get_suffix = get_suffix
 exports.properFileSize = properFileSize
 exports.downloadFile = downloadFile
+exports.deepClone = deepClone
