@@ -1,22 +1,27 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
 const url = require('url')
-require('electron-reload')(__dirname, {
-  electron: require('${__dirname}/../../node_modules/electron')
-})
+
+const isDev = 'ELECTRON_IS_DEV' in process.env ? parseInt(process.env.ELECTRON_IS_DEV, 10) === 1 : !app.isPackaged
+
+if (isDev) {
+  require('electron-reload')(__dirname, {
+    electron: require('${__dirname}/../../node_modules/electron')
+  })
+}
 
 let win
 
 function createWindow() {
   win = new BrowserWindow({
     width: 695,
-    height: 368,
+    height: 500,
     icon: path.join(__dirname, 'assets/icons/png/64x64.png'),
     title: '字幕组机翻小助手',
-    resizable: false,
-    kiosk: true,
+    resizable: true,
+    kiosk: false,
     fullscreen: false,
-    fullscreenable: false,
+    fullscreenable: true,
   })
   // https://github.com/electron/electron/blob/master/docs/api/browser-window.md
 

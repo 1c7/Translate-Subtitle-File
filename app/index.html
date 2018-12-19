@@ -5,44 +5,71 @@
   <meta charset="UTF-8">
   <title>字幕组机翻小助手 0.0.2</title>
   <link rel="stylesheet" href="./assets/css/normalize.min.css">
+  <link rel="stylesheet" href="./assets/css/vue2-autocomplete.css">
   <link rel="stylesheet" href="./assets/css/index.css">
 </head>
 
 <body>
-  <div id="vue-app">
-    <input type="file" style='display:none;' id='file-input' @change="process_file($event)" accept=".srt,.ass,text/srt,text/ass" />
+  <div id="vue-app" style="display: none;">
+    <input type="file" style='display:none;' id='file-input' @change="process_file($event)" ref="input" accept=".srt,.ass,text/srt,text/ass" aria-multiselectable="true" multiple />
 
     <!-- selected file | 选文件后显示这块 -->
-    <div id='selected-file-area' style='display:none;'>
-      <div id="file-box">
-        <div id="file-info">
-          <div id="file-info-left">
-            <img src="./assets/img/srt.svg" class="selected-file-icon" v-if="file_type == 'srt'">
-            <img src="./assets/img/ass.svg" class="selected-file-icon" v-if="file_type == 'ass'">
+    <div id='selected-file-area' v-if="files.length && !editing" @drop="process_file($event)">
+      <div class="translate-setting">
+        源语言
+        <select v-model="srcLang">
+            <option v-for="val, key in supportLang" :value="key" :key="key">{{val}}</option>
+        </select>
+        目标语言
+        <select v-model="distLang">
+            <option v-for="val, key in supportLang" :value="key" :key="key">{{val}}</option>
+        </select>
+        <button @click="startTranslate">开始翻译</button>
+      </div>
+      <div class="file-box" v-for="file in files" :class="statusText[file.status][0]">
+        <div class="file-info">
+          <div class="file-info-left">
+            <img src="./assets/img/srt.svg" class="selected-file-icon" v-if="file.type == 'srt'">
+            <img src="./assets/img/ass.svg" class="selected-file-icon" v-if="file.type == 'ass'">
           </div>
-          <div id="file-info-right">
-            <div class="file-name" v-bind:title='file_name'>
-              {{proper_length_file_name}}
+          <div class="file-info-right">
+            <div class="file-name">
+              {{file.name}}
             </div>
             <div class="file-size">
-              {{file_size}}
+              {{file.size}}
+
+              <span style="margin-left: 10px;">{{statusText[file.status][1]}}</span>
             </div>
           </div>
         </div>
-        <div id='file-close' @click='cancel_file_select'>
-          <img src="./assets/img/close.svg">
+        <div class='file-action'>
+          <div class="file-btn file-edit" v-if="file.status == 2" @click='editFile(file)'>
+            <img src="./assets/img/edit.svg" >
+          </div>
+          <div class="file-btn file-download" v-if="file.status == 2" @click='downloadFile(file)'>
+            <img src="./assets/img/download.svg" >
+          </div>
+          <div class="file-btn file-close" @click='removeFile(file)'>
+            <img src="./assets/img/close.svg">
+          </div>
         </div>
       </div>
     </div>
 
     <!-- file area | 还没选择文件 -->
-    <div class="dropzone-wrapper" @show='!show_selected_file'>
+    <div class="dropzone-wrapper" 
+      v-if='!files.length && !editing' 
+      @drop="process_file($event)" 
+      :class="{animate: movingenter}" 
+      @mouseenter="movingenter = true"
+      @mouseleave="movingenter = false">
       <!-- animate border -->
       <div class='topbottom'></div>
       <div class='leftright'></div>
       <!-- 提示选择文件区 -->
       <div id="dropzone">
-        <div id='hint'>
+        <div id='hint' @click="toSelect">
           <div id='image'>
             <img src="./assets/img/srt logo.png" alt="srt logo">
             <img src="./assets/img/ass logo.png" alt="ass logo" style='margin-left:48px;'>
@@ -50,7 +77,7 @@
           <div id='text'>
             <div class='main-title'>
               <div>拖入文件或</div>
-              <div class='click-here-to-select-file'>点击此处选择文件</div>
+              <div class='click-here-to-select-file' >点击此处选择文件</div>
             </div>
             <p class='secondary-title'>支持 .srt .ass 字幕文件</p>
           </div>
@@ -58,98 +85,46 @@
       </div>
     </div>
 
-    <!-- button area -->
-    <div id='button-area'>
-      <div class='button-text'>开始翻译</div>
+    <!-- 编辑字幕翻译 -->
+    <div class="editing-wrap" v-if="editing && editData">
+      <div class="header">
+        <h2>文件名：{{editData.name}}</h2>
+        <div>
+          <span>大小：{{editData.size}}</span>
+          <button @click="quitEdit">返回</button>
+          <button @click="downloadFile(editingFile)">下载</button>
+          <span style="color: #bbb;">注: 编辑后会自动保存，点击下载会下载实时翻译后的文件</span>
+        </div>
+      </div>
+      <div class="editing-main">
+        <div class="edit-item" v-for="block in editData.list">
+          <div class="top">时间: {{block.time}}</div>
+          <div class="compare">
+            <div class="compare-item" v-for="b, i in block.items">
+              <span>{{b.id}}</span>
+              <label>{{b.lang}}</label>
+              <div v-if="i == 0" class="text">{{b.text}}</div>
+              <div v-if="i == 1" class="text">
+                <textarea :rows="b.text.split('\n').length" :value="b.text" @input="onEditBlock(block, $event)"></textarea>
+              </div>
+            </div>
+            <!-- <div class="compare-item">
+              <span>120</span>
+              <label>zh-cn</label>
+              <div class="text">
+                <input type="text">
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </body>
 
 <!-- script -->
 <script src="./assets/js/vue.min.js"></script>
-<script src="./assets/js/jquery-3.2.1.min.js"></script>
-<script>
-  // 截断字符串(如果超过指定长度)
-  function text_truncate(str, length, ending) {
-    if (length == null) {
-      length = 60;
-    }
-    if (ending == null) {
-      ending = '...';
-    }
-    if (str.length > length) {
-      return str.substring(0, length - ending.length) + ending;
-    } else {
-      return str;
-    }
-  }
-
-  // 返回文件后缀 "srt" / "ass"
-  function get_suffix(filename) {
-    pos = filename.lastIndexOf('.');
-    suffix = ''
-    if (pos != -1) {
-      suffix = filename.substring(pos + 1)
-    }
-    return suffix;
-  }
-
-  function properFileSize(fileSizeInBytes) {
-    var i = -1;
-    var byteUnits = [' kB', ' MB', ' GB', ' TB', 'PB', 'EB', 'ZB', 'YB'];
-    do {
-      fileSizeInBytes = fileSizeInBytes / 1024;
-      i++;
-    } while (fileSizeInBytes > 1024);
-    return Math.max(fileSizeInBytes, 0.1).toFixed(1) + byteUnits[i];
-  }
-
-  var app = new Vue({
-    el: '#vue-app',
-    data: {
-      file_name: '',
-      file_size: '',
-      show_selected_file: false,
-      selectedFile: null,
-    },
-    computed: {
-      proper_length_file_name: function () {
-        var file_name_string = this.file_name;
-        var length = 60;
-        if (file_name_string.length <= length) {
-          return file_name_string;
-        } else {
-          return text_truncate(file_name_string, 60) + get_suffix(file_name_string);
-        }
-      },
-      file_type: function () {
-        return get_suffix(this.file_name);
-      },
-    },
-    methods: {
-      process_file(e) {
-        // console.log(e);
-        this.selectedFile = document.getElementById('file-input').files[0];
-        var suffix = get_suffix(this.selectedFile.name);
-        if (suffix == 'srt' || suffix == 'ass') {
-          this.file_name = this.selectedFile.name;
-          this.file_size = properFileSize(this.selectedFile.size);
-          // 界面切换
-          $('#selected-file-area').show();
-          $('.dropzone-wrapper').hide();
-        } else {
-          alert("只能选择字幕文件，文件后缀必须是 srt 或 ass");
-        }
-      },
-      // 取消文件选择
-      cancel_file_select() {
-        $('#selected-file-area').hide();
-        $('.dropzone-wrapper').show();
-        document.getElementById('file-input').value = '';
-      }
-    }
-  })
-</script>
+<!-- <script src="./assets/js/jquery-3.2.1.min.js"></script> -->
 <script src="./src/view.js"></script>
 
 </html>

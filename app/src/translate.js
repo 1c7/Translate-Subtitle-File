@@ -1,24 +1,41 @@
 const fs = require("fs");
+const path = require('path')
+const { shell } = require('electron')
 const ass = require('./ass.js');
 const srt = require('./srt.js');
 const common = require('./common.js');
 
-function translate(file) {
+// 翻译
+function translate(file, to, from = 'auto') {
   if (file == undefined){
     throw 'file empty';
   }
   var content = fs.readFileSync(file.path, 'utf8');
   var suffix = common.get_suffix(file.name);
-  try {
-    if (suffix == 'srt') {
-      srt.translate(content);
-    } else if (suffix == 'ass') {
-      ass.translate(content);
-    }
-  } catch (err) {
-    console.log('错误');
-    console.log(err);
+  if (suffix == 'srt') {
+    return srt.translate(content, to, from);
+  } else if (suffix == 'ass') {
+    return ass.translate(content, to, from);
   }
 }
 
+// 下载
+function download(file, prefix = '') {
+  var suffix = common.get_suffix(file.name);
+  let content = ''
+  if (suffix == 'srt') {
+    content = srt.exportContent(file)
+  } else if (suffix == 'ass') {
+    content = ass.exportContent(file)
+  }
+  const folder = path.dirname(file.path)
+  const filePath = path.join(folder, prefix + file.name)
+  const p = common.downloadFile(content, filePath).then(() => {
+    shell.showItemInFolder(filePath)
+  })
+  return p
+}
+
 exports.translate = translate;
+exports.download = download;
+

@@ -63,16 +63,21 @@ body{
   margin-left: 10px;
 }
 #selected-file-area{
-  height: 302px;
+  height: 100vh;
+  padding: 26px 10%;
   /* border-radius: 1px; */
   /* border: 1px solid black; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  width: 100%;
+  margin: 0 auto;
+  overflow: auto;
 }
-#file-box{
-  height: 78px;
-  width: 86%;
+.file-box{
+  min-height: 78px;
+  width: 100%;
+  margin-bottom: 20px;
   background: red;
   border-radius: 2px;
 	background-color: #efefef;
@@ -81,10 +86,24 @@ body{
   align-items: center;
   position: relative;
 }
-#file-close{
-  position: absolute;
+
+.file-box.waiting {
+  background-color: #efefef;
+}
+.file-box.padding {
+  background-color: #fff4a2;
+}
+.file-box.success {
+  background-color: #cfffde;
+}
+.file-box.error {
+  background-color: #ffaebd;
+}
+
+.file-action .file-btn{
+  /* position: absolute; */
   right: 12px;
-  padding: 12px;
+  padding: 8px;
   border-radius: 50%;
   display: flex;
   background: #e3e3e3;
@@ -93,17 +112,19 @@ body{
   cursor: pointer;
   transition: 0.2s all ease-out;
 }
-#file-close:hover{
+.file-btn:hover{
   background: #ADADAD;
 }
-#file-close img{
+.file-btn img{
   height: 14px;
 }
 
-#file-info{
+.file-info{
   margin-left: 18px;
   display:flex;
-  height:48px;
+  min-height:48px;
+
+  width: 90%;
 }
 .file-name{
   font-size:14px; 
@@ -112,7 +133,7 @@ body{
 .file-size{
   font-size:12px;
 }
-#file-info-right{
+.file-info-right{
   padding-left:12px; 
   padding-right:12px;
   display: flex;
@@ -123,13 +144,14 @@ body{
 
 .dropzone-wrapper {
   overflow: hidden;
-  width: 695px;
+  width: 100%;
   position: relative;
 }
 
 #dropzone {
-  height: 302px;
-  width: 695px;
+  height: 100vh;
+  /* width: 695px; */
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -218,13 +240,14 @@ body{
 }
 
 .leftright:before {
-  content: '';
+  content: ' ';
   position: absolute;
-  bottom: 0;
+  /* bottom: 0; */
   top: 0;
   right: 0px;
   height: 100%;
   width: 2px;
+  /* background-color: #f00; */
   background-image: linear-gradient(to top, #7f7f7f 70%, rgba(255, 255, 255, 0) 0%);
   background-position: bottom;
   background-size: 2px 11px;
@@ -260,4 +283,99 @@ body{
   background-size: 11px 2px;
   background-repeat: repeat-x;
   /* background-color:red; */
+}
+
+.translate-setting {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+.translate-setting select {
+  font-size: 14px;
+  border: 1px solid #b3b3b3;
+  border-radius: 5px;
+  height: 30px;
+  line-height: 30px;
+  width: 150px;
+}
+
+button {
+  height: 30px;
+  background-color: #45b795;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 200;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 20px;
+}
+
+/* 编辑页面 */
+.editing-wrap {
+  padding: 25px;
+  height: 100vh;
+  overflow: auto;
+}
+.editing-wrap .header {
+  margin-bottom: 25px;
+}
+.editing-wrap button {
+}
+
+.editing-main .edit-item {
+  border: 1px solid #eee;
+  margin-bottom: 15px;
+}
+.editing-main .compare {
+  
+}
+.editing-main .edit-item .top {
+  font-size: 13px;
+  height: 25px;
+  line-height: 25px;
+  border-bottom: 1px solid #eee;
+  padding-left: 25px;
+}
+.compare-item:first-of-type {
+  border-bottom: 1px solid #eee;
+}
+.compare-item {
+  padding: 0 15px;
+  
+}
+.editing-main .edit-item span {
+  display: inline-block;
+  width: 30px;
+  text-align: right;
+  font-size: 12px;
+}
+.editing-main .edit-item label {
+  width: 50px;
+  background: #0079b8;
+  color: #fff;
+  border-radius: 5px;
+  display: inline-block;
+  text-align: center;
+}
+.editing-main .compare-item:last-of-type span, .editing-main .compare-item:last-of-type label {
+  position: relative;
+  top: -16px;
+}
+.editing-main .edit-item .text {
+  display: inline-block;
+  line-height: 25px;
+  padding: 10px 0;
+  width: calc(100% - 100px);
+  white-space: pre-line;
+}
+.editing-main .edit-item input, .editing-main .edit-item textarea {
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  /* height: 35px; */
+  padding: 0 5px;
+  width: 100%;
+}
+.editing-main .edit-item textarea {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
