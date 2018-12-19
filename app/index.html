@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <div id="vue-app">
+  <div id="vue-app" style="display: none;">
     <input type="file" style='display:none;' id='file-input' @change="process_file($event)" ref="input" accept=".srt,.ass,text/srt,text/ass" aria-multiselectable="true" multiple />
 
     <!-- selected file | 选文件后显示这块 -->
@@ -229,6 +229,9 @@
       hasFile() {
         return !!this.files.length
       }
+    },
+    mounted() {
+      document.getElementById('vue-app').style.display = 'block'
     },
     methods: {
       process_file(e) {
