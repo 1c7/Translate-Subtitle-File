@@ -231,18 +231,22 @@ new Vue({
     },
     // 开始翻译
     startTranslate() {
-      const translateProcess = []
       this.files.forEach(file => {
+        console.log('处理文件');
+        console.log(file);
         file.status = 1
         try {
+          console.log('开始翻译');
           translate(file.origin, this.distLang, this.srcLang).then(res => {
             file.parse = res.parse
             file.translateData = res.translate
             file.status = 2
           }).catch(err => {
+            console.log(err);
             file.status = 3
           })
         } catch(e) {
+          console.log(e);
           file.status = 3
         }
       })

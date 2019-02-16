@@ -4,6 +4,7 @@ const config = require('./config.js');
 const {translate: translateAPI} = require('./translate_api.js');
 
 function translate(content, to, from) {
+  console.log('进入 srt translate');
   const data = parser.fromSrt(content);
   const lastID = data[data.length - 1].id
 
@@ -36,10 +37,14 @@ function translate(content, to, from) {
   }, [])
 
   const translateProcess = batchs.map(bat => {
+    console.log('translateProcess');
+    console.log(bat);
     return translateAPI(bat.content, to, from).then(res => {
+      console.log(res);
       bat.result = res.dist
       return bat
     }).catch(err => {
+      console.log(err);
       console.log('有一批翻译失败', err, bat.content)
       bat.result = ''
       return bat
@@ -55,7 +60,7 @@ function translate(content, to, from) {
         id: String(Number(lastID) + Number(block.id)),
         text: (strs[index] || block.text).trim(),
       }))
-      
+
       return list.concat(items)
     }, [])
     return {
