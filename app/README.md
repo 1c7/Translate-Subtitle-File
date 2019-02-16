@@ -1,6 +1,7 @@
 # Readme for developer
 I put all file into `app/` for clean structure     
 (GitHub would display root folder `readme.md` higher, instead under a bunch of folder)          
+我知道下面中英文混搭比较奇怪，我只是暂时没空整理，麻烦读者先忍着   
 
 ## 代码解释
 `app/src/` 目录是核心代码，文件不多，解释如下：   
@@ -14,18 +15,18 @@ I put all file into `app/` for clean structure
 
 ## Version
 * 0.0.1 release at 2018-5-8 (for Windows and macOS)
+<!-- * 0.0.2 release at 2019-2-16 -->
 <!-- * 0.0.2 release at 2018-9-20 想更新支持多文件翻译，没坚持写完放弃了。没时间了。 -->
 
 ## Tech Stack
-* Electron (v2.0.0)
-* jQuery (v3.3.1)
-* Vue (v2.5.13)
+* Electron
+* jQuery
+* Vue
 
-## Run
+## 本地开发
 ```
-git clone https://github.com/1c7/translate-subtitle-file.git ~/Desktop/translate-subtitle-file
-cd ~/Desktop/translate-subtitle-file
-electron .
+cd app/
+npm run start
 ```
 
 ## 打包指南 (How to compile new release)
@@ -66,9 +67,10 @@ tried `google-translate-api` on Github, it's a node.js module or something, not 
 because trasnlation is not the same everytime, it can only test by hand         
 
 ### Changelog
+0.0.2
+
 
 #### TODO
-
 1. 批量翻译
 2. 编辑翻译
 3. 无需翻墙
