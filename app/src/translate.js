@@ -15,6 +15,7 @@ function translate(file, to, from = 'auto') {
   var suffix = common.get_suffix(file.name);
   console.log(`后缀是 ${suffix}`);
   if (suffix == 'srt') {
+      console.log(srt.translate(content, to, from));
     return srt.translate(content, to, from);
   } else if (suffix == 'ass') {
     return ass.translate(content, to, from);

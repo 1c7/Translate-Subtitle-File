@@ -9,7 +9,6 @@ exports.translate = function (raw_content, to, from) {
   const parse = assParser(raw_content);
   const data = parse[3]['body'];
 
-
   // 翻译分组批量翻译，快凑齐了 config.LENGTH_LIMIT_PER_REQUEST: 5000 字符数时一起翻译
   const batchs = data.reduce((batch, block) => {
     if (block.key !== 'Dialogue') {
@@ -41,7 +40,8 @@ exports.translate = function (raw_content, to, from) {
     return batch
   }, [])
 
-  console.log(batchs)
+  console.log('一批');
+  console.log(batchs);
 
   const translateProcess = batchs.map(bat => {
     return translateAPI(bat.content, to, from).then(res => {

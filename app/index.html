@@ -58,10 +58,10 @@
     </div>
 
     <!-- file area | 还没选择文件 -->
-    <div class="dropzone-wrapper" 
-      v-if='!files.length && !editing' 
-      @drop="process_file($event)" 
-      :class="{animate: movingenter}" 
+    <div class="dropzone-wrapper"
+      v-if='!files.length && !editing'
+      @drop="process_file($event)"
+      :class="{animate: movingenter}"
       @mouseenter="movingenter = true"
       @mouseleave="movingenter = false">
       <!-- animate border -->

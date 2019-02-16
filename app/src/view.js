@@ -238,6 +238,7 @@ new Vue({
         try {
           console.log('开始翻译');
           translate(file.origin, this.distLang, this.srcLang).then(res => {
+            console.log('到这里了吗??-------------------------');
             file.parse = res.parse
             file.translateData = res.translate
             file.status = 2

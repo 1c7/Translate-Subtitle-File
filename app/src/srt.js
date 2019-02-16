@@ -37,9 +37,14 @@ function translate(content, to, from) {
   }, [])
 
   const translateProcess = batchs.map(bat => {
-    console.log('translateProcess');
+    console.log('------------translateProcess-------------');
     console.log(bat);
+    // console.log(bat.content);
+    // console.log(from);
+    // console.log(to);
+    // console.log(translateAPI(bat.content, to, from));
     return translateAPI(bat.content, to, from).then(res => {
+      console.log('success---=-=-=-=-=-');
       console.log(res);
       bat.result = res.dist
       return bat
@@ -51,6 +56,7 @@ function translate(content, to, from) {
     })
   })
   return Promise.all(translateProcess).then(bats => {
+    console.log('进入 Promise 了吗?');
     const res = bats.reduce((list, bat) => {
       const strs = bat.result.split(/[％|\%]?0A/)
       console.log(strs.length, bat.includes.length)
