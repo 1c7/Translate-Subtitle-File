@@ -1,5 +1,6 @@
 const fs = require('fs')
 const { promisify } = require('util')
+const {google, baidu, sogou} = require('./translate_api.js');
 // 公用函数，如清理换行，返回文件后缀等
 
 // Remove all tag, but keep text inside tag.
@@ -35,8 +36,42 @@ function deepClone(obj) {
   return JSON.parse(JSON.stringify(obj))
 }
 
+function translateApi (selApi, bat, to, from) {
+  if (selApi === 'google') {
+    return google(bat.content, to, from).then(res => {
+      bat.result = res.dist
+      return bat
+    }).catch(err => {
+      console.log('有一批翻译失败', err, bat.content)
+      bat.result = ''
+      return bat
+    })
+  } else if (selApi === 'baidu'){
+    return baidu(bat.content, to, from).then(res => {
+      console.log(res);
+      bat.result = res.dist
+      return bat
+    }).catch(err => {
+      console.log('有一批翻译失败', err, bat.content)
+      bat.result = ''
+      return bat
+    })
+  } else {
+    bat.content = bat.content.trim();
+    return sogou.translate(bat.content, from, to).then(res => {
+      bat.result = res
+      return bat
+    }).catch(err => {
+      console.log('有一批翻译失败', err, bat.content)
+      bat.result = ''
+      return bat
+    })
+  }
+}
+
 exports.remove_tag_keep_text = remove_tag_keep_text
 exports.get_suffix = get_suffix
 exports.properFileSize = properFileSize
 exports.downloadFile = downloadFile
 exports.deepClone = deepClone
+exports.translateApi = translateApi

@@ -6,6 +6,11 @@ body{
   font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
   overflow: hidden;  /* 不然打开的窗口会有垂直和水平滚动条 */
 }
+
+li {
+  list-style: none;
+}
+
 #button-area{
   width: 100%;
   height: 44px;
@@ -341,22 +346,86 @@ button {
 }
 .compare-item {
   padding: 0 15px;
-  
+  display: flex;
+  align-items: center;
 }
+.compare-item .item-left {
+  width: 80px;
+}
+
+.editing-main .compare-item .translateSingle {
+  width: 100px;
+  height: 30px;
+  background-color: #45b795;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 30px;
+  position: relative;
+}
+
+.translateSingle-index {
+  display: inline-block;
+  width: 70px;
+}
+
+.dropdown {
+  display: inline-flex;
+  width: 20px;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid hsla(0,0%,100%,.3);
+  vertical-align: top;
+}
+
+.editing-main .compare-item .translateSingle .dropdown i{
+  width: 0;
+  height: 0;
+  border: 4px solid #ccc;
+  border-color: #fff #45b795;
+  border-width: 4px 4px 0 4px;
+}
+
+.translateSingle-api {
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ebebeb;
+  position: absolute;
+  padding:0;
+  margin: 0;
+  top: 100%;
+}
+
+.translateSingle-api-list {
+  color: #45b795;
+}
+
+.translateSingle-api-list:hover {
+  background-color: #45b795;
+  color: #fff;
+}
+
 .editing-main .edit-item span {
   display: inline-block;
   width: 30px;
   text-align: right;
   font-size: 12px;
 }
-.editing-main .edit-item label {
-  width: 50px;
+.editing-main .edit-item .item-left-lang {
+  width: 60px;
   background: #0079b8;
   color: #fff;
   border-radius: 5px;
   display: inline-block;
   text-align: center;
+  height: 20px;
+  line-height: 20px;
 }
+
 .editing-main .compare-item:last-of-type span, .editing-main .compare-item:last-of-type label {
   position: relative;
   top: -16px;
@@ -365,7 +434,7 @@ button {
   display: inline-block;
   line-height: 25px;
   padding: 10px 0;
-  width: calc(100% - 100px);
+  flex: 1;
   white-space: pre-line;
 }
 .editing-main .edit-item input, .editing-main .edit-item textarea {
