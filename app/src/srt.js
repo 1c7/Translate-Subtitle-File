@@ -1,9 +1,8 @@
 const parser = require('subtitles-parser'); // for SRT, support 'fromSrt' and 'toSrt'
 const common = require('./common.js');
 const config = require('./config.js');
-const {translate: translateAPI} = require('./translate_api.js');
 
-function translate(content, to, from) {
+function translate(content, to, from, selApi) {
   console.log('进入 srt translate');
   const data = parser.fromSrt(content);
   const lastID = data[data.length - 1].id
@@ -37,28 +36,17 @@ function translate(content, to, from) {
   }, [])
 
   const translateProcess = batchs.map(bat => {
-    console.log('------------translateProcess-------------');
-    console.log(bat);
-    // console.log(bat.content);
-    // console.log(from);
-    // console.log(to);
-    // console.log(translateAPI(bat.content, to, from));
-    return translateAPI(bat.content, to, from).then(res => {
-      console.log('success---=-=-=-=-=-');
-      console.log(res);
-      bat.result = res.dist
-      return bat
-    }).catch(err => {
-      console.log(err);
-      console.log('有一批翻译失败', err, bat.content)
-      bat.result = ''
-      return bat
-    })
+    return common.translateApi(selApi, bat, to, from);
   })
   return Promise.all(translateProcess).then(bats => {
     console.log('进入 Promise 了吗?');
     const res = bats.reduce((list, bat) => {
-      const strs = bat.result.split(/[％|\%]?0A/)
+      let strs;
+      if (selApi === 'google' || selApi === 'baidu') {
+        strs = bat.result.split(/[％|\%]?0A/)
+      } else {
+        strs = bat.result.replace(/%0A|%\s0A/g, '').split(/\n/)
+      }
       console.log(strs.length, bat.includes.length)
       const items = bat.includes.map((block, index) => ({
         endTime: block.endTime,

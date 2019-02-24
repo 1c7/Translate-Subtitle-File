@@ -57,6 +57,7 @@
     "google-baidu-translate-api": "^1.0.3",
     "jquery": "^3.3.1",
     "normalize.css": "^8.0.1",
+    "sogou-translate": "^0.0.1",
     "subtitles-parser": "0.0.2",
     "update-electron-app": "^1.3.0"
   },

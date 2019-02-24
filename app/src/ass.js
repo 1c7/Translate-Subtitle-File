@@ -1,16 +1,14 @@
 const assParser = require('ass-parser'); // for ASS
 const assStringify = require('ass-stringify'); // for ASS
-
-const {translate: translateAPI} = require('./translate_api.js');
 const common = require('./common.js');
 const config = require('./config.js');
 
-exports.translate = function (raw_content, to, from) {
+exports.translate = function (raw_content, to, from, selApi) {
   const parse = assParser(raw_content);
   const data = parse[3]['body'];
 
   // 翻译分组批量翻译，快凑齐了 config.LENGTH_LIMIT_PER_REQUEST: 5000 字符数时一起翻译
-  const batchs = data.reduce((batch, block) => {
+  const batchs = data.reduce((batch, block, idx) => {
     if (block.key !== 'Dialogue') {
       return batch
     }
@@ -44,19 +42,17 @@ exports.translate = function (raw_content, to, from) {
   console.log(batchs);
 
   const translateProcess = batchs.map(bat => {
-    return translateAPI(bat.content, to, from).then(res => {
-      bat.result = res.dist
-      return bat
-    }).catch(err => {
-      console.log('有一批翻译失败', err, bat.content)
-      bat.result = ''
-      return bat
-    })
+    return common.translateApi(selApi, bat, to, from);
   })
 
   return Promise.all(translateProcess).then(bats => {
     const res = bats.reduce((list, bat) => {
-      const strs = bat.result.split(/[％|\%]?0A/)
+      let strs;
+      if (selApi === 'google' || selApi === 'baidu') {
+        strs = bat.result.split(/[％|\%]?0A/)
+      } else {
+        strs = bat.result.replace(/%0A|%\s0A/g, '').split(/\n/)
+      }
 
       const items = bat.includes.map((block, index) => {
         const item = {

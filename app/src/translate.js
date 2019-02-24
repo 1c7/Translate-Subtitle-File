@@ -6,7 +6,7 @@ const srt = require('./srt.js');
 const common = require('./common.js');
 
 // 翻译
-function translate(file, to, from = 'auto') {
+function translate(file, to, from = 'auto', selApi) {
   console.log('进入这里');
   if (file == undefined){
     throw 'file empty';
@@ -16,9 +16,9 @@ function translate(file, to, from = 'auto') {
   console.log(`后缀是 ${suffix}`);
   if (suffix == 'srt') {
       console.log(srt.translate(content, to, from));
-    return srt.translate(content, to, from);
+    return srt.translate(content, to, from, selApi);
   } else if (suffix == 'ass') {
-    return ass.translate(content, to, from);
+    return ass.translate(content, to, from, selApi);
   }
 }
 
