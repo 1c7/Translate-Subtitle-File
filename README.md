@@ -8,7 +8,7 @@
 加快翻译字幕的速度  
 
 ## 适合谁用?
-翻译视频字幕的人
+字幕组
 
 ## 下载地址 (最新版：0.0.1)
 1. [Windows 版](https://github.com/1c7/translate-subtitle-file/releases/download/0.01/Windows-Translation-Helper-0.0.1-win32-x64.rar)
@@ -36,7 +36,6 @@
 * [糖醋陈皮](https://weibo.com/2004104451/profile?rightmod=1&wvr=6&mod=personnumber)    
 
 欢迎填入你的名字，发邮件给 guokrfans#gmail.com (#换成@) 说一声就行   
-
 <!-- 
 ### 版本发布时间
 * 版本 0.0.1: 2018年5月8号
@@ -53,9 +52,6 @@
 
 感谢使用~
 -->
-
 ## Q 群 982808006
 如果想交流翻译经验，可以加以上 Q 群     
 （不想建太多群太分散了，所以微信群和 Telegram 群就不弄了）
-
-
