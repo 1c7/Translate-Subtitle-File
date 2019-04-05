@@ -1,7 +1,7 @@
 ## 字幕组机翻小助手 :fire:（使用谷歌翻译）（请自备翻墙工具）    
 <img src="./app/image/1.png" alt="how the app look like" width="380">
 
-视频演示（12秒）：https://www.bilibili.com/video/av18366241/    
+视频演示（14秒）：https://www.bilibili.com/video/av23158962
 
 ## 解决什么问题?
 用机器翻译整个字幕文件。用户只需要把文件拖进去即可。
