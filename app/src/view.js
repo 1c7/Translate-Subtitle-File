@@ -210,9 +210,6 @@ new Vue({
         'bn': '孟加拉语'
       }
     },
-    associationLang: {
-      
-    },
     supportApi: {
       google: '谷歌',
       baidu: '百度',
@@ -260,12 +257,12 @@ new Vue({
       if (!file) {
         return null
       }
-      const data = Object.assign({}, file)
-      data.list = []
-      if (data.type == 'srt') {
+      const data = Object.assign({}, file);
+      data.list = [];
+      if (data.type === 'srt') {
         data.list = data.parse.map((block, index) => {
           let tBlock = data.translateData[index]
-          if (tBlock.startTime != block.startTime || tBlock.endTime != block.endTime) {
+          if (tBlock.startTime !== block.startTime || tBlock.endTime != block.endTime) {
             tBlock = data.translateData.find(b => b.startTime == block.startTime && b.endTime == block.endTime)
           }
 
