@@ -1,7 +1,10 @@
-# Readme for developer
-I put all file into `app/` for clean structure     
-(GitHub would display root folder `readme.md` higher, instead under a bunch of folder)          
-我知道下面中英文混搭比较奇怪，我只是暂时没空整理，麻烦读者先忍着   
+# 开发者必读
+（备注：我知道下面中英文混搭比较奇怪，往读者多多包涵）   
+
+## 贡献代码
+如果改动较小，就几行代码，请随意提 PR。   
+如果是大功能，几个或十几个文件，代码几百行，还请先开 issue 讨论这个功能是否必要，   
+不要静悄悄的自己干活，然后突然提一个很大的 PR，我 merge 也不是，不 merge 也不是，非常为难。   
 
 ## 代码解释
 `app/src/` 目录是核心代码，文件不多，解释如下：   
@@ -13,20 +16,18 @@ I put all file into `app/` for clean structure
   * `translate_api.js` 翻译 API
   * `view.js` 页面会载入的 js，监听点击事件等
 
-## Version
-* 0.0.1 release at 2018-5-8 (for Windows and macOS)
-<!-- * 0.0.2 release at 2019-2-16 -->
-<!-- * 0.0.2 release at 2018-9-20 想更新支持多文件翻译，没坚持写完放弃了。没时间了。 -->
 
-## Tech Stack
-* Electron
-* jQuery
+## 技术栈
+* Electron 6.0
+* jQuery 3.4
 * Vue
+
 
 ## 本地开发
 ```
 cd app/
-npm run start
+yarn install
+yarn start
 ```
 
 ## 打包指南 (How to compile new release)
@@ -64,19 +65,9 @@ tried `google-translate-api` on Github, it's a node.js module or something, not 
 
 ### 测试 (Testing)
 `test file/` folder have file to test.         
-because trasnlation is not the same everytime, it can only test by hand         
+because translation is not the same every time, it can only test by hand         
 
-### Changelog
-0.0.2
-
-
-#### TODO
-1. 批量翻译
-2. 编辑翻译
-3. 无需翻墙
-4. 可选语言转换
-
-#### 0.0.2
-* [feature] translate multiple file
-
-
+### 做事哲学
+因为这个软件是一个免费小工具，所以一切从简。    
+不用什么 Vue 全家桶或者 React+Redux/Angular/Ember 等工具。只有当这个软件进化到需要这些工具的时候才用   
+目前仅浅浅的用了 jQuery 和 Vue。    
