@@ -7,13 +7,11 @@ const common = require('./common.js');
 
 // 翻译
 function translate(file, to, from = 'auto', selApi) {
-  console.log('进入这里');
   if (file == undefined){
     throw 'file empty';
   }
   var content = fs.readFileSync(file.path, 'utf8');
   var suffix = common.get_suffix(file.name);
-  console.log(`后缀是 ${suffix}`);
   if (suffix == 'srt') {
       console.log(srt.translate(content, to, from));
     return srt.translate(content, to, from, selApi);

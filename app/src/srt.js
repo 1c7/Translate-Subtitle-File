@@ -39,7 +39,6 @@ function translate(content, to, from, selApi) {
     return common.translateApi(selApi, bat, to, from);
   })
   return Promise.all(translateProcess).then(bats => {
-    console.log('进入 Promise 了吗?');
     const res = bats.reduce((list, bat) => {
       let strs;
       if (selApi === 'google' || selApi === 'baidu') {
