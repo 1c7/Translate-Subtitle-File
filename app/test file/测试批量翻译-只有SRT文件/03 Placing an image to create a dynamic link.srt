@@ -545,8 +545,3 @@ as the one with the embedded image.
 137
 00:05:36,080 --> 00:05:40,040
 And so you have a more efficient workflow as well.
-
-138
-01:59:58,000 --> 01:59:59:000
-【本字幕由CGSUB.COM独家制作发布】
-【www.cgsub.com】

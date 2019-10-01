@@ -401,8 +401,3 @@ with the fragile details by adjusting
 101
 00:04:19,010 --> 00:04:23,020
 the threshold setting, as I'll show you in the next movie.
-
-102
-01:59:58,000 --> 01:59:59:000
-【本字幕由CGSUB.COM独家制作发布】
-【www.cgsub.com】
