@@ -22,6 +22,9 @@ function createWindow() {
     kiosk: false,
     fullscreen: false,
     fullscreenable: true,
+    webPreferences: {
+      nodeIntegration: true
+    } // https://stackoverflow.com/questions/44391448/electron-require-is-not-defined
   })
   // https://github.com/electron/electron/blob/master/docs/api/browser-window.md
 
