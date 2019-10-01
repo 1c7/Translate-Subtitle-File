@@ -1,3 +1,4 @@
+//
 const assParser = require('ass-parser'); // for ASS
 const assStringify = require('ass-stringify'); // for ASS
 const common = require('./common.js');
@@ -38,9 +39,6 @@ exports.translate = function (raw_content, to, from, selApi) {
     return batch
   }, [])
 
-  console.log('一批');
-  console.log(batchs);
-
   const translateProcess = batchs.map(bat => {
     return common.translateApi(selApi, bat, to, from);
   })
@@ -70,7 +68,7 @@ exports.translate = function (raw_content, to, from, selApi) {
     }
   })
 }
-
+// 导出翻译结果
 exports.exportContent = function(data) {
   const origin = common.deepClone(data.parse)
   origin[3].body = origin[3].body.concat(data.translateData)
