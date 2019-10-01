@@ -1,0 +1,755 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.180 --> 00:00:03.760
+Thanks to Curiosity Stream for supporting
+PBS Digital Studios.
+
+00:00:03.760 --> 00:00:08.020
+Hey, I’m Jabril and welcome to Crash Course AI!
+
+00:00:08.020 --> 00:00:10.820
+Language is one of the most impressive things
+humans do.
+
+00:00:10.820 --> 00:00:15.200
+It’s how I’m transferring knowledge from
+my brain to yours right this second!
+
+00:00:15.200 --> 00:00:19.670
+Languages come in many shapes and sizes, they
+can be spoken or written, and are made up
+
+00:00:19.670 --> 00:00:26.490
+of different components like sentences, words,
+and characters that vary across cultures.
+
+00:00:26.490 --> 00:00:33.230
+For instance, English has 26 letters and Chinese
+has tens-of-thousands of characters.
+
+00:00:33.230 --> 00:00:37.060
+So far, a lot of the problems we’ve been
+solving with AI and machine learning technologies
+
+00:00:37.060 --> 00:00:43.030
+have involved processing images, but the most
+common way that most of us interact with computers
+
+00:00:43.030 --> 00:00:44.260
+is through language.
+
+00:00:44.260 --> 00:00:49.110
+We type questions into search engines, we
+talk to our smartphones to set alarms, and
+
+00:00:49.110 --> 00:00:53.559
+sometimes we even get a little help with our
+Spanish homework from Google Translate.
+
+00:00:53.560 --> 00:00:58.480
+So today, we’re going to explore the field
+of Natural Language Processing.
+
+00:00:58.480 --> 00:01:07.380
+INTRO
+
+00:01:07.380 --> 00:01:13.120
+Natural Language Processing, or NLP, mainly
+explores two big ideas.
+
+00:01:13.120 --> 00:01:18.040
+First, there’s Natural Language Understanding,
+or how we get meaning out of combinations
+
+00:01:18.040 --> 00:01:19.270
+of letters.
+
+00:01:19.270 --> 00:01:23.520
+These are AI that filter your spam emails,
+figure out if that Amazon search for “apple”
+
+00:01:23.520 --> 00:01:28.400
+was grocery or computer shopping, or instruct
+your self-driving car how to get to a friend’s
+
+00:01:28.400 --> 00:01:29.400
+house.
+
+00:01:29.400 --> 00:01:34.810
+And second, there’s Natural Language Generation,
+or how to generate language from knowledge.
+
+00:01:34.810 --> 00:01:39.439
+These are AI that perform translations, summarize
+documents, or chat with you.
+
+00:01:39.439 --> 00:01:44.729
+The key to both problems is understanding
+the meaning of a word, which is tricky because
+
+00:01:44.729 --> 00:01:46.950
+words have no meaning on their own.
+
+00:01:46.950 --> 00:01:49.299
+We assign meaning to symbols.
+
+00:01:49.299 --> 00:01:54.720
+To make things even harder, in many cases,
+language can be ambiguous and the meaning
+
+00:01:54.720 --> 00:01:57.799
+of a word depends on the context it’s used
+in
+
+00:01:57.799 --> 00:02:02.939
+If I tell you to meet me at the bank, without
+any context, I could mean the river bank or
+
+00:02:02.939 --> 00:02:04.930
+the place where I’m grabbing some cash.
+
+00:02:04.930 --> 00:02:10.220
+If I say “This fridge is great!”, that’s
+a totally different meaning from “This fridge
+
+00:02:10.220 --> 00:02:14.079
+was *great*, it lasted a whole week before
+breaking.”
+
+00:02:14.079 --> 00:02:17.430
+So, how did we learn to attach meaning to
+sounds?
+
+00:02:17.430 --> 00:02:22.099
+How do we know great [enthusiastic] means
+something different from great [sarcastic]?
+
+00:02:22.099 --> 00:02:25.999
+Well, even though there’s nothing inherent
+in the word “cat” that tells us it’s
+
+00:02:25.999 --> 00:02:31.150
+soft, purrs, and chases mice… when we were
+kids, someone probably told us “this is
+
+00:02:31.150 --> 00:02:32.319
+a cat.”
+
+00:02:32.320 --> 00:02:35.780
+Or a gato, māo, billee, qut.
+
+00:02:35.780 --> 00:02:40.239
+When we’re solving a natural language processing
+problem, whether it’s natural language understanding
+
+00:02:40.239 --> 00:02:44.969
+or natural language generation, we have to
+think about how our AI is going to learn the
+
+00:02:44.969 --> 00:02:48.660
+meaning of words and understand our potential
+mistakes.
+
+00:02:48.660 --> 00:02:52.799
+Sometimes we can compare words by looking
+at the letters they share.
+
+00:02:52.799 --> 00:02:55.719
+This works well if a word has morphology.
+
+00:02:55.719 --> 00:03:00.959
+Take the root word “swim” for example.We
+can modify it with rules so if someone’s
+
+00:03:00.959 --> 00:03:07.120
+doing it right now, they’re swimming, or
+the person doing the action is the swimmer.
+
+00:03:07.120 --> 00:03:11.120
+Drinking, drinker, thinking, thinker, … you
+get the idea.
+
+00:03:11.120 --> 00:03:17.069
+But we can’t use morphology for all words,
+like how knowing that a van is a vehicle doesn’t
+
+00:03:17.069 --> 00:03:19.900
+let us know that a vandal smashed in a car
+window.
+
+00:03:19.900 --> 00:03:24.799
+Many words that are really similar, like cat
+and car, are completely unrelated.
+
+00:03:24.800 --> 00:03:30.209
+And on the other hand, cat and Felidae (the word for the scientific family of cats) mean very
+
+00:03:30.209 --> 00:03:33.019
+similar things and only share one letter!
+
+00:03:33.019 --> 00:03:38.239
+One common way to guess that words have similar
+meaning is using distributional semantics,
+
+00:03:38.239 --> 00:03:41.430
+or seeing which words appear in the same sentences
+a lot.
+
+00:03:41.430 --> 00:03:47.299
+This is one of many cases where NLP relies
+on insights from the field of linguistics.
+
+00:03:47.299 --> 00:03:52.469
+As the linguist John Firth once said, “You
+shall know a word by the company it keeps.”
+
+00:03:52.469 --> 00:03:57.269
+But to make computers understand distributional
+semantics, we have to express the concept
+
+00:03:57.269 --> 00:03:58.269
+in math.
+
+00:03:58.269 --> 00:04:01.290
+One simple technique is to use count vectors.
+
+00:04:01.290 --> 00:04:06.389
+A count vector is the number of times a word
+appears in the same article or sentence as
+
+00:04:06.389 --> 00:04:08.110
+other common words.
+
+00:04:08.110 --> 00:04:12.809
+If two words show up in the same sentence,
+they probably have pretty similar meanings.
+
+00:04:12.809 --> 00:04:18.989
+So let’s say we asked an algorithm to compare
+three words, car, cat, and Felidae, using
+
+00:04:18.989 --> 00:04:21.859
+count vectors to guess which ones have similar
+meaning.
+
+00:04:21.859 --> 00:04:26.240
+We could download the beginning of the Wikipedia
+pages for each word to see which /other/ words
+
+00:04:26.240 --> 00:04:27.240
+show up.
+
+00:04:27.240 --> 00:04:28.300
+Here’s what we got:
+
+00:04:28.300 --> 00:04:34.919
+And a lot of the top words are all the same:
+the, and, of, in.
+
+00:04:34.919 --> 00:04:40.419
+These are all function words or stop words,
+which help define the structure of language,
+
+00:04:40.419 --> 00:04:42.889
+and help convey precise meaning.
+
+00:04:42.889 --> 00:04:48.340
+Like how “an apple” means any apple, but
+“the apple” specifies one in particular.
+
+00:04:48.340 --> 00:04:53.639
+But, because they change the meaning of another
+word, they don’t have much meaning by themselves,
+
+00:04:53.639 --> 00:04:58.419
+so we’ll remove them for now, and simplify
+plurals and conjugations.
+
+00:04:58.419 --> 00:05:00.169
+Let’s try it again:
+
+00:05:00.169 --> 00:05:04.990
+Based on this, it looks like cat and Felidae
+mean almost the same thing, because they both
+
+00:05:04.990 --> 00:05:08.650
+show up with lots of the same words in their
+Wikipedia articles!
+
+00:05:08.650 --> 00:05:11.759
+And neither of them mean the same thing as
+car.
+
+00:05:11.759 --> 00:05:15.210
+But this is also a really simplified example.
+
+00:05:15.210 --> 00:05:19.349
+One of the problems with count vectors is
+that we have to store a LOT of data.
+
+00:05:19.349 --> 00:05:23.879
+To compare a bunch of words using counts like
+this, we’d need a massive list of every
+
+00:05:23.880 --> 00:05:28.580
+word we’ve ever seen in the same sentence,
+and that’s unmanageable.
+
+00:05:28.580 --> 00:05:33.219
+So, we’d like to learn a representation
+for words that captures all the same relationships
+
+00:05:33.219 --> 00:05:37.789
+and similarities as count vectors but is much
+more compact.
+
+00:05:37.789 --> 00:05:42.610
+In the unsupervised learning episode, we talked
+about how to compare images by building representations
+
+00:05:42.610 --> 00:05:44.290
+of those images.
+
+00:05:44.290 --> 00:05:49.419
+We needed a model that could build internal
+representations and that could generate predictions.
+
+00:05:49.419 --> 00:05:52.110
+And we can do the same thing for words.
+
+00:05:52.110 --> 00:05:57.440
+This is called an encoder-decoder model: the
+encoder tells us what we should think and
+
+00:05:57.440 --> 00:05:59.440
+remember about what we just read...
+
+00:05:59.440 --> 00:06:04.349
+and the decoder uses that thought to decide
+what we want to say or do.
+
+00:06:04.349 --> 00:06:07.370
+We’re going to start with a simple version
+of this framework.
+
+00:06:07.370 --> 00:06:11.449
+Let’s create a little game of fill in the
+blank to see what basic pieces we need to
+
+00:06:11.449 --> 00:06:14.110
+train an unsupervised learning model.
+
+00:06:14.110 --> 00:06:17.169
+This is a simple task called language modeling.
+
+00:06:17.169 --> 00:06:18.289
+If I have the sentence:
+
+00:06:18.289 --> 00:06:22.409
+I’m kinda hungry, I think I’d like some
+chocolate _____ .
+
+00:06:22.409 --> 00:06:25.729
+What are the most likely words that can go
+in that spot?
+
+00:06:25.729 --> 00:06:30.310
+And how might we train a model to encode the
+sentence and decode a guess for the blank?
+
+00:06:30.310 --> 00:06:35.409
+In this example, I can guess the answer might
+be “cake” or “milk” but probably not
+
+00:06:35.409 --> 00:06:40.259
+something like “potatoes,” because I’ve
+never heard of “chocolate potatoes” so
+
+00:06:40.259 --> 00:06:42.840
+they probably don’t exist.
+
+00:06:42.840 --> 00:06:45.449
+Definitely don’t exist.
+
+00:06:45.449 --> 00:06:46.620
+That should not be a thing.
+
+00:06:46.620 --> 00:06:51.980
+The group of words that can fill in that blank is an unsupervised cluster that an AI could use.
+
+00:06:51.980 --> 00:06:56.940
+So for this sentence, our encoder might only
+need to focus on the word chocolate so the
+
+00:06:56.940 --> 00:07:02.530
+decoder has a cluster of “chocolate food
+words” to pull from to fill in the blank.
+
+00:07:02.530 --> 00:07:04.900
+Now let’s try a harder example:
+
+00:07:04.900 --> 00:07:09.419
+Dianna, a friend of mine from San Diego who
+really loves physics, is having a birthday
+
+00:07:09.419 --> 00:07:13.800
+party next week, so I want to find a present
+for ____.
+
+00:07:13.800 --> 00:07:18.860
+When I read this sentence, my brain identifies
+and remembers two things: First, that we’re
+
+00:07:18.860 --> 00:07:21.569
+talking about Dianna from 27 words ago!
+
+00:07:21.569 --> 00:07:25.330
+And second, that my friend Dianna uses the
+pronoun “her.”
+
+00:07:25.330 --> 00:07:29.610
+That means we want our encoder to build a
+representation that captures all these pieces
+
+00:07:29.610 --> 00:07:35.160
+of information from the sentence, so the decoder
+can choose the right word for the blank.
+
+00:07:35.160 --> 00:07:37.140
+And if we keep the sentence going:
+
+00:07:37.150 --> 00:07:41.560
+Dianna, a friend of mine from San Diego who
+really loves physics, is having a birthday
+
+00:07:41.560 --> 00:07:46.689
+party next week, so I want to find a present
+for her that has to do with _____ .
+
+00:07:46.689 --> 00:07:50.819
+Now, I can remember that Dianna likes physics
+from earlier in the sentence.
+
+00:07:50.819 --> 00:07:55.610
+So we’d like our encoder to remember that
+too, so that the decoder can use that information
+
+00:07:55.610 --> 00:07:56.969
+to guess the answer.
+
+00:07:56.969 --> 00:08:01.319
+So we can see how the representation the model
+builds really has to remember key details
+
+00:08:01.320 --> 00:08:03.560
+of what we’ve said or heard.
+
+00:08:03.560 --> 00:08:06.360
+And there’s a limit to how much a model
+can remember.
+
+00:08:06.360 --> 00:08:10.240
+Professor Ray Mooney has famously said that
+we’ll “never fit the whole meaning of
+
+00:08:10.240 --> 00:08:15.169
+a sentence into a single vector” and we
+still don’t know if we can.
+
+00:08:15.169 --> 00:08:19.840
+Professor Mooney may be right, but that doesn’t
+mean we can’t make something useful.
+
+00:08:19.840 --> 00:08:22.930
+So so far we’ve been using words.
+
+00:08:22.930 --> 00:08:26.219
+But computers don’t work words quite
+like this.
+
+00:08:26.219 --> 00:08:30.029
+So let’s step away from our high level view
+of language modeling and try to predict the
+
+00:08:30.029 --> 00:08:33.520
+next word in a sentence anyway with a neural
+network.
+
+00:08:33.520 --> 00:08:38.780
+To do this, our data will be lots of sentences
+we collect from things like someone speaking
+
+00:08:38.789 --> 00:08:40.560
+or text from books.
+
+00:08:40.560 --> 00:08:44.740
+Then, for each word in every sentence, we’ll
+play a game of fill-in-the-blank.
+
+00:08:44.740 --> 00:08:49.260
+We’ll train a model to encode up to that
+blank and then predict the word that should
+
+00:08:49.260 --> 00:08:50.360
+go there.
+
+00:08:50.360 --> 00:08:53.970
+And since we have the whole sentence, we know
+the correct answer.
+
+00:08:53.970 --> 00:08:56.709
+First, we need to define the encoder.
+
+00:08:56.709 --> 00:09:01.420
+We need a model that can read in the input,
+which in this case is a sentence.
+
+00:09:01.420 --> 00:09:07.620
+To do this, we’ll use a type of neural network
+called a Recurrent Neural Network or RNN.
+
+00:09:07.620 --> 00:09:12.510
+RNNs have a loop in them that lets them reuse
+a single hidden layer, which gets updated
+
+00:09:12.510 --> 00:09:15.089
+as the model reads one word at a time.
+
+00:09:15.089 --> 00:09:19.470
+Slowly, the model builds up an understanding
+of the whole sentence, including which words
+
+00:09:19.470 --> 00:09:24.230
+came first or last, which words are modifying
+other words, and a whole bunch of other grammatical
+
+00:09:24.230 --> 00:09:26.320
+properties that are linked to meaning.
+
+00:09:26.320 --> 00:09:29.940
+Now, we can’t just directly put words inside
+a network.
+
+00:09:29.940 --> 00:09:33.930
+But we also don’t have features we can easily
+measure and give the model either.
+
+00:09:33.930 --> 00:09:37.899
+Unlike images, we can’t even measure pixel
+values.
+
+00:09:37.899 --> 00:09:41.910
+So we’re going to ask the model to learn
+the right representation for a word on its
+
+00:09:41.910 --> 00:09:45.200
+own (this is where the unsupervised learning
+comes in).
+
+00:09:45.200 --> 00:09:49.840
+To do this, we’ll start off by assigning
+each word a random representation -- in this
+
+00:09:49.840 --> 00:09:53.449
+case a random list of numbers called a vector.
+
+00:09:53.449 --> 00:09:58.100
+Next, our encoder will take in each of those
+representations and combine them into a single
+
+00:09:58.100 --> 00:10:01.329
+/shared/ representation for the whole sentence.
+
+00:10:01.329 --> 00:10:06.160
+At this point, our representation might be
+gibberish, but in order to train the RNN,
+
+00:10:06.160 --> 00:10:08.060
+we need it to make predictions.
+
+00:10:08.060 --> 00:10:13.509
+For this particular problem, we’ll consider
+a very simple decoder, a single layer network
+
+00:10:13.509 --> 00:10:18.029
+that takes in the sentence representation
+vector, and then outputs a score for every
+
+00:10:18.029 --> 00:10:20.570
+possible word in our vocabulary.
+
+00:10:20.570 --> 00:10:24.460
+We can then interpret the highest scored word
+as our model’s prediction.
+
+00:10:24.460 --> 00:10:29.190
+Then, we can use backpropagation to train
+the RNN, like we’ve done before with neural
+
+00:10:29.190 --> 00:10:30.910
+networks in Crash Course AI.
+
+00:10:30.910 --> 00:10:35.459
+So by training the model on which word to
+predict next, the model learn weights for
+
+00:10:35.459 --> 00:10:38.610
+the encoder RNN and the decoder prediction
+layer.
+
+00:10:38.610 --> 00:10:43.510
+Plus, the model changes those random representations
+we gave every word at the beginning.
+
+00:10:43.510 --> 00:10:48.210
+Specifically, if two words mean something
+similar, the model makes their vectors more
+
+00:10:48.210 --> 00:10:49.210
+similar.
+
+00:10:49.210 --> 00:10:53.870
+Using the vectors to help make a plot, we
+can actually visualize word representations.
+
+00:10:53.870 --> 00:10:59.060
+For example, earlier we talked about chocolate
+and physics, so let’s look at some word
+
+00:10:59.060 --> 00:11:02.000
+representations that researchers at Google
+trained.
+
+00:11:02.000 --> 00:11:06.160
+Near “chocolate,” we have lots of foods
+like cocoa and candy:
+
+00:11:06.160 --> 00:11:11.580
+By comparison, words with similar representations
+to “physics” are newton and universe.
+
+00:11:11.580 --> 00:11:16.510
+This whole process has used unsupervised learning,
+and it’s given us a basic way to learn some
+
+00:11:16.510 --> 00:11:20.990
+pretty interesting linguistic representations
+and word clusters.
+
+00:11:20.990 --> 00:11:25.699
+But taking in part of a sentence and predicting
+the next word is just the tip of the iceberg
+
+00:11:25.699 --> 00:11:26.790
+for NLP.
+
+00:11:26.790 --> 00:11:31.540
+If our model took in English and produced
+Spanish, we’d have a translation system.
+
+00:11:31.540 --> 00:11:37.310
+Or our model could read questions and produce answers, like Siri or Alexa try to do.
+
+00:11:37.310 --> 00:11:42.800
+Or our model could convert instructions into
+actions to control a household robot … Hey
+
+00:11:42.800 --> 00:11:48.570
+John Green Bot?
+
+00:11:48.570 --> 00:11:50.680
+Just kidding you’re your own robot.
+
+00:11:50.680 --> 00:11:52.029
+Nobody controls you.
+
+00:11:52.029 --> 00:11:56.600
+But the representations of words that our
+model learns for one kind of task might not
+
+00:11:56.600 --> 00:11:57.870
+work for others.
+
+00:11:57.870 --> 00:12:03.270
+Like, for example, if we trained John-Green-bot
+based on reading a bunch of cooking recipes,
+
+00:12:03.270 --> 00:12:07.270
+he might learn that roses are made of icing
+and placed on cakes.
+
+00:12:07.270 --> 00:12:11.390
+But he won’t learn that cake roses are different
+from real roses that have thorns and make
+
+00:12:11.390 --> 00:12:12.649
+a pretty bouquet.
+
+00:12:12.649 --> 00:12:17.440
+Acquiring, encoding, and using written or
+spoken knowledge to help people is a huge
+
+00:12:17.440 --> 00:12:21.810
+and exciting task, because we use language
+for so many things!
+
+00:12:21.810 --> 00:12:26.870
+Every time you type or talk to a computer,
+phone or other gadget, NLP is there.
+
+00:12:26.870 --> 00:12:31.160
+Now that we understand the basics, next week
+we’ll dive in and build a language model
+
+00:12:31.160 --> 00:12:35.560
+together in our second lab! See you then.
+
+00:12:35.560 --> 00:12:39.500
+Thank you to CuriosityStream for supporting PBS Digital Studios.
+
+00:12:39.500 --> 00:12:44.380
+CuriosityStream is a subscription streaming
+service that offers documentaries and non¬fiction
+
+00:12:44.380 --> 00:12:49.560
+titles from a variety of filmmakers, including
+CuriosityStream originals.
+
+00:12:49.560 --> 00:12:54.709
+For example, you can stream Dream the Future
+in which host Sigourney Weaver asks the question,
+
+00:12:54.709 --> 00:12:59.370
+“What will the future look like?” as she
+examines how new discoveries and research
+
+00:12:59.370 --> 00:13:02.769
+will impact our everyday lives in the year
+2050.
+
+00:13:02.769 --> 00:13:06.630
+You can learn more at curiositystream.com/crashcourse
+
+00:13:06.630 --> 00:13:08.690
+Or click the link in the description.
+
+00:13:08.690 --> 00:13:12.390
+Crash Course Ai is produced in association
+with PBS Digital Studios!
+
+00:13:12.390 --> 00:13:17.029
+If you want to help keep Crash Course free
+for everyone, forever, you can join our community
+
+00:13:17.029 --> 00:13:18.740
+on Patreon.
+
+00:13:18.740 --> 00:13:23.000
+And if you want to learn more about how human
+brains process language, check out this episode
+
+00:13:23.000 --> 00:13:25.540
+of Crash Course Psychology.
+

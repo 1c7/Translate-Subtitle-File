@@ -1,0 +1,280 @@
+﻿1
+00:00:00,000 --> 00:00:01,090
+- [Voiceover] We've spent so much trying
+
+2
+00:00:01,090 --> 00:00:04,000
+to basically make sure we have an exact
+
+3
+00:00:04,000 --> 00:00:06,080
+vector replica of the original drawing.
+
+4
+00:00:06,080 --> 00:00:08,050
+Why even bother?
+
+5
+00:00:08,050 --> 00:00:10,040
+If we already have the original drawing,
+
+6
+00:00:10,040 --> 00:00:13,010
+why are we working so hard to turn it into vectors?
+
+7
+00:00:13,010 --> 00:00:15,000
+And the most straightforward answer is,
+
+8
+00:00:15,000 --> 00:00:17,000
+not only have we managed to correct the art,
+
+9
+00:00:17,000 --> 00:00:20,010
+because recall that it used to be a pretty dismal scan
+
+10
+00:00:20,010 --> 00:00:22,030
+in the first place, but the ultimate reason
+
+11
+00:00:22,030 --> 00:00:25,000
+for converting it to vectors is so we can
+
+12
+00:00:25,000 --> 00:00:28,000
+scale the artwork to any size we like.
+
+13
+00:00:28,000 --> 00:00:29,080
+And so let me show you how that works.
+
+14
+00:00:29,080 --> 00:00:31,050
+I'll go ahead and press Control + 0
+
+15
+00:00:31,050 --> 00:00:33,070
+or Command + 0 on a Mac to zoom out,
+
+16
+00:00:33,070 --> 00:00:35,090
+and I'm gonna switch to the Artwork tool.
+
+17
+00:00:35,090 --> 00:00:38,050
+Once again, you can get that by pressing Shift + O,
+
+18
+00:00:38,050 --> 00:00:41,050
+and up here in the control panel I'm gonna click
+
+19
+00:00:41,050 --> 00:00:44,070
+inside the W value there and I'm just gonna enter
+
+20
+00:00:44,070 --> 00:00:48,010
+*10 in order to multiply it times 10,
+
+21
+00:00:48,010 --> 00:00:51,060
+so we go up to 4320 points, and then
+
+22
+00:00:51,060 --> 00:00:53,090
+I'm gonna do the same with the height value,
+
+23
+00:00:53,090 --> 00:00:57,030
+I'll multiply it times 10 by entering *10 there,
+
+24
+00:00:57,030 --> 00:01:00,050
+and then pressing the Tab key, and we get 5400 points.
+
+25
+00:01:00,050 --> 00:01:02,060
+And that is, by the way, if you do the math,
+
+26
+00:01:02,060 --> 00:01:05,080
+five feet wide by six and a quarter feet tall.
+
+27
+00:01:05,080 --> 00:01:07,090
+All right, now I'm gonna press Control + 0
+
+28
+00:01:07,090 --> 00:01:09,090
+or Command + 0 on a Mac to zoom out
+
+29
+00:01:09,090 --> 00:01:13,030
+so you can get a sense of how much bigger this artwork is,
+
+30
+00:01:13,030 --> 00:01:15,050
+and then I'll press the Escape key in order
+
+31
+00:01:15,050 --> 00:01:17,080
+to return control to the black arrow tool.
+
+32
+00:01:17,080 --> 00:01:20,020
+Now press Control + A or Command + A on a Mac
+
+33
+00:01:20,020 --> 00:01:22,090
+to select all of the artwork, and I'll click
+
+34
+00:01:22,090 --> 00:01:25,050
+on the word Transform up here in the control panel,
+
+35
+00:01:25,050 --> 00:01:28,010
+or you may see a W and H value instead,
+
+36
+00:01:28,010 --> 00:01:30,000
+depending on the width of your screen.
+
+37
+00:01:30,000 --> 00:01:31,090
+And I'm gonna make sure both the width
+
+38
+00:01:31,090 --> 00:01:34,040
+and height values are locked into alignment with each other,
+
+39
+00:01:34,040 --> 00:01:36,080
+and I'll click on the W to select that value
+
+40
+00:01:36,080 --> 00:01:39,030
+and I'll change it to 3800 points,
+
+41
+00:01:39,030 --> 00:01:41,050
+and then I'll press the Enter key
+
+42
+00:01:41,050 --> 00:01:44,020
+or the Return key on the Mac to apply that change.
+
+43
+00:01:44,020 --> 00:01:47,000
+And we now have what is by any standard
+
+44
+00:01:47,000 --> 00:01:50,030
+this massive piece of artwork that would have been
+
+45
+00:01:50,030 --> 00:01:52,090
+very difficult to draw in the first place.
+
+46
+00:01:52,090 --> 00:01:55,000
+I don't see how it would have come up with
+
+47
+00:01:55,000 --> 00:01:57,060
+these gestures at all if I were trying to draw
+
+48
+00:01:57,060 --> 00:02:00,030
+something that's actually taller than I am.
+
+49
+00:02:00,030 --> 00:02:03,080
+And yet, if I press Control + 1 or Command + 1 on a Mac,
+
+50
+00:02:03,080 --> 00:02:07,000
+in order to zoom in to 100%, you can see
+
+51
+00:02:07,000 --> 00:02:09,080
+that we have this wonderful detail
+
+52
+00:02:09,080 --> 00:02:13,000
+that we could not achieve in any other way.
+
+53
+00:02:13,000 --> 00:02:15,070
+All right, and just as a finishing touch here,
+
+54
+00:02:15,070 --> 00:02:18,060
+I decided I wanted to thicken up the lines a little bit
+
+55
+00:02:18,060 --> 00:02:21,040
+for the sake of, let's just say my signature,
+
+56
+00:02:21,040 --> 00:02:23,060
+and so I press Control + A once again,
+
+57
+00:02:23,060 --> 00:02:25,080
+Command + A on the Mac to select all the artwork,
+
+58
+00:02:25,080 --> 00:02:28,020
+I press Control + H or Command + H on a Mac
+
+59
+00:02:28,020 --> 00:02:30,020
+just to hide those anchor points,
+
+60
+00:02:30,020 --> 00:02:32,060
+and then I went ahead and changed the line weight
+
+61
+00:02:32,060 --> 00:02:34,090
+up here in the control panel to two points
+
+62
+00:02:34,090 --> 00:02:38,050
+in order to thicken things ever so slightly.
+
+63
+00:02:38,050 --> 00:02:41,000
+And because by default the stroke is centered,
+
+64
+00:02:41,000 --> 00:02:44,000
+we're actually only adding one point of weight
+
+65
+00:02:44,000 --> 00:02:46,090
+to either side of any given line.
+
+66
+00:02:46,090 --> 00:02:49,080
+And that's how you turn a simple piece of line art
+
+67
+00:02:49,080 --> 00:02:53,000
+from the year 1986, a year before Illustrator
+
+68
+00:02:53,000 --> 00:02:55,090
+had even hit the market, into a massive piece
+
+69
+00:02:55,090 --> 00:02:59,090
+of vector-based artwork here inside Illustrator.
+
+70
+01:59:58,000 --> 01:59:59:000
+【本字幕由CGSUB.COM独家制作发布】
+【www.cgsub.com】

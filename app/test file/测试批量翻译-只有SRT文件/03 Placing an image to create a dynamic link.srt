@@ -1,0 +1,552 @@
+﻿1
+00:00:00,000 --> 00:00:02,010
+- [Voiceover] In this movie, I'll show you the other way
+
+2
+00:00:02,010 --> 00:00:04,030
+to get a pixel-based image into Illustrator.
+
+3
+00:00:04,030 --> 00:00:06,090
+And that's to use the 'place' command to create
+
+4
+00:00:06,090 --> 00:00:10,000
+a dynamic link to the image file on disk.
+
+5
+00:00:10,000 --> 00:00:11,080
+So, the first step is to go up to the 'File' menu
+
+6
+00:00:11,080 --> 00:00:14,000
+and choose the 'New' command, or you can press
+
+7
+00:00:14,000 --> 00:00:18,000
+control N here on the PC, or command N on the Mac.
+
+8
+00:00:18,000 --> 00:00:20,030
+And I'm going to go ahead and change the profile
+
+9
+00:00:20,030 --> 00:00:23,040
+to basic RGB, which these days appears to set
+
+10
+00:00:23,040 --> 00:00:25,030
+the orientation to landscape.
+
+11
+00:00:25,030 --> 00:00:27,070
+I'm going to go ahead and switch it to portrait
+
+12
+00:00:27,070 --> 00:00:29,090
+by clicking on this little icon here.
+
+13
+00:00:29,090 --> 00:00:32,020
+And then I'll click OK.
+
+14
+00:00:32,020 --> 00:00:34,070
+Next, what you want to do is go up to the 'File' menu
+
+15
+00:00:34,070 --> 00:00:36,050
+and choose the 'Place' command,
+
+16
+00:00:36,050 --> 00:00:39,020
+which has a keyboard shortcut of control shift P here on
+
+17
+00:00:39,020 --> 00:00:42,040
+the PC, or command shift P on the Mac.
+
+18
+00:00:42,040 --> 00:00:44,080
+Then, locate the image file that you want to import,
+
+19
+00:00:44,080 --> 00:00:46,050
+and click on the 'place' button.
+
+20
+00:00:46,050 --> 00:00:49,030
+Now, that goes ahead and loads your cursor with the image.
+
+21
+00:00:49,030 --> 00:00:51,020
+At this point, you want to be very careful that
+
+22
+00:00:51,020 --> 00:00:53,050
+you click instead of drag.
+
+23
+00:00:53,050 --> 00:00:55,050
+If you drag with the cursor, you will scale
+
+24
+00:00:55,050 --> 00:00:57,030
+the image as you import it.
+
+25
+00:00:57,030 --> 00:00:59,080
+And that is generally not something you want to do,
+
+26
+00:00:59,080 --> 00:01:03,030
+especially when tracing images inside Illustrator.
+
+27
+00:01:03,030 --> 00:01:05,090
+So just go ahead and click, and you'll import the
+
+28
+00:01:05,090 --> 00:01:07,070
+full-sized image.
+
+29
+00:01:07,070 --> 00:01:09,070
+All right, now assuming that you want to scale the
+
+30
+00:01:09,070 --> 00:01:12,020
+artboard to match the image, go ahead and switch
+
+31
+00:01:12,020 --> 00:01:14,020
+to the artboard tool, which once again you can get
+
+32
+00:01:14,020 --> 00:01:16,020
+by pressing shift O.
+
+33
+00:01:16,020 --> 00:01:18,060
+And then, assuming that you have your smart guides
+
+34
+00:01:18,060 --> 00:01:21,030
+turned on, just go ahead and drag the top left
+
+35
+00:01:21,030 --> 00:01:24,030
+and bottom right corners so they snap into alignment
+
+36
+00:01:24,030 --> 00:01:26,090
+with the image and then you can press the escape key
+
+37
+00:01:26,090 --> 00:01:28,090
+to exit the artboard mode.
+
+38
+00:01:28,090 --> 00:01:30,090
+All right, now go ahead and press control zero or
+
+39
+00:01:30,090 --> 00:01:33,000
+command zero on a Mac to zoom in.
+
+40
+00:01:33,000 --> 00:01:35,000
+Now, let's take a look at a few key differences when
+
+41
+00:01:35,000 --> 00:01:38,060
+working with linked images as opposed to embedded ones.
+
+42
+00:01:38,060 --> 00:01:41,010
+Notice I once again have this link up here that
+
+43
+00:01:41,010 --> 00:01:43,050
+tells me the name of the original file on disk,
+
+44
+00:01:43,050 --> 00:01:46,040
+but if I click on it, I bring up a whole slew of
+
+45
+00:01:46,040 --> 00:01:49,010
+options including edit original.
+
+46
+00:01:49,010 --> 00:01:50,080
+And this one is very important.
+
+47
+00:01:50,080 --> 00:01:53,020
+If I choose this command, then Illustrator will
+
+48
+00:01:53,020 --> 00:01:55,050
+go ahead and switch me back to Photoshop,
+
+49
+00:01:55,050 --> 00:01:58,010
+at which point if I make a modification as I did
+
+50
+00:01:58,010 --> 00:02:00,090
+in the previous movie, or I go to the 'Image' menu
+
+51
+00:02:00,090 --> 00:02:03,010
+choose 'Image Rotation' and choose 'Flip Canvas
+
+52
+00:02:03,010 --> 00:02:06,020
+Horizontal,' and then go to the 'File' menu and
+
+53
+00:02:06,020 --> 00:02:09,020
+choose the 'Save' command to update the file on disk.
+
+54
+00:02:09,020 --> 00:02:11,090
+Now if I go ahead and switch back to Illustrator,
+
+55
+00:02:11,090 --> 00:02:15,000
+notice that Illustrator is aware of the modifications,
+
+56
+00:02:15,000 --> 00:02:18,020
+and asks me if I would like to update the image.
+
+57
+00:02:18,020 --> 00:02:20,070
+At which point if I click yes, then I'm going to see
+
+58
+00:02:20,070 --> 00:02:24,050
+that update occur inside Illustrator.
+
+59
+00:02:24,050 --> 00:02:26,060
+This isn't really what I want, however, so I'll
+
+60
+00:02:26,060 --> 00:02:29,030
+go ahead and choose that command again, or I could
+
+61
+00:02:29,030 --> 00:02:31,080
+just click on the 'Edit Original' button up here
+
+62
+00:02:31,080 --> 00:02:33,020
+in the control panel.
+
+63
+00:02:33,020 --> 00:02:35,010
+And I'll go up to the 'Edit' menu and choose
+
+64
+00:02:35,010 --> 00:02:37,060
+'Step Backward' in order to turn the image to its
+
+65
+00:02:37,060 --> 00:02:40,050
+original appearance and then I will once again choose
+
+66
+00:02:40,050 --> 00:02:42,080
+the 'Save' command from the 'File' menu, after which
+
+67
+00:02:42,080 --> 00:02:46,000
+point I'll go ahead and switch to Illustrator.
+
+68
+00:02:46,000 --> 00:02:48,030
+Now, let's say I say no, that I don't want
+
+69
+00:02:48,030 --> 00:02:50,020
+to update my changes.
+
+70
+00:02:50,020 --> 00:02:53,050
+I can always update the changes later on by clicking
+
+71
+00:02:53,050 --> 00:02:56,000
+on this link up here in the control panel once again
+
+72
+00:02:56,000 --> 00:02:59,040
+and choosing 'Update Link' in order to reflect the
+
+73
+00:02:59,040 --> 00:03:02,070
+modifications that I made in Photoshop.
+
+74
+00:03:02,070 --> 00:03:05,060
+Another subtle advantage to working this way is that
+
+75
+00:03:05,060 --> 00:03:08,080
+Illustrator has gone ahead and populated my swatches
+
+76
+00:03:08,080 --> 00:03:11,040
+panel, as we are seeing up here in the upper right
+
+77
+00:03:11,040 --> 00:03:12,050
+corner of the screen.
+
+78
+00:03:12,050 --> 00:03:14,020
+And of course if you're not seeing your swatches
+
+79
+00:03:14,020 --> 00:03:16,040
+panel, you can just go to the 'Window' menu,
+
+80
+00:03:16,040 --> 00:03:20,030
+choose the 'Swatches' command, which for me is located
+
+81
+00:03:20,030 --> 00:03:21,090
+way down here.
+
+82
+00:03:21,090 --> 00:03:24,060
+And of course if you can't see your swatches panel,
+
+83
+00:03:24,060 --> 00:03:26,050
+you can go up to the 'Window' menu and choose the
+
+84
+00:03:26,050 --> 00:03:28,020
+'Swatches' command.
+
+85
+00:03:28,020 --> 00:03:30,010
+Compare that to what happens when you open
+
+86
+00:03:30,010 --> 00:03:31,040
+an image directly.
+
+87
+00:03:31,040 --> 00:03:33,060
+Notice over here in the swatches panel,
+
+88
+00:03:33,060 --> 00:03:37,000
+we have just none and the registration swatch.
+
+89
+00:03:37,000 --> 00:03:38,090
+If you want more, you'd have to click on the
+
+90
+00:03:38,090 --> 00:03:41,000
+little library icon in the bottom left corner
+
+91
+00:03:41,000 --> 00:03:43,080
+of the swatches panel, choose 'Default Swatches,'
+
+92
+00:03:43,080 --> 00:03:46,090
+and then choose 'Basic RGB,' and then you'd have
+
+93
+00:03:46,090 --> 00:03:49,070
+to go ahead and select all these guys by clicking
+
+94
+00:03:49,070 --> 00:03:51,090
+on the last swatch, shift clicking on the first one
+
+95
+00:03:51,090 --> 00:03:55,000
+and then dragging them and dropping them
+
+96
+00:03:55,000 --> 00:03:56,090
+into the swatches panel.
+
+97
+00:03:56,090 --> 00:03:58,070
+So, you can still get to those swatches,
+
+98
+00:03:58,070 --> 00:04:00,030
+but it takes an extra step.
+
+99
+00:04:00,030 --> 00:04:02,070
+And then finally I want you to see when you select
+
+100
+00:04:02,070 --> 00:04:05,000
+an embedded image by clicking on it, you see a
+
+101
+00:04:05,000 --> 00:04:07,050
+selection outline around the outer edge.
+
+102
+00:04:07,050 --> 00:04:09,090
+Whereas, when you click on a linked image,
+
+103
+00:04:09,090 --> 00:04:12,070
+it's an X through the center of it as well.
+
+104
+00:04:12,070 --> 00:04:14,070
+Now, if you ever change your mind, you do have
+
+105
+00:04:14,070 --> 00:04:15,080
+an embed button.
+
+106
+00:04:15,080 --> 00:04:17,070
+So you can just go ahead and click on it to
+
+107
+00:04:17,070 --> 00:04:20,050
+embed that image, and you will lose the X.
+
+108
+00:04:20,050 --> 00:04:22,030
+That's not what I want, however, because that would
+
+109
+00:04:22,030 --> 00:04:25,020
+break the dynamic link to the image file on disk.
+
+110
+00:04:25,020 --> 00:04:27,010
+So I'll just go ahead and press control Z,
+
+111
+00:04:27,010 --> 00:04:30,010
+or command Z on the Mac to undo that change.
+
+112
+00:04:30,010 --> 00:04:31,090
+And then, finally, a little bit of housekeeping here
+
+113
+00:04:31,090 --> 00:04:33,060
+inside the layers panel.
+
+114
+00:04:33,060 --> 00:04:35,040
+I'm going to click on the flyout menu icon in the
+
+115
+00:04:35,040 --> 00:04:38,090
+upper left corner, and choose 'Panel Options'.
+
+116
+00:04:38,090 --> 00:04:41,040
+And then I'll go ahead and increase this row size
+
+117
+00:04:41,040 --> 00:04:44,040
+value to other and I want it to be 70 pixels
+
+118
+00:04:44,040 --> 00:04:47,010
+so I can actually see what's going on inside
+
+119
+00:04:47,010 --> 00:04:50,010
+the panel there so that I have larger previews.
+
+120
+00:04:50,010 --> 00:04:52,070
+And then, I'll just go ahead and rename this layer
+
+121
+00:04:52,070 --> 00:04:55,020
+tracing, let's say, and press the enter key,
+
+122
+00:04:55,020 --> 00:04:58,060
+or the return key on the Mac, to apply that change.
+
+123
+00:04:58,060 --> 00:05:01,050
+Finally, I'm going to twirl this guy open,
+
+124
+00:05:01,050 --> 00:05:04,040
+and I'm going to rename this image 300 ppi.
+
+125
+00:05:04,040 --> 00:05:06,080
+And by the way, ppi stands for the resolution of
+
+126
+00:05:06,080 --> 00:05:10,050
+this image, which is 300 pixels per inch.
+
+127
+00:05:10,050 --> 00:05:12,070
+And you can see that reflected up here in the
+
+128
+00:05:12,070 --> 00:05:14,040
+control panel as well.
+
+129
+00:05:14,040 --> 00:05:17,000
+And that will become very important in the next movie
+
+130
+00:05:17,000 --> 00:05:20,050
+when we discuss how to autotrace the image.
+
+131
+00:05:20,050 --> 00:05:23,010
+And that is the difference between linking to an
+
+132
+00:05:23,010 --> 00:05:25,050
+image file on disk using the place command
+
+133
+00:05:25,050 --> 00:05:28,080
+versus embedding the image using the open command.
+
+134
+00:05:28,080 --> 00:05:31,050
+And the last piece of good news is that this file
+
+135
+00:05:31,050 --> 00:05:34,030
+with the linked image is about half as big
+
+136
+00:05:34,030 --> 00:05:36,080
+as the one with the embedded image.
+
+137
+00:05:36,080 --> 00:05:40,040
+And so you have a more efficient workflow as well.
+
+138
+01:59:58,000 --> 01:59:59:000
+【本字幕由CGSUB.COM独家制作发布】
+【www.cgsub.com】

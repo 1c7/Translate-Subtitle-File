@@ -1,0 +1,132 @@
+﻿1
+00:00:00,080 --> 00:00:02,040
+- We're going to start things off with one of my
+
+2
+00:00:02,040 --> 00:00:04,070
+favorite features in Illustrator which goes
+
+3
+00:00:04,070 --> 00:00:07,040
+by the unassuming name Image Trace.
+
+4
+00:00:07,040 --> 00:00:10,010
+Among other things, it can trace scanned line art.
+
+5
+00:00:10,010 --> 00:00:11,060
+Meaning that you can take something
+
+6
+00:00:11,060 --> 00:00:13,040
+made with traditional tools,
+
+7
+00:00:13,040 --> 00:00:15,050
+things like pens and pieces of paper,
+
+8
+00:00:15,050 --> 00:00:17,050
+and then scan or photograph it,
+
+9
+00:00:17,050 --> 00:00:20,080
+and convert it to vectors inside illustrator.
+
+10
+00:00:20,080 --> 00:00:23,060
+In this chapter, I'll walk you through three scenarios.
+
+11
+00:00:23,060 --> 00:00:25,050
+We'll start with this pen and ink portrait
+
+12
+00:00:25,050 --> 00:00:29,030
+that I drew for a local newspaper article back in 1986,
+
+13
+00:00:29,030 --> 00:00:32,000
+a year before Illustrator started shipping.
+
+14
+00:00:32,000 --> 00:00:34,000
+Not only does this prove that something very
+
+15
+00:00:34,000 --> 00:00:37,020
+old can be come very new in a matter of minutes,
+
+16
+00:00:37,020 --> 00:00:39,070
+but it also means that you can start with conventional
+
+17
+00:00:39,070 --> 00:00:42,010
+tools, and end with technically impeccable
+
+18
+00:00:42,010 --> 00:00:45,030
+vector-based path outlines that you can refine,
+
+19
+00:00:45,030 --> 00:00:47,040
+and later scale to any size.
+
+20
+00:00:47,040 --> 00:00:49,090
+Near the end I'll show you how to trace a casual,
+
+21
+00:00:49,090 --> 00:00:53,010
+if preposterous, pencil sketch with open pass
+
+22
+00:00:53,010 --> 00:00:55,020
+and uniformly weighted strokes.
+
+23
+00:00:55,020 --> 00:00:57,070
+Then we'll wrap things up by tracing one of the most
+
+24
+00:00:57,070 --> 00:00:59,080
+famous line drawings of all time,
+
+25
+00:00:59,080 --> 00:01:03,020
+Albrecht Durer's 16th century Rhinoceros.
+
+26
+00:01:03,020 --> 00:01:05,070
+The finished result is a combination of fills
+
+27
+00:01:05,070 --> 00:01:09,000
+and strokes that demonstrates in high resolution
+
+28
+00:01:09,000 --> 00:01:12,020
+detail why Durer's is in fact the original
+
+29
+00:01:12,020 --> 00:01:14,020
+preposterous rhinoceros.
+
+30
+00:01:14,020 --> 00:01:17,080
+Crazy classical artwork meets Space Age drawing program,
+
+31
+00:01:17,080 --> 00:01:20,070
+that's how we get the party started in the far-flung,
+
+32
+00:01:20,070 --> 00:01:24,080
+futuristic world of Illustrator One-on-One: Advanced.
+
+33
+01:59:58,000 --> 01:59:59:000
+【本字幕由CGSUB.COM独家制作发布】
+【www.cgsub.com】

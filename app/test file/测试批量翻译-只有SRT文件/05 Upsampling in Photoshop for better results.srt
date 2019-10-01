@@ -1,0 +1,408 @@
+﻿1
+00:00:00,060 --> 00:00:02,010
+- [Voiceover] In this movie, I'll show you
+
+2
+00:00:02,010 --> 00:00:04,000
+how you can get still better results
+
+3
+00:00:04,000 --> 00:00:06,010
+out of Illustrator's auto-tracing feature,
+
+4
+00:00:06,010 --> 00:00:09,050
+by first upsampling the image to a higher resolution
+
+5
+00:00:09,050 --> 00:00:11,050
+inside Photoshop.
+
+6
+00:00:11,050 --> 00:00:13,070
+So I'm going to start by switching from Illustrator
+
+7
+00:00:13,070 --> 00:00:16,070
+to Photoshop, and then I'll go up to the image menu
+
+8
+00:00:16,070 --> 00:00:19,040
+and choose the Image Size command.
+
+9
+00:00:19,040 --> 00:00:22,010
+Now one of the great things about this dialog box these days
+
+10
+00:00:22,010 --> 00:00:25,010
+is that it's scalable, so I'm going to make it take up
+
+11
+00:00:25,010 --> 00:00:29,040
+the entire screen and that way I can see a big preview
+
+12
+00:00:29,040 --> 00:00:31,000
+of my image as I work on it.
+
+13
+00:00:31,000 --> 00:00:33,030
+Now, notice over here we're seeing a resolution value
+
+14
+00:00:33,030 --> 00:00:35,020
+of 300 pixels per inch.
+
+15
+00:00:35,020 --> 00:00:37,090
+Ideally, if I wanted a higher resolution,
+
+16
+00:00:37,090 --> 00:00:40,070
+I would have scanned the image at a higher resolution
+
+17
+00:00:40,070 --> 00:00:42,010
+in the first place.
+
+18
+00:00:42,010 --> 00:00:44,090
+Unfortunately, the scanner I used, as I was saying,
+
+19
+00:00:44,090 --> 00:00:47,070
+it's just a consumer-grade office scanner, tops out
+
+20
+00:00:47,070 --> 00:00:49,080
+at 300 pixels per inch.
+
+21
+00:00:49,080 --> 00:00:52,030
+You just can't get any more fidelity out of it.
+
+22
+00:00:52,030 --> 00:00:56,090
+Fortunately, Photoshop CC is very good at upsampling
+
+23
+00:00:56,090 --> 00:01:00,020
+these days, and so to add pixels to an image,
+
+24
+00:01:00,020 --> 00:01:02,010
+you turn on the resample checkbox,
+
+25
+00:01:02,010 --> 00:01:05,020
+go ahead and make sure the setting is automatic,
+
+26
+00:01:05,020 --> 00:01:07,090
+and then crank the resolution value up
+
+27
+00:01:07,090 --> 00:01:09,030
+to whatever it is you want,
+
+28
+00:01:09,030 --> 00:01:13,000
+in my case, I'm going to go up to 600 pixels per inch,
+
+29
+00:01:13,000 --> 00:01:15,090
+which is going to double the number of pixels horizontally,
+
+30
+00:01:15,090 --> 00:01:18,070
+as well as double the number of pixels vertically,
+
+31
+00:01:18,070 --> 00:01:23,060
+so that we have four times as many pixels as we had before.
+
+32
+00:01:23,060 --> 00:01:26,020
+At which point, I'll go ahead and click the okay button
+
+33
+00:01:26,020 --> 00:01:28,090
+in order to upsample that image.
+
+34
+00:01:28,090 --> 00:01:31,060
+Now, it may take a moment in order to apply the change,
+
+35
+00:01:31,060 --> 00:01:34,020
+after which point, I'll go up to the File menu
+
+36
+00:01:34,020 --> 00:01:36,020
+and choose the Save As command,
+
+37
+00:01:36,020 --> 00:01:41,040
+and I ended up saving this file as Upsampled to 600 ppi.jpg
+
+38
+00:01:41,040 --> 00:01:43,040
+because I'm working with the JPEG format,
+
+39
+00:01:43,040 --> 00:01:46,060
+and I'll even just go ahead and save over my original image
+
+40
+00:01:46,060 --> 00:01:49,040
+by clicking on the Save button, followed by Yes.
+
+41
+00:01:49,040 --> 00:01:52,060
+You always want to make sure your JPEG options
+
+42
+00:01:52,060 --> 00:01:55,010
+are cranked up to the highest quality, which is 12,
+
+43
+00:01:55,010 --> 00:01:58,010
+and if you set your format options to Baseline Optimized
+
+44
+00:01:58,010 --> 00:02:01,030
+you'll generally get a slightly smaller file,
+
+45
+00:02:01,030 --> 00:02:03,010
+at which point, go ahead and click okay
+
+46
+00:02:03,010 --> 00:02:05,060
+in order to save that image.
+
+47
+00:02:05,060 --> 00:02:07,030
+Now I'll return to Illustrator.
+
+48
+00:02:07,030 --> 00:02:10,070
+To be safe, make sure that nothing is selected on screen,
+
+49
+00:02:10,070 --> 00:02:13,000
+and then once again go to the File menu
+
+50
+00:02:13,000 --> 00:02:14,080
+and choose the Place command,
+
+51
+00:02:14,080 --> 00:02:17,050
+or you've got that keyboard shortcut of control shift P,
+
+52
+00:02:17,050 --> 00:02:19,080
+or command shift P on the Mac.
+
+53
+00:02:19,080 --> 00:02:22,050
+Then, I'll go ahead and locate that file I just created
+
+54
+00:02:22,050 --> 00:02:25,000
+and I'll click on the Place button in order to
+
+55
+00:02:25,000 --> 00:02:26,050
+load my cursor with the image,
+
+56
+00:02:26,050 --> 00:02:28,030
+and I'll just go ahead and click,
+
+57
+00:02:28,030 --> 00:02:31,060
+not drag, with the cursor in order to place the image
+
+58
+00:02:31,060 --> 00:02:33,010
+at its full size.
+
+59
+00:02:33,010 --> 00:02:35,060
+And now, I'll just go ahead and drag it into place,
+
+60
+00:02:35,060 --> 00:02:37,080
+and assuming that your smart guides are turned on,
+
+61
+00:02:37,080 --> 00:02:40,020
+it should snap into perfect alignment.
+
+62
+00:02:40,020 --> 00:02:42,070
+Alright now, go ahead and zoom in just a little bit
+
+63
+00:02:42,070 --> 00:02:45,010
+and I'll return to the Image Trace button
+
+64
+00:02:45,010 --> 00:02:47,000
+and just go ahead and click on it.
+
+65
+00:02:47,000 --> 00:02:50,010
+At which point, of course, Illustrator will warn me
+
+66
+00:02:50,010 --> 00:02:51,080
+that this is gonna take a while to trace,
+
+67
+00:02:51,080 --> 00:02:54,060
+because after all, I'm working in a higher resolution.
+
+68
+00:02:54,060 --> 00:02:56,000
+But that's what we want.
+
+69
+00:02:56,000 --> 00:02:58,010
+You may at this point want to turn on the Don't show again
+
+70
+00:02:58,010 --> 00:03:00,060
+checkbox so you're not reminded of this bad advice
+
+71
+00:03:00,060 --> 00:03:04,010
+in the future, after which point, go ahead and click okay
+
+72
+00:03:04,010 --> 00:03:06,040
+in order to begin the trace.
+
+73
+00:03:06,040 --> 00:03:08,050
+And it is gonna take a few moments here,
+
+74
+00:03:08,050 --> 00:03:11,030
+you are gonna see one or two progress bars go by,
+
+75
+00:03:11,030 --> 00:03:14,020
+after which point, I'll just go ahead and zoom in,
+
+76
+00:03:14,020 --> 00:03:16,060
+and I'll click off the image to deselect it,
+
+77
+00:03:16,060 --> 00:03:18,060
+and now let's take a look at the difference
+
+78
+00:03:18,060 --> 00:03:20,060
+between the higher resolution scan
+
+79
+00:03:20,060 --> 00:03:22,060
+and the lower res scan.
+
+80
+00:03:22,060 --> 00:03:24,030
+And it's probably gonna make a little more sense
+
+81
+00:03:24,030 --> 00:03:25,080
+if I zoom in a little farther.
+
+82
+00:03:25,080 --> 00:03:28,060
+This is the tracing of the 300 pixel per inch image,
+
+83
+00:03:28,060 --> 00:03:32,060
+and this is the tracing of the 600 pixel per inch image.
+
+84
+00:03:32,060 --> 00:03:36,010
+And as you can see, we get more fidelity in this tracing,
+
+85
+00:03:36,010 --> 00:03:38,060
+we have a lot more lines to work with.
+
+86
+00:03:38,060 --> 00:03:41,000
+And it's especially noticeable down here
+
+87
+00:03:41,000 --> 00:03:42,080
+where we've got some words.
+
+88
+00:03:42,080 --> 00:03:45,000
+This is the 300 pixel per inch version,
+
+89
+00:03:45,000 --> 00:03:48,040
+versus the 600 pixel per inch version.
+
+90
+00:03:48,040 --> 00:03:50,060
+And so you can make that kind of difference
+
+91
+00:03:50,060 --> 00:03:54,020
+just by upsampling the image inside Photoshop
+
+92
+00:03:54,020 --> 00:03:57,060
+before you trace it in Illustrator, after which point,
+
+93
+00:03:57,060 --> 00:04:00,010
+I'll go ahead and rename this newest tracing
+
+94
+00:04:00,010 --> 00:04:02,050
+600 ppi and press the enter key,
+
+95
+00:04:02,050 --> 00:04:05,090
+or the return key on the Mac, to accept that change.
+
+96
+00:04:05,090 --> 00:04:08,020
+Alright, and just to be safe, I'll go ahead and turn off
+
+97
+00:04:08,020 --> 00:04:11,000
+the 300 ppi version of the image.
+
+98
+00:04:11,000 --> 00:04:14,000
+Alright so we are making some very positive modifications
+
+99
+00:04:14,000 --> 00:04:16,070
+to this tracing, but we can do better still
+
+100
+00:04:16,070 --> 00:04:19,010
+with the fragile details by adjusting
+
+101
+00:04:19,010 --> 00:04:23,020
+the threshold setting, as I'll show you in the next movie.
+
+102
+01:59:58,000 --> 01:59:59:000
+【本字幕由CGSUB.COM独家制作发布】
+【www.cgsub.com】
