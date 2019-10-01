@@ -70,11 +70,6 @@ li {
 #selected-file-area{
   height: 100vh;
   padding: 26px 10%;
-  /* border-radius: 1px; */
-  /* border: 1px solid black; */
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
   width: 100%;
   margin: 0 auto;
   overflow: auto;
@@ -95,7 +90,7 @@ li {
 .file-box.waiting {
   background-color: #efefef;
 }
-.file-box.padding {
+.file-box.pending {
   background-color: #fff4a2;
 }
 .file-box.success {
@@ -241,23 +236,19 @@ li {
   background-position: bottom;
   background-size: 2px 11px;
   background-repeat: repeat-y;
-  /*background-color:red;*/
 }
 
 .leftright:before {
   content: ' ';
   position: absolute;
-  /* bottom: 0; */
   top: 0;
   right: 0px;
   height: 100%;
   width: 2px;
-  /* background-color: #f00; */
   background-image: linear-gradient(to top, #7f7f7f 70%, rgba(255, 255, 255, 0) 0%);
   background-position: bottom;
   background-size: 2px 11px;
   background-repeat: repeat-y;
-  /*background-color:red;*/
 }
 
 .topbottom:before {
@@ -272,7 +263,6 @@ li {
   background-position: bottom;
   background-size: 11px 2px;
   background-repeat: repeat-x;
-  /* background-color:red; */
 }
 
 .topbottom:after {
@@ -287,7 +277,6 @@ li {
   background-position: top;
   background-size: 11px 2px;
   background-repeat: repeat-x;
-  /* background-color:red; */
 }
 
 .translate-setting {
@@ -313,6 +302,8 @@ button {
   border: none;
   border-radius: 5px;
   padding: 5px 20px;
+  user-select: none;
+  outline: none;
 }
 
 /* 编辑页面 */
