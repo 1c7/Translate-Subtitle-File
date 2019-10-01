@@ -14,13 +14,14 @@
   * `config.js`  配置文件
   * `common.js`  常用函数
   * `translate_api.js` 翻译 API
-  * `view.js` 页面会载入的 js，监听点击事件等
+  * `index.js` 页面会载入的 js，监听点击事件等
 
 
 ## 技术栈
-* Electron 6.0
-* jQuery 3.4
-* Vue
+* Node 12.11.0
+* Electron 6.0.10
+* jQuery 3.4.1
+* Vue 2.6.10
 
 
 ## 本地开发
