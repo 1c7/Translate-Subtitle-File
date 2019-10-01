@@ -36,6 +36,7 @@ li {
   padding: 26px 32px;;
   border-radius: 2px;
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  cursor: pointer;
 }
 #hint:hover{
   background: #E9E9E9;
@@ -69,7 +70,7 @@ li {
 }
 #selected-file-area{
   height: 100vh;
-  padding: 26px 10%;
+  padding: 26px 7%;
   width: 100%;
   margin: 0 auto;
   overflow: auto;
@@ -150,7 +151,6 @@ li {
 
 #dropzone {
   height: 100vh;
-  /* width: 695px; */
   width: 100%;
   display: flex;
   justify-content: center;
@@ -162,7 +162,6 @@ li {
   color: transparent;
   /* font-size: 40px; */
   /* text-shadow: 1px 1px 0.08px rgba(0, 0, 0, 0.1); */
-  cursor: pointer;
 }
 
 @keyframes move-top {
@@ -281,7 +280,7 @@ li {
 
 .translate-setting {
   font-size: 16px;
-  margin-bottom: 15px;
+  margin-bottom: 27px;
 }
 .translate-setting select {
   font-size: 14px;
@@ -315,16 +314,12 @@ button {
 .editing-wrap .header {
   margin-bottom: 25px;
 }
-.editing-wrap button {
-}
 
 .editing-main .edit-item {
   border: 1px solid #eee;
   margin-bottom: 15px;
 }
-.editing-main .compare {
-  
-}
+
 .editing-main .edit-item .top {
   font-size: 13px;
   height: 25px;
@@ -431,11 +426,14 @@ button {
 .editing-main .edit-item input, .editing-main .edit-item textarea {
   border: 1px solid #bbb;
   border-radius: 5px;
-  /* height: 35px; */
   padding: 0 5px;
   width: 100%;
 }
 .editing-main .edit-item textarea {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+.network_condition{
+  padding: 10px 16px;
 }
