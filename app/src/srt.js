@@ -45,7 +45,6 @@ function translate(content, to, from, selApi) {
       } else {
         strs = bat.result.replace(/%0A|%\s0A/g, '').split(/\n/)
       }
-      console.log(strs.length, bat.includes.length)
       const items = bat.includes.map((block, index) => ({
         endTime: block.endTime,
         startTime: block.startTime,
