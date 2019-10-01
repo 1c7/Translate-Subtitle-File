@@ -1,8 +1,9 @@
 const fs = require('fs')
 const { promisify } = require('util')
-const {google, baidu, sogou} = require('./translate_api.js');
+const { google, baidu, sogou } = require('./translate_api.js');
 // 公用函数，如清理换行，返回文件后缀等
 
+// 删除 tag, 保留内容
 // Remove all tag, but keep text inside tag.
 // Code from: https://stackoverflow.com/questions/5002111/javascript-how-to-strip-html-tags-from-string
 // Input: <font color="#3399CC">Subtitles by </font><font color="ffffff">MemoryOnSmells</font>
@@ -14,10 +15,12 @@ function remove_tag_keep_text(str) {
   return text;
 }
 
+// 获得文件名后缀
 function get_suffix(filename) {
   return filename.split('.').pop()
 }
 
+// 给人类看的文件名大小
 function properFileSize(fileSizeInBytes) {
   var i = -1;
   var byteUnits = [' kB', ' MB', ' GB', ' TB', 'PB', 'EB', 'ZB', 'YB'];
@@ -28,6 +31,7 @@ function properFileSize(fileSizeInBytes) {
   return Math.max(fileSizeInBytes, 0.1).toFixed(1) + byteUnits[i];
 }
 
+// 下载文件
 function downloadFile(content, filePath) {
   return promisify(fs.writeFile)(filePath, content)
 }
@@ -36,8 +40,8 @@ function deepClone(obj) {
   return JSON.parse(JSON.stringify(obj))
 }
 
-function translateApi (selApi, bat, to, from) {
-  if (selApi === 'google') {
+function translateApi (selectedAPI, bat, to, from) {
+  if (selectedAPI === 'google') {
     return google(bat.content, to, from).then(res => {
       bat.result = res.dist
       return bat
@@ -46,7 +50,7 @@ function translateApi (selApi, bat, to, from) {
       bat.result = ''
       return bat
     })
-  } else if (selApi === 'baidu'){
+  } else if (selectedAPI === 'baidu'){
     return baidu(bat.content, to, from).then(res => {
       console.log(res);
       bat.result = res.dist
