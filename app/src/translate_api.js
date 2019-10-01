@@ -1,6 +1,6 @@
 const translate = require('google-baidu-translate-api')
 const SogouTranslate = require('sogou-translate');
-const sogou = new SogouTranslate('c86ad6900b177666166f609b55135c75', '8cec7d6e04183750aba6ae00811bfd37');
+const sogou = new SogouTranslate('', '');
 // TODO: 这里的 key 和 secret 在正式发布之前需要去掉，这是别人的
 
 exports.translate = translate
