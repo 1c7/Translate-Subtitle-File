@@ -3,9 +3,8 @@ const common = require('./common.js');
 const config = require('./config.js');
 
 function translate(content, to, from, selApi) {
-  console.log('进入 srt translate');
   const data = parser.fromSrt(content);
-  const lastID = data[data.length - 1].id
+  const lastID = data[data.length - 1].id // 最后一个 id
 
   // 翻译分组批量翻译，快凑齐了 config.LENGTH_LIMIT_PER_REQUEST: 5000 字符数时一起翻译
   const batchs = data.reduce((batch, block) => {
@@ -63,11 +62,11 @@ function translate(content, to, from, selApi) {
   })
 }
 
+// 导出翻译结果
 function exportContent(data) {
   const origin = common.deepClone(data.parse)
   const srtData = origin.concat(data.translateData)
   const content = parser.toSrt(srtData)
-  // console.log(content)
   return content
 }
 
