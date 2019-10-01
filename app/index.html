@@ -65,19 +65,16 @@
     <div class="dropzone-wrapper"
       v-if='!files.length && !editing'
       @drop="process_file($event)"
-      @dragover.prevent
-      :class="{animate: movingenter}"
-      @mouseenter="movingenter = true"
-      @mouseleave="movingenter = false">
-      <!-- animate border -->
-      <div class='topbottom'></div>
-      <div class='leftright'></div>
+      @dragover.prevent>
+<!--      <div class="network_condition">-->
+<!--        网络状况(连谷歌翻译): 尝试中 | 失败 | 成功-->
+<!--      </div>-->
       <!-- 提示选择文件区 -->
       <div id="dropzone">
         <div id='hint' @click="toSelect">
           <div id='image'>
-            <img src="./assets/img/srt logo.png" alt="srt logo">
-            <img src="./assets/img/ass logo.png" alt="ass logo" style='margin-left:48px;'>
+            <img src="assets/img/srt%20logo.png" alt="srt logo">
+            <img src="assets/img/ass%20logo.png" alt="ass logo" style='margin-left:48px;'>
           </div>
           <div id='text'>
             <div class='main-title'>
