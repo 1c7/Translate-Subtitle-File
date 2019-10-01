@@ -16,13 +16,11 @@
   * `translate_api.js` 翻译 API
   * `index.js` 页面会载入的 js，监听点击事件等
 
-
 ## 技术栈
 * Node 12.11.0
 * Electron 6.0.10
 * jQuery 3.4.1
 * Vue 2.6.10
-
 
 ## 本地开发
 ```
@@ -72,3 +70,13 @@ because translation is not the same every time, it can only test by hand
 因为这个软件是一个免费小工具，所以一切从简。    
 不用什么 Vue 全家桶或者 React+Redux/Angular/Ember 等工具。只有当这个软件进化到需要这些工具的时候才用   
 目前仅浅浅的用了 jQuery 和 Vue。    
+
+
+
+## 代码里有太多的 type == srt, type == ass，太烦了，看看怎么去掉
+转成一个统一的界面，然后代码只需要管翻译，具体什么类型不用在乎
+
+
+
+
+
