@@ -1,3 +1,26 @@
-/node_modules
-/dist
-**/.DS_Store
+
+# Build folder and files #
+##########################
+builds/
+
+# Development folders and files #
+#################################
+dist/
+node_modules/
+
+# Log files & folders #
+#######################
+logs/
+*.log
+npm-debug.log*
+.npm
+
+# Windows & Mac file caches #
+#############################
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Windows shortcuts #
+#####################
+*.lnk
