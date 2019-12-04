@@ -1,7 +1,17 @@
 ## 字幕组机翻小助手 :fire:（使用谷歌翻译）（请自备翻墙工具）    
+
+## 当前 0.0.1 界面
 <img src="./image/1.png" alt="how the app look like" width="580">
 
 视频演示（14秒）：https://www.bilibili.com/video/av23158962
+
+## 新版 1.0.2 界面(开发中)
+<img src="./image/v2.png">
+
+* 界面重新设计
+* 使用谷歌翻译 API (收费)
+* 解决了上一版翻译不稳定的问题
+
 
 ## 解决什么问题?
 用机器翻译整个字幕文件。用户只需要把文件拖进去即可。
