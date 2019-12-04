@@ -1,5 +1,5 @@
 ## 字幕组机翻小助手 :fire:（使用谷歌翻译）（请自备翻墙工具）    
-<img src="./app/image/1.png" alt="how the app look like" width="580">
+<img src="./image/1.png" alt="how the app look like" width="580">
 
 视频演示（14秒）：https://www.bilibili.com/video/av23158962
 

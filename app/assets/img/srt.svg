@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-    <g fill="none" fill-rule="evenodd">
-        <rect width="48" height="48" fill="#708A9F" rx="1"/>
-        <path fill="#FFF" d="M16.5 12a2.507 2.507 0 0 0-2.5 2.5v20c0 1.375 1.125 2.5 2.5 2.5h15c1.375 0 2.5-1.125 2.5-2.5v-15L26.5 12h-10z"/>
-        <text fill="#708A9F" font-family="PingFangSC-Regular, PingFang SC" font-size="10" transform="translate(14 12)">
-            <tspan x="4" y="17">srt</tspan>
-        </text>
-    </g>
-</svg>

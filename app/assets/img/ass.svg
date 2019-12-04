@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-    <g fill="none" fill-rule="evenodd">
-        <path fill="#FF7E7E" d="M0 0h48v48H0z"/>
-        <path fill="#FFF" d="M16.5 12a2.507 2.507 0 0 0-2.5 2.5v20c0 1.375 1.125 2.5 2.5 2.5h15c1.375 0 2.5-1.125 2.5-2.5v-15L26.5 12h-10z"/>
-        <text fill="#FF7E7E" font-family="PingFangSC-Regular, PingFang SC" font-size="10" transform="translate(14 12)">
-            <tspan x="2" y="17">ass</tspan>
-        </text>
-    </g>
-</svg>
