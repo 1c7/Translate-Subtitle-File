@@ -1,30 +1,24 @@
-## 字幕组机翻小助手 :fire:（使用谷歌翻译）（请自备翻墙工具）    
+## 字幕组机翻小助手 :fire: 
+最新版: 1.0.2
 
-## 当前 0.0.1 界面
-<img src="./image/1.png" alt="how the app look like" width="580">
-
-视频演示（14秒）：https://www.bilibili.com/video/av23158962
-
-## 新版 1.0.2 界面(开发中)
+## 软件截图
 <img src="./image/v2.png">
 
-* 界面重新设计
-* 使用谷歌翻译 API (收费)
-* 解决了上一版翻译不稳定的问题
-
-
 ## 解决什么问题?
-用机器翻译整个字幕文件。用户只需要把文件拖进去即可。
-加快翻译字幕的速度  
+机翻字幕文件，提高速度。
 
 ## 适合谁用?
-字幕组
+1. 字幕组，省力一些，先机器翻译再人工翻译
+2. 对字幕要求不高的人，比如看点简单的英文视频教程
 
-## 下载地址 (最新版：0.0.1)
-1. [Windows 版](https://github.com/1c7/translate-subtitle-file/releases/download/0.01/Windows-Translation-Helper-0.0.1-win32-x64.rar)
-2. [macOS 版](https://github.com/1c7/translate-subtitle-file/releases/download/0.01/macOS-Translation-Helper-0.01.zip)
-3. [或者从百度网盘下载这2个平台的版本](https://pan.baidu.com/s/1ZBa6xGI6MQH4nbxmnPnqwA)    
+## 下载地址 (最新版：1.0.2)
+1. Windows 版: 打包中
+2. [macOS 版](https://github.com/1c7/Translate-Subtitle-File/releases/download/1.0.2/Translation-Helper-macOS-v1.0.2.zip)
 
+## Q 群 982808006
+
+
+<!--
 ## 如何使用?
 1. 拖入字幕文件( .srt .ass 后缀的文件)
 2. 点击"开始翻译"        
@@ -33,13 +27,13 @@
 ## 重要说明
 **自备科学上网工具**，因为用了谷歌翻译。     
 
-## Q 群 982808006
+
 
 
 预告: 下一版(暂定为版本号 1.0.1) 预计12月10号之前可以出来. 已经进入收尾环节。
 修复了 0.0.1 版本的诸多问题，是个巨大的提升
 
-<!--
+
 ### 如果点"开始翻译"没有反应
 1、你没有翻墙（打开全局翻墙）   
 2、碰到了谷歌的机器人验证    
