@@ -1,3 +1,15 @@
 {
-
+  "newest_versions": {
+    "name": "1.1.4",
+    "link": {
+      "mac": {
+        "international": "https://github.com/1c7/Translate-Subtitle-File/releases/download/1.1.2/Tern_macOS_1.1.2.dmg",
+        "china": "https://c1c7.coding.net/api/share/download/6f62c3ca-fa1e-46bf-85cf-888462a16e29"
+      },
+      "windows": {
+        "international": "https://github.com/1c7/Translate-Subtitle-File/releases/download/1.1.2/Tern_Windows_1.1.2.zip",
+        "china": "https://c1c7.coding.net/api/share/download/1ac792a6-638a-4d74-a7b7-d80281e70004"
+      }
+    }
+  }
 }
