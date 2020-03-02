@@ -3,12 +3,12 @@
     "name": "1.2.1",
     "link": {
       "mac": {
-        "international": "https://github.com/1c7/Translate-Subtitle-File/releases/download/1.2.1/Tern_macOS_1.2.1.dmg",
-        "china": "https://c1c7.coding.net/api/share/download/ce023c84-9190-48ac-aee5-fdb94b85eb83"
+        "international": "https://github.com/1c7/Translate-Subtitle-File/releases/download/1.4.0/Tern_macOS_1.4.0.dmg",
+        "china": "https://c1c7.coding.net/api/share/download/c15586fb-7911-4a6e-9e2c-c429755ca7fa"
       },
       "windows": {
-        "international": "https://github.com/1c7/Translate-Subtitle-File/releases/download/1.2.1/Tern_Windows_1.2.1.zip",
-        "china": "https://c1c7.coding.net/api/share/download/de4476bf-c082-4cf2-a8ee-8f4d2209165e"
+        "international": "https://github.com/1c7/Translate-Subtitle-File/releases/download/1.4.0/Tern_Windows_1.4.0.zip",
+        "china": "https://c1c7.coding.net/api/share/download/f6efa894-7402-41f2-b19c-298b84e71e20"
       }
     }
   }
