@@ -1,4 +1,4 @@
-## 字幕组机翻小助手 - [下载地址](https://github.com/1c7/Translate-Subtitle-File/releases) - [演示视频](https://www.bilibili.com/video/av82675511)
+## 字幕组机翻小助手 - [下载地址](https://github.com/1c7/Translate-Subtitle-File/releases) - [视频演示](https://www.bilibili.com/video/av82675511) - [文档教程](https://doc.tern.1c7.me/zh/)
 桌面端软件，支持 Windows + macOS
 
 ## 外观
@@ -9,7 +9,7 @@
 举例：拖入英语字幕，翻译成中英双语字幕   
 
 ### 说明
-1. 也可以只保留中文。      
+1. 也可以只保留中文      
 2. 也支持其他语言如德语，法语，日语，韩语，俄语，西班牙语，意大利语       
 只要翻译服务商支持，软件都支持    
 3. 支持主流字幕格式 srt/ass/vtt   
