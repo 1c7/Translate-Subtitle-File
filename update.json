@@ -1,14 +1,14 @@
 {
   "newest_versions": {
-    "name": "2.1.0",
+    "name": "2.2.0",
     "link": {
       "mac": {
-        "international": "https://github.com/1c7/Translate-Subtitle-File/releases/download/2.1.0/Tern_macOS_2.1.0.dmg",
-        "china": "https://c1c7.coding.net/api/share/download/c80e3324-5d8c-4632-9a3f-5e532cf485c2"
+        "international": "https://github.com/1c7/Translate-Subtitle-File/releases/download/2.2.0/Tern_macOS_2.2.0.dmg",
+        "china": "https://c1c7.coding.net/api/share/download/b4dfc0f5-096d-4106-be4f-e46945381f7a"
       },
       "windows": {
-        "international": "https://github.com/1c7/Translate-Subtitle-File/releases/download/2.1.0/Tern_Windows_2.1.0.zip",
-        "china": "https://c1c7.coding.net/api/share/download/b4a987df-6761-4bb3-b567-a98f05aeedc7"
+        "international": "https://github.com/1c7/Translate-Subtitle-File/releases/download/2.2.0/Tern_Windows_2.2.0.zip",
+        "china": "https://c1c7.coding.net/api/share/download/17ccacff-5af8-47ba-9e04-7264526bac68"
       }
     }
   }
