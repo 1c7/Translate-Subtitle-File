@@ -6,15 +6,15 @@
 * [下载 macOS 版本 (.dmg)](https://c1c7.coding.net/api/share/download/a8a27538-c49a-4b3b-9c28-e5181669b5cd)
 
 ## 软件外观
-<img src="./image/main.png" width='450px'>
-<img src="./image/main2.png" width='450px'>
+<img src="./image/main.png" width='800px'>
+<img src="./image/main2.png" width='800px'>
 
 ## 解决的问题：1. 可以翻译字幕文件
 举例：拖入英语字幕，翻译成中英双语字幕   
 
-<img src="./image/subtitle_0.png" width='450px'>   
-<img src="./image/subtitle_1.png" width='450px'>   
-<img src="./image/subtitle_2.png" width='450px'>   
+<img src="./image/subtitle_0.png" width='800px'>   
+<img src="./image/subtitle_1.png" width='800px'>   
+<img src="./image/subtitle_2.png" width='800px'>   
 
 
 ### 说明
@@ -24,15 +24,15 @@
 
 ### 还可以设置字幕的输出格式
 比如是"只要原文"还是"原文和译文都要"   
-<img src="./image/format0.png" width='450px'>   
+<img src="./image/format0.png" width='800px'>   
 
 如果都要，输出的格式是怎样的   
-<img src="./image/format.png" width='450px'>
+<img src="./image/format.png" width='800px'>
 
 ## 解决的问题：2. 可以语音转文字          
 举例：拖入音频或视频，识别出文字，然后输出为"纯文本"或"字幕"  
-<img src="./image/speech.png" width='450px'>
-<img src="./image/speech1.png" width='450px'>
+<img src="./image/speech.png" width='800px'>
+<img src="./image/speech1.png" width='800px'>
 
 
 
