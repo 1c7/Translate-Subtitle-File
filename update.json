@@ -1,14 +1,14 @@
 {
   "newest_versions": {
-    "name": "2.2.1",
+    "name": "2.3.0",
     "link": {
       "mac": {
-        "international": "https://tern.s3-us-west-2.amazonaws.com/Tern_macOS_2.2.1.dmg",
-        "china": "https://c1c7.coding.net/api/share/download/a8a27538-c49a-4b3b-9c28-e5181669b5cd"
+        "international": "https://c1c7.coding.net/api/share/download/1fcd72ab-d99c-4df4-98c0-2b061caa1780",
+        "china": "https://c1c7.coding.net/api/share/download/1fcd72ab-d99c-4df4-98c0-2b061caa1780"
       },
       "windows": {
-        "international": "https://tern.s3-us-west-2.amazonaws.com/Tern_Windows_2.2.1.zip",
-        "china": "https://c1c7.coding.net/api/share/download/35b871d0-d6ba-4516-8f8e-3134f7e1bc1f"
+        "international": "https://c1c7.coding.net/api/share/download/30057469-9aa0-44d8-aa2c-a3023eeae6c5",
+        "china": "https://c1c7.coding.net/api/share/download/30057469-9aa0-44d8-aa2c-a3023eeae6c5"
       }
     }
   }
