@@ -1,14 +1,14 @@
 {
   "newest_versions": {
-    "name": "2.3.0",
+    "name": "2.3.1",
     "link": {
       "mac": {
-        "international": "https://c1c7.coding.net/api/share/download/1fcd72ab-d99c-4df4-98c0-2b061caa1780",
-        "china": "https://c1c7.coding.net/api/share/download/1fcd72ab-d99c-4df4-98c0-2b061caa1780"
+        "international": "https://c1c7.coding.net/api/share/download/e4612d3e-4f83-4e74-a7f0-617f71055003",
+        "china": "https://c1c7.coding.net/api/share/download/e4612d3e-4f83-4e74-a7f0-617f71055003"
       },
       "windows": {
-        "international": "https://c1c7.coding.net/api/share/download/30057469-9aa0-44d8-aa2c-a3023eeae6c5",
-        "china": "https://c1c7.coding.net/api/share/download/30057469-9aa0-44d8-aa2c-a3023eeae6c5"
+        "international": "https://c1c7.coding.net/api/share/download/8a7fd170-39a2-484a-898b-ffbc9bf27c08",
+        "china": "https://c1c7.coding.net/api/share/download/8a7fd170-39a2-484a-898b-ffbc9bf27c08"
       }
     }
   }
