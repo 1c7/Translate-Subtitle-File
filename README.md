@@ -2,8 +2,8 @@
 桌面软件，支持 Windows + macOS
 
 ## 下载地址
-* [下载 Windows 版本 (.zip)](https://c1c7.coding.net/api/share/download/30057469-9aa0-44d8-aa2c-a3023eeae6c5)    
-* [下载 macOS 版本 (.dmg)](https://c1c7.coding.net/api/share/download/1fcd72ab-d99c-4df4-98c0-2b061caa1780)
+* [下载 Windows 版本 (.zip)](https://c1c7.coding.net/api/share/download/c01fd77b-1e71-4f72-8ee5-fe6178d3d2dd)    
+* [下载 macOS 版本 (.dmg)](https://c1c7.coding.net/api/share/download/00cb6d74-2bf1-4ccf-a41c-cd07ba9c7ad5)
 
 ## 软件外观
 <img src="./image/main.png" width='800px'>
