@@ -2,8 +2,8 @@
 桌面软件，支持 Windows + macOS
 
 ## 下载地址
-* [下载 Windows 版本 (.zip)](https://c1c7.coding.net/api/share/download/61b7c490-d74b-4eee-b3b3-d99779976a20)    
-* [下载 macOS 版本 (.dmg)](https://c1c7.coding.net/api/share/download/e9673d48-1c40-42ab-ba82-30c5640f086b)
+* [下载 Windows 版本 (.zip)](https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_Windows_2.5.0.zip)    
+* [下载 macOS 版本 (.dmg)](https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_macOS_2.5.0.dmg)
 
 ## 软件外观
 <img src="./image/main.png" width='800px'>
