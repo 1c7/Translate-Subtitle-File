@@ -1,14 +1,14 @@
 {
   "newest_versions": {
-    "name": "2.4.1",
+    "name": "2.5.0",
     "link": {
       "mac": {
-        "international": "https://c1c7.coding.net/api/share/download/e9673d48-1c40-42ab-ba82-30c5640f086b",
-        "china": "https://c1c7.coding.net/api/share/download/e9673d48-1c40-42ab-ba82-30c5640f086b"
+        "international": "https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_macOS_2.5.0.dmg",
+        "china": "https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_macOS_2.5.0.dmg"
       },
       "windows": {
-        "international": "https://c1c7.coding.net/api/share/download/61b7c490-d74b-4eee-b3b3-d99779976a20",
-        "china": "https://c1c7.coding.net/api/share/download/61b7c490-d74b-4eee-b3b3-d99779976a20"
+        "international": "https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_Windows_2.5.0.zip",
+        "china": "https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_Windows_2.5.0.zip"
       }
     }
   }
