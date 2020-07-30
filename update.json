@@ -3,12 +3,12 @@
     "name": "2.6.0",
     "link": {
       "mac": {
-        "international": "https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_macOS_2.6.0.dmg",
-        "china": "https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_macOS_2.6.0.dmg"
+        "international": "https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_macOS_2.8.0.dmg",
+        "china": "https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_macOS_2.8.0.dmg"
       },
       "windows": {
-        "international": "https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_Windows_2.6.0.zip",
-        "china": "https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_Windows_2.6.0.zip"
+        "international": "https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_Windows_2.8.0.zip",
+        "china": "https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_Windows_2.8.0.zip"
       }
     }
   }
