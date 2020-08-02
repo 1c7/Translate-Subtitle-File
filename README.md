@@ -5,6 +5,10 @@
 * [下载 Windows 版本 (.zip)](https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_Windows_2.9.0.zip)    
 * [下载 macOS 版本 (.dmg)](https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_macOS_2.9.0.dmg)
 
+## 媒体评价
+* [少数派对 Tern 的介绍](https://sspai.com/post/59168)
+* [小众软件对 Tern 的介绍](https://www.appinn.com/tern-subtitle-file-translator/)
+
 ## 软件外观
 <img src="./image/main.png" width='800px'>
 <img src="./image/main2.png" width='800px'>
@@ -107,10 +111,11 @@
 ## 替代品 
 如果不用这个软件，有什么其他软件来机翻字幕？   
 
+* [字幕酱](https://www.zimujiang.com/): 使用简单 (这个是认识的朋友做的)
+* [VideoSRT](https://github.com/wxbool/video-srt-windows): (Windows 独占)
 * [网易见外](https://sight.netease.com/)
 * [讯飞听见](https://www.iflyrec.com/)
 * Arctime Pro
-* VideoSRT
 
 ## 用户 Q 群
 982808006    
