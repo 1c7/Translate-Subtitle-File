@@ -2,12 +2,15 @@
 桌面软件，支持 Windows + macOS
 
 ## 下载地址
-* [下载 Windows 版本 (.zip)](https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_Windows_2.9.0.zip)    
-* [下载 macOS 版本 (.dmg)](https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_macOS_2.9.0.dmg)
+* [下载 Windows 版本 (.zip)](https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_Windows_2.9.0.zip)：解压 zip 后会得到一个文件夹，在里面找有图标的 .exe 双击执行即可    
+* [下载 macOS 版本 (.dmg)](https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_macOS_2.9.0.dmg)：双击 dmg，打开后把 App 拖入到应用程序里即可，和其他的 App 安装方法一致
 
 ## 媒体评价
-* [少数派: App+1 | 让「熟肉」来得更快一点，省时省力制作双语字幕：Tern](https://sspai.com/post/59168)
-* [小众软件：Tern – 字幕组机翻小助手：自动翻译英文字幕为中英双语字幕[Win/macOS]](https://www.appinn.com/tern-subtitle-file-translator/)
+* [少数派: App+1 | 让「熟肉」来得更快一点，省时省力制作双语字幕：Tern （2020年2月29号）](https://sspai.com/post/59168)
+* [小众软件：Tern – 字幕组机翻小助手：自动翻译英文字幕为中英双语字幕[Win/macOS]（2020年1月12号）](https://www.appinn.com/tern-subtitle-file-translator/)
+
+备注：媒体评价时软件版本是 1.x（应该是 1.0.0 ~ 1.3.0 之间，记不清了)，  
+现在最新已经到 2.9.0 了，做了很多改进，所以比文章里面说得还要好
 
 ## 软件外观
 <img src="./image/main.png" width='800px'>
