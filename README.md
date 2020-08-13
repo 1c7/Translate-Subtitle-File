@@ -6,15 +6,14 @@
 * [下载 macOS 版本 (.dmg)](https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_macOS_2.9.0.dmg)
 
 ## 媒体评价
-* [少数派对 Tern 的介绍](https://sspai.com/post/59168)
-* [小众软件对 Tern 的介绍](https://www.appinn.com/tern-subtitle-file-translator/)
+* [少数派: App+1 | 让「熟肉」来得更快一点，省时省力制作双语字幕：Tern](https://sspai.com/post/59168)
+* [小众软件：Tern – 字幕组机翻小助手：自动翻译英文字幕为中英双语字幕[Win/macOS]](https://www.appinn.com/tern-subtitle-file-translator/)
 
 ## 软件外观
 <img src="./image/main.png" width='800px'>
-<img src="./image/main2.png" width='800px'>
 
-## 解决的问题：1. 可以翻译字幕文件
-举例：拖入英语字幕，翻译成中英双语字幕   
+## 解决的问题：1. 翻译字幕文件
+比如拖入英语字幕，翻译成中英双语字幕   
 
 <img src="./image/subtitle_0.png" width='800px'>   
 <img src="./image/subtitle_1.png" width='800px'>   
@@ -22,15 +21,15 @@
 
 
 ### 说明
-1. 也可以只保留中文，不要原文      
-2. 也支持其他语言如德语，法语，日语，韩语，俄语，西班牙语，意大利语，只要翻译服务商支持的语音，软件都支持    
-3. 支持当前主流的三种字幕格式：.srt，.ass，.vtt   
+1. 可以只要中文，不要英文      
+2. 支持其他语言如德语，法语，日语，韩语，俄语，西班牙语，意大利语，只要翻译服务商支持，软件都支持    
+3. 支持三种字幕格式：.srt，.ass，.vtt   
 
-### 还可以设置字幕的输出格式
-比如是"只要原文"还是"原文和译文都要"   
+### 设置输出格式
+比如是"只要原文"或"原文和译文都要"   
 <img src="./image/format0.png" width='800px'>   
 
-如果都要，输出的格式是怎样的   
+如果"原文和译文都要"，可以设置排列方式   
 <img src="./image/format.png" width='800px'>
 
 ## 解决的问题：2. 可以语音转文字          
