@@ -120,17 +120,20 @@
 ### 如果是语音转文字
 * 推荐先用阿里云，因为每天2个小时的免费额度
 * 讯飞的免费额度是5小时（一次性）
+* 如果要识别中文，推荐阿里云，讯飞，腾讯云
+* 如果要识别英文，推荐 IBM Azure Amazon (国内服务商当然也能用，但是准确度平均来说低那么一丢丢）
+* 如果要识别其他语言，日语泰语德语法语等等，自己先在下拉列表里找一找，看看哪家服务商支持，然后再去申请
 
 ## 替代品 
 如果不用这个软件，有什么其他软件来机翻字幕？   
 
 * [字幕酱](https://www.zimujiang.com/): 使用简单。如果嫌弃机翻助手配置很麻烦，希望不要配置直接用，那么用字幕酱
-* [VideoSRT](https://github.com/wxbool/video-srt-windows): (Windows 独占)
+* [VideoSRT](https://github.com/wxbool/video-srt-windows): (Windows 独占，不支持 macOS)
 * [网易见外](https://sight.netease.com/)
 * [讯飞听见](https://www.iflyrec.com/)
 * Arctime Pro
 
-## 用户 Q 群
+## 用户 QQ 群
 982808006    
 
-不管是免费还是付费用户都欢迎加入 QQ 群           
+不管是免费或付费用户都欢迎加入 QQ 群           
