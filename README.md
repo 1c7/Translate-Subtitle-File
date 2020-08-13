@@ -131,7 +131,7 @@
 
 ## 替代品 
 * [字幕酱](https://www.zimujiang.com/): 使用简单。如果嫌弃机翻助手配置很麻烦，希望不要配置直接用，那么用字幕酱
-* [VideoSRT](https://github.com/wxbool/video-srt-windows): (Windows 独占，不支持 macOS)
+* [VideoSRT](https://github.com/wxbool/video-srt-windows): (Windows 独占，不支持 macOS) 支持阿里云作为语音转文字服务商，百度和腾讯作为翻译服务商（也就是支持的服务商数量没有本软件多）界面美观程度稍差一点点（相对于本软件而言）但是客服比较好，两个 Q 群都有500人左右，群内活跃度较高
 * [网易见外](https://sight.netease.com/)：贵（人工所以贵）
 * [讯飞听见](https://www.iflyrec.com/)：贵（相对于本软件可以利用服务商的免费额度而言）
 * [Arctime Pro](http://arctime.cn/service.html)：贵，文档原话：（Arctime平台采用“积分”作为统一的虚拟货币，1元=100积分）全自动语音转写每分钟价格：普通话/粤语/英语30积分，其他语种45积分。机器翻译每100字符扣除1积分。
