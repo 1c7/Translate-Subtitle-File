@@ -2,8 +2,8 @@
 桌面软件，支持 Windows + macOS
 
 ## 下载地址
-* [下载 Windows 版本 (.zip)](https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_Windows_3.3.0.zip) 下载后如何安装：解压 zip 得到一个文件夹，找 .exe 文件，双击即可    
-* [下载 macOS 版本 (.dmg)](https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_macOS_3.3.0.dmg) 下载后如何安装：双击 dmg，打开后把 App 拖入到应用程序里即可，和其他 App 的安装方式一致
+* [下载 Windows 版本 (.zip)](https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_Windows_3.3.0.zip) 下载后如何使用：解压 zip 得到一个文件夹，找 .exe 文件，双击即可    
+* [下载 macOS 版本 (.dmg)](https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_macOS_3.3.0.dmg) 下载后如何使用：双击 dmg，打开后把 App 拖入到应用程序里即可，和其他 App 的安装方式一致
 
 ## 媒体评价
 * [少数派: App+1 | 让「熟肉」来得更快一点，省时省力制作双语字幕：Tern （2020年2月29号）](https://sspai.com/post/59168)
