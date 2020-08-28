@@ -3,7 +3,7 @@
 
 ## 下载地址
 * [下载 Windows 版本 (.zip)](https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_Windows_3.3.0.zip) 下载后如何安装：解压 zip 得到一个文件夹，找 .exe 文件，双击即可    
-* [下载 macOS 版本 (.dmg)](https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_macOS_3.3.0.dmg) 下载后如何安装：双击 dmg，打开后把 App 拖入到应用程序里即可，和其他的 App 安装方法一致
+* [下载 macOS 版本 (.dmg)](https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_macOS_3.3.0.dmg) 下载后如何安装：双击 dmg，打开后把 App 拖入到应用程序里即可，和其他 App 的安装方式一致
 
 ## 媒体评价
 * [少数派: App+1 | 让「熟肉」来得更快一点，省时省力制作双语字幕：Tern （2020年2月29号）](https://sspai.com/post/59168)
@@ -15,7 +15,7 @@
 ## 软件外观
 <img src="./image/main.png" width='800px'>
 
-## 解决的问题：1. 翻译字幕文件
+## 解决什么问题？：1. 翻译字幕文件
 比如拖入英语字幕，翻译成中英双语字幕   
 
 <img src="./image/subtitle_0.png" width='800px'>   
@@ -35,7 +35,7 @@
 如果想要中英双语，那么需要设置成"原文+译文"，点击右侧白色按钮可"设置格式"   
 <img src="./image/format.png" width='800px'>
 
-## 解决的问题：2. 可以语音转文字          
+## 解决什么问题？：2. 可以语音转文字          
 拖入音频或视频，识别出文字，然后输出为"纯文本"或"字幕"  
 <img src="./image/speech.png" width='800px'>
 <img src="./image/speech1.png" width='800px'>
