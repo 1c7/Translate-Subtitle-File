@@ -196,8 +196,8 @@ pyTranscriber 实质上就是给 Autosub 包了一层图形界面，是用 PyQT 
 （对 macOS 的支持程度这一段说明来自 [Release 页面](https://github.com/raryelcostasouza/pyTranscriber/releases/tag/v1.4-stable))
 
 
-## 不客观评价（也就是把机翻助手和以上软件，以及市面上其他软件做对比）
-在满足以下条件下，其他软件没有本软件好：
+## 对比（对比机翻助手和上面提到的'替代品'软件，以及市面上其他软件）
+在同时满足以下条件下，其他软件没有本软件好：
 
 1. 便宜    
     1. 服务商有免费额度    
