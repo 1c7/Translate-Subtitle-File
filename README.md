@@ -182,32 +182,35 @@
 但客服比较好，两个 Q 群都有500人左右，群内活跃度较高
 
 ## [网易见外](https://sight.netease.com/)：
-贵（是人工的所以贵）    
-适合不差钱的企业用户，[英译中￥32/分钟，中译英￥35/分钟](https://sight.youdao.com/price#detail)
+贵       
+[英译中￥32/分钟，中译英￥35/分钟](https://sight.youdao.com/price#detail)
 
 ## [讯飞听见](https://www.iflyrec.com/)
-贵（相对于本软件可以利用服务商的免费额度而言）  
+贵        
 机器快转0.33元/分钟, 中文人工精转 80元/小时起
 
 ## [Arctime Pro](http://arctime.cn/service.html)
-贵，文档原话：（Arctime平台采用“积分”作为统一的虚拟货币，1元=100积分）    
+贵    
+文档原话：（Arctime平台采用“积分”作为统一的虚拟货币，1元=100积分）    
 全自动语音转写每分钟价格：普通话/粤语/英语30积分，其他语种45积分。机器翻译每100字符扣除1积分。    
 
-## [Autosub](https://github.com/BingLingGroup/autosub) 
-是命令行工具，没有图形界面，只适合程序员用 (程序员会用命令行)，    
-学习成本对普通人来说太高。    
+## [Autosub](https://github.com/BingLingGroup/autosub)    
+学习成本对非程序员太高。    
+是命令行工具，没有图形界面，       
+   
 截止到2020年8月28日，支持4家语音转文字服务商：谷歌的2个+讯飞+百度。   
-（我也没有搞懂谷歌的那2个有啥具体区别）     
+（我也没有搞懂谷歌那2个有啥区别）    
+
 基本原理是把音频拆分成多个60秒以下的文件，然后通过服务商的短语音识别 API 进行识别，    
 最终输出字幕文件（srt, ass 等格式）    
 
 ## [pyTranscriber](https://github.com/raryelcostasouza/pyTranscriber)
-pyTranscriber 实质上就是给 Autosub 包了一层图形界面，是用 PyQT 做的 GUI，    
-系统支持：支持 Windows 和 Linux, macOS 最多只到 Mojave 和之前。  
+pyTranscriber 就是给 Autosub 包了一层图形界面，（用的 PyQT）       
+系统支持：支持 Windows 和 Linux, macOS 最多只到 Mojave 和之前。   
 （对 macOS 的支持程度这一段说明来自 [Release 页面](https://github.com/raryelcostasouza/pyTranscriber/releases/tag/v1.4-stable))
 
 
-## 对比（对比机翻助手和上面提到的'替代品'软件，以及市面上其他软件）
+## 对比
 在同时满足以下条件下，其他软件没有本软件好：
 
 1. 便宜    
