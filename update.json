@@ -1,14 +1,14 @@
 {
   "newest_versions": {
-    "name": "3.3.0",
+    "name": "3.4.0",
     "link": {
       "mac": {
-        "international": "https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_macOS_3.3.0.dmg",
-        "china": "https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_macOS_3.3.0.dmg"
+        "international": "https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_macOS_3.4.0.dmg",
+        "china": "https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_macOS_3.4.0.dmg"
       },
       "windows": {
-        "international": "https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_Windows_3.3.0.zip",
-        "china": "https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_Windows_3.3.0.zip"
+        "international": "https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_Windows_3.4.0.zip",
+        "china": "https://tern-release.oss-cn-shenzhen.aliyuncs.com/Tern_Windows_3.4.0.zip"
       }
     }
   }
