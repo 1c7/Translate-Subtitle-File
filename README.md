@@ -36,18 +36,20 @@
 <img src="./image/format.png" width='800px'>
 
 ## 解决什么问题？：2. 可以语音转文字          
-拖入音频或视频，识别出文字，然后输出为"纯文本"或"字幕"  
+拖入音频或视频，识别出文字，然后输出为"纯文本"或"字幕"   
+音频支持: `mp3, flac, wav, m4a, opus`    
+视频支持: `mp4, mkv, mov, webm, avi, wmv`  
 <img src="./image/speech.png" width='800px'>
 <img src="./image/speech1.png" width='800px'>
 
 说明：
 1. 如果选择"输出为字幕"，还可以进行后续翻译，可以做到拖入视频，得到中英双语字幕  
 
-## 支持双平台 Windows + macOS
-## Windows 截图
+## 软件支持两个操作系统：Windows 和 macOS
+## Windows 下的运行截图
 <img src="./image/win10.jpg">
 
-## macOS 截图
+## macOS 下的运行截图
 <img src="./image/macos.jpg">
 
 ## 适合谁用?
