@@ -228,4 +228,9 @@ pyTranscriber 就是给 Autosub 包了一层图形界面，（用的 PyQT）
 982808006    
 
 不管是免费或付费用户都欢迎加入 QQ 群           
-（截止至2020-9-19，Q 群共有 336 人）
+（截止至2020-11-7，Q 群共 383 人）
+
+## 软件作者联系方式
+邮件: guokrfans@gmail.com  
+QQ: 1003211008  
+Telegram: chengzheng1c7  
