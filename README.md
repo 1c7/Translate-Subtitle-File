@@ -3,14 +3,14 @@
 
 ## 下载地址
 * [下载 Windows 版本 (.zip)](https://tern-release-1258582250.cos.ap-guangzhou.myqcloud.com/Tern_Windows_3.9.0.zip) 下载后如何使用：解压 zip 得到一个文件夹，找 .exe 文件，双击即可    
-* [下载 macOS 版本 (.dmg)](https://tern-release-1258582250.cos.ap-guangzhou.myqcloud.com/Tern_macOS_3.9.0.dmg) 下载后如何使用：双击 dmg，打开后把 App 拖入到应用程序里即可，和其他 App 的安装方式一致
+* [下载 macOS 版本 (.dmg)](https://tern-release-1258582250.cos.ap-guangzhou.myqcloud.com/Tern_macOS_4.1.0.dmg) 下载后如何使用：双击 dmg，打开后把 App 拖入到应用程序里即可，和其他 App 的安装方式一致
 
 ## 媒体评价
 * [少数派: App+1 | 让「熟肉」来得更快一点，省时省力制作双语字幕：Tern （2020年2月29号）](https://sspai.com/post/59168)
 * [小众软件：Tern – 字幕组机翻小助手：自动翻译英文字幕为中英双语字幕[Win/macOS]（2020年1月12号）](https://www.appinn.com/tern-subtitle-file-translator/)
 
 备注：媒体评价时软件版本是 1.x.0（应该是 1.0.0 ~ 1.3.0 之间)，  
-现在最新版本是 3.x.0，做了很多改进
+现在最新版本是 4.x.0，做了很多改进
 
 ## 软件外观
 <img src="./image/main.png" width='800px'>
@@ -223,9 +223,9 @@ pyTranscriber 就是给 Autosub 包了一层图形界面，（用的 PyQT）
 982808006    
 
 不管是免费或付费用户都欢迎加入 QQ 群           
-（截止至2020-11-7，Q 群共 383 人）
+（截止至2021-2-25，Q 群共 482 人）
 
 ## 软件作者联系方式
 邮件: guokrfans@gmail.com  
-QQ: 1003211008  
-Telegram: chengzheng1c7  
+QQ: `1003211008`  
+Telegram: `chengzheng1c7`
