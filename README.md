@@ -2,7 +2,7 @@
 桌面软件，支持 Windows + macOS
 
 ## 下载地址
-* [下载 Windows 版本 (.zip)](https://tern-release-1258582250.cos.ap-guangzhou.myqcloud.com/Tern_Windows_3.9.0.zip) 下载后如何使用：解压 zip 得到一个文件夹，找 .exe 文件，双击即可    
+* [下载 Windows 版本 (.zip)](https://tern-release-1258582250.cos.ap-guangzhou.myqcloud.com/Tern_Windows_4.1.0.zip) 下载后如何使用：解压 zip 得到一个文件夹，找 .exe 文件，双击即可    
 * [下载 macOS 版本 (.dmg)](https://tern-release-1258582250.cos.ap-guangzhou.myqcloud.com/Tern_macOS_4.1.0.dmg) 下载后如何使用：双击 dmg，打开后把 App 拖入到应用程序里即可，和其他 App 的安装方式一致
 
 ## 媒体评价
