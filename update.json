@@ -1,14 +1,14 @@
 {
   "newest_versions": {
-    "name": "3.9.0",
+    "name": "4.1.0",
     "link": {
       "mac": {
-        "international": "https://github.com/1c7/Translate-Subtitle-File/releases/download/3.9.0/Tern_macOS_3.9.0.dmg",
-        "china": "https://tern-release-1258582250.cos.ap-guangzhou.myqcloud.com/Tern_macOS_3.9.0.dmg"
+        "international": "https://github.com/1c7/Translate-Subtitle-File/releases/download/4.1.0/Tern_macOS_4.1.0.dmg",
+        "china": "https://tern-release-1258582250.cos.ap-guangzhou.myqcloud.com/Tern_macOS_4.1.0.dmg"
       },
       "windows": {
-        "international": "https://github.com/1c7/Translate-Subtitle-File/releases/download/3.9.0/Tern_Windows_3.9.0.zip",
-        "china": "https://tern-release-1258582250.cos.ap-guangzhou.myqcloud.com/Tern_Windows_3.9.0.zip"
+        "international": "https://github.com/1c7/Translate-Subtitle-File/releases/download/4.1.0/Tern_Windows_4.1.0.zip",
+        "china": "https://tern-release-1258582250.cos.ap-guangzhou.myqcloud.com/Tern_Windows_4.1.0.zip"
       }
     }
   }
