@@ -1,6 +1,11 @@
 ## 字幕组机翻小助手 - [视频演示](https://www.bilibili.com/video/av82675511) - [教程](https://doc.tern.1c7.me/zh/)
 桌面软件，支持 Windows + macOS
 
+## 解决什么问题？
+解决2个问题：
+1. 机翻字幕文件，用机器翻译处理 .srt .ass .vtt 文件，比如可以英翻中，也支持其他语言（具体支持哪些语言，看你选的是哪家服务商）
+2. 语音转文字，比如拖入 .mp4 .mkv .mp3 .aac .m4a .ts 等视频音频文件，机器生成字幕，输出的文件可以是 .txt(纯文本) 和 .srt (字幕)
+
 ## 下载地址
 * [下载 Windows 版本 (.zip)](https://tern-release-1258582250.cos.ap-guangzhou.myqcloud.com/Tern_Windows_4.1.0.zip) 下载后如何使用：解压 zip 得到一个文件夹，找 .exe 文件，双击即可    
 * [下载 macOS 版本 (.dmg)](https://tern-release-1258582250.cos.ap-guangzhou.myqcloud.com/Tern_macOS_4.1.0.dmg) 下载后如何使用：双击 dmg，打开后把 App 拖入到应用程序里即可，和其他 App 的安装方式一致
