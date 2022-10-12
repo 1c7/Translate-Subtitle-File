@@ -241,5 +241,4 @@ pyTranscriber 就是给 Autosub 包了一层图形界面，（用的 PyQT）
 
 ## 软件作者联系方式
 邮件: guokrfans@gmail.com  
-QQ: `1003211008`  
-Telegram: `chengzheng1c7`
+QQ: `1003211008`
