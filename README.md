@@ -32,6 +32,7 @@
 6. NAVER papago（用户说韩文翻译比较好）(投票数: 2, 投票用户: 宵夜， 🐳YOYO🐳)
 7. 小牛 (投票数: 1, 投票用户: 熊小叔叔叔)
 8. 谷歌 (投票数: 1, 投票用户: 伟★哥)
+1. 有道 https://ai.youdao.com/?keyfrom=fanyi-new-nav#/
 9. 亚马逊
 10. Azure
 11. IBM
