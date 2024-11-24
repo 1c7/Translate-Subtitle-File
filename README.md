@@ -1,4 +1,4 @@
-# 字幕组机翻小助手
+# 字幕机翻
 
 ## 软件截图
 <img src="./image/2024-11-24 版本 5.3.0 的截图.jpg" width='800px'>
@@ -11,11 +11,11 @@
 翻译字幕文件（.srt, .vtt, .ass 文件）
 
 ## 介绍
-- 本软件有桌面端+网页端，建议用网页端。
-- 桌面端 [下载地址点这里](https://github.com/1c7/Translate-Subtitle-File/releases)
-- 网页端 [点这里访问](https://tern.1c7.me) 需要翻墙，因为后端是谷歌云。
+- 本软件有桌面版 和 网页版，建议用网页版（免安装，打开即用）
+- 桌面版 [下载地址点这里](https://github.com/1c7/Translate-Subtitle-File/releases)
+- 网页版 [点这里访问](https://tern.1c7.me) 需要翻墙，因为后端是谷歌云。
 
-## 对比其他产品，差异点是：
+## 对比其他产品的差异点：
 可以配置服务商的 API Key，直接使用 API。
 * 好处：价格最低，没有中间商抽成，可以合理利用服务商的免费额度（一般是100万字符/月的免费额度）
 * 坏处：需要你去网站上注册和开通服务，对初次操作的新用户会有些复杂
@@ -40,26 +40,24 @@
 -->
 
 ## 桌面版下载地址
-* [下载 Windows 版](https://github.com/1c7/Translate-Subtitle-File/releases/download/v5.3.0/Windows-win32-x64-5.3.0.zip)   
-* [下载 macOS 版](https://github.com/1c7/Translate-Subtitle-File/releases/download/v5.3.0/macOS-arm64-5.3.0.zip)
+* [下载 Windows 版点这里](https://github.com/1c7/Translate-Subtitle-File/releases/download/v5.3.0/Windows-win32-x64-5.3.0.zip)   
+* [下载 macOS 版点这里](https://github.com/1c7/Translate-Subtitle-File/releases/download/v5.3.0/macOS-arm64-5.3.0.zip)
 
 ## 媒体评价
 * [少数派: App+1 | 让「熟肉」来得更快一点，省时省力制作双语字幕：Tern （2020年2月29号）](https://sspai.com/post/59168)
 * [小众软件：Tern – 字幕组机翻小助手：自动翻译英文字幕为中英双语字幕[Win/macOS]（2020年1月12号）](https://www.appinn.com/tern-subtitle-file-translator/)
 
 
-## 解决什么问题？：1. 翻译字幕文件
+## 解决什么问题？：翻译字幕文件
 比如拖入英语字幕，翻译成中英双语字幕   
 
 <!-- <img src="./image/subtitle_0.png" width='800px'>   
 <img src="./image/subtitle_1.png" width='800px'>   
 <img src="./image/subtitle_2.png" width='800px'>    -->
 
-
-### 说明
 1. 支持三种字幕格式：.srt，.ass，.vtt      
-2. 支持多种语言如德语，法语，日语，韩语，俄语，西班牙语，意大利语（只要翻译服务商支持，软件就支持）    
-3. 如果不想要中英双语，也可以只要中文，不要英文（具体设置方法见下方截图）
+2. 支持多种语言，英语，日语，德语，法语，韩语，俄语，西班牙语，意大利语（只要翻译服务商支持，软件就支持）    
+3. 输出格式：如果不想要中英双语，也可以只要中文，不要英文（设置方法见下方）
 
 ### 设置输出格式
 设置为"译文"即可（下图中的红框里，从上往下数起，第二个选项）   
