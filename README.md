@@ -36,22 +36,22 @@
 -->
 
 ## 桌面版下载地址
-* [下载 Windows 版本 (.zip)](https://github.com/1c7/Translate-Subtitle-File/releases/download/4.1.0/Tern_Windows_4.1.0.zip) 下载后如何使用：解压 zip 得到一个文件夹，找 .exe 文件，双击即可    
-* [下载 macOS 版本 (.dmg)](https://github.com/1c7/Translate-Subtitle-File/releases/download/4.1.0/Tern_macOS_4.1.0.dmg) 下载后如何使用：双击 dmg，打开后把 App 拖入到应用程序里即可，和其他 App 的安装方式一致
+* [下载 Windows 版](https://github.com/1c7/Translate-Subtitle-File/releases/download/v5.3.0/Windows-win32-x64-5.3.0.zip)   
+* [下载 macOS 版](https://github.com/1c7/Translate-Subtitle-File/releases/download/v5.3.0/macOS-arm64-5.3.0.zip)
 
 ## 媒体评价
 * [少数派: App+1 | 让「熟肉」来得更快一点，省时省力制作双语字幕：Tern （2020年2月29号）](https://sspai.com/post/59168)
 * [小众软件：Tern – 字幕组机翻小助手：自动翻译英文字幕为中英双语字幕[Win/macOS]（2020年1月12号）](https://www.appinn.com/tern-subtitle-file-translator/)
 
 ## 软件外观（桌面版）
-<img src="./image/main.png" width='800px'>
+<img src="./image/2024-11-24 版本 5.3.0 的截图.jpg" width='800px'>
 
 ## 解决什么问题？：1. 翻译字幕文件
 比如拖入英语字幕，翻译成中英双语字幕   
 
-<img src="./image/subtitle_0.png" width='800px'>   
+<!-- <img src="./image/subtitle_0.png" width='800px'>   
 <img src="./image/subtitle_1.png" width='800px'>   
-<img src="./image/subtitle_2.png" width='800px'>   
+<img src="./image/subtitle_2.png" width='800px'>    -->
 
 
 ### 说明
@@ -66,12 +66,12 @@
 如果想要中英双语，那么需要设置成"原文+译文"，点击右侧白色按钮可"设置格式"   
 <img src="./image/format.png" width='800px'>
 
-## 解决什么问题？：2. 可以语音转文字          
+<!-- ## 解决什么问题？：2. 可以语音转文字          
 拖入音频或视频，识别出文字，然后输出为"纯文本"或"字幕"   
 音频支持: `mp3, flac, wav, m4a, opus`    
 视频支持: `mp4, mkv, mov, webm, avi, wmv`  
 <img src="./image/speech.png" width='800px'>
-<img src="./image/speech1.png" width='800px'>
+<img src="./image/speech1.png" width='800px'> -->
 
 说明：
 1. 如果选择"输出为字幕"，还可以进行后续翻译，可以做到拖入视频，得到中英双语字幕  
@@ -83,14 +83,13 @@
 ## macOS 下的运行截图
 <img src="./image/macos.jpg">
 
-## 适合谁用?
+## 适合什么人群使用?
 1. 个人
-1. 字幕组（翻译视频的人）
-
+1. 字幕组
 
 ## 使用场景
-1. 个人：看视频教程或其他没字幕的视频，机翻一下字幕，对质量要求不高，大概看懂 80% 内容就行   
-1. 字幕组：先用机器翻译对字幕进行粗加工，然后再手动改进，这样效率更高
+1. 个人：看视频教程，机翻一下字幕，看懂 80% 就行   
+1. 字幕组：机器翻译对字幕粗加工，然后手动改进，效率更高
 
 （备注：如果你对字幕质量要求很高，想要信达雅，最好还是雇人翻译。机器翻译的准确度区间 50%~85%）   
 
