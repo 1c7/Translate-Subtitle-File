@@ -11,37 +11,30 @@
 翻译字幕文件（.srt, .vtt, .ass 文件）
 
 ## 介绍
-- 本软件有桌面版 和 网页版，建议用网页版（免安装，打开即用）
-- 桌面版 [下载地址点这里](https://github.com/1c7/Translate-Subtitle-File/releases)
-- 网页版 [点这里访问](https://tern.1c7.me) 需要翻墙，因为后端是谷歌云。
+- 本软件有桌面版 和 [网页版](https://tern.1c7.me)
+- 推荐使用建议用网页版（免安装，打开即用），注意网页版需要翻墙才能正常使用。
 
-## 对比其他产品的差异点：
+## [网页版访问地址](https://tern.1c7.me)
+*网页版需要翻墙的原因：后端放在谷歌云的 Serverless 函数，前端是 [Render](https://render.com/)*
+
+
+## [桌面版下载地址](https://github.com/1c7/Translate-Subtitle-File/releases)
+* [下载版本 5.3.0 (Windows 平台) 点击这里](https://github.com/1c7/Translate-Subtitle-File/releases/download/v5.3.0/Windows-win32-x64-5.3.0.zip)   
+* [下载版本 5.3.0 (macOS 平台) 点击这里](https://github.com/1c7/Translate-Subtitle-File/releases/download/v5.3.0/macOS-arm64-5.3.0.zip)
+
+## 对比其他产品的差异：
 可以配置服务商的 API Key，直接使用 API。
 * 好处：价格最低，没有中间商抽成，可以合理利用服务商的免费额度（一般是100万字符/月的免费额度）
-* 坏处：需要你去网站上注册和开通服务，对初次操作的新用户会有些复杂
+* 坏处：需要去网站上注册和开通服务，初次操作的新用户会觉得有些复杂
 
-<!--
-## 重要通知(1) (2023年1月30号)
-* 机翻小助手网页版上线了！ https://tern.1c7.me  网页版打开就能用，非常方便，欢迎尝试。
-* 备注1: 版本 4.2.0 和更早的版本，都只有桌面端，必须下载使用，有些麻烦，建议先用网页版。
-* 备注2：目前网页版只支持`字幕文件翻译`功能，语音转文字功能暂时没有。
-
-## 重要通知(2)（关于桌面版无法激活的问题）
-* 由于2022年10月份面包多更换了域名，从 mianbaoduo.com 换成了 mbd.pub，所以机翻小助手桌面端软件的激活功能出了问题。
-* 简单说就是版本 4.2.0（和之前更早的版本）都无法激活。
-* 2022年10月，11月，12月，2023年1月，开发者都在写代码，2023年1月30号发布了网页版。
-* 我会给网页版添加更多翻译服务商，语音转文字功能只能排期到后面。先把翻译的功能做好。
+## 备注
 
 
-## 本软件为您解决什么问题？
+<!-- ## 本软件为您解决什么问题？
 解决2个问题：
 1. 机翻字幕文件，用机器翻译处理 .srt .ass .vtt 文件，比如可以英翻中，也支持其他语言（具体支持哪些语言，看你选的是哪家服务商）
 2. （仅桌面版可用）语音转文字，比如拖入 .mp4 .mkv .mp3 .aac .m4a .ts 等视频音频文件，机器生成字幕，输出的文件可以是 .txt(纯文本) 和 .srt (字幕)
 -->
-
-## 桌面版下载地址
-* [下载 Windows 版点这里](https://github.com/1c7/Translate-Subtitle-File/releases/download/v5.3.0/Windows-win32-x64-5.3.0.zip)   
-* [下载 macOS 版点这里](https://github.com/1c7/Translate-Subtitle-File/releases/download/v5.3.0/macOS-arm64-5.3.0.zip)
 
 ## 媒体评价
 * [少数派: App+1 | 让「熟肉」来得更快一点，省时省力制作双语字幕：Tern （2020年2月29号）](https://sspai.com/post/59168)
