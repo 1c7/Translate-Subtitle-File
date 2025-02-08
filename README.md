@@ -19,8 +19,8 @@
 
 
 ## [桌面版下载地址](https://github.com/1c7/Translate-Subtitle-File/releases)
-* [下载版本 5.3.0 (Windows 平台) 点击这里](https://github.com/1c7/Translate-Subtitle-File/releases/download/v5.3.0/Windows-win32-x64-5.3.0.zip)   
-* [下载版本 5.3.0 (macOS 平台) 点击这里](https://github.com/1c7/Translate-Subtitle-File/releases/download/v5.3.0/macOS-arm64-5.3.0.zip)
+* [下载版本 5.3.3 (Windows 平台) 点击这里](https://github.com/1c7/Translate-Subtitle-File/releases/download/v5.3.3/Windows-win32-x64-5.3.3.zip)   
+* [下载版本 5.3.3 (macOS 平台) 点击这里](https://github.com/1c7/Translate-Subtitle-File/releases/download/v5.3.3/macOS-darwin-arm64-5.3.3.zip)
 
 ## 对比其他产品的差异：
 可以配置服务商的 API Key，直接使用 API。
