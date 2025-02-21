@@ -8,17 +8,16 @@
 * [下载版本 5.3.3 (macOS 平台) 点击这里](https://github.com/1c7/Translate-Subtitle-File/releases/download/v5.3.3/macOS-darwin-arm64-5.3.3.zip)
 
 
-## 本软件对你有什么价值
-翻译字幕文件（.srt, .vtt, .ass 文件）
+## 本软件对你有什么价值：翻译字幕文件（.srt, .vtt, .ass 文件）
+- 优点：可以自己配置 API Key，这样价格最便宜
+- 缺点：是需要先配置才能用
 
 ## 介绍
 - 本软件有桌面版 和 [网页版](https://tern.1c7.me)
-- 推荐使用建议用网页版（免安装，打开即用），注意网页版需要翻墙才能正常使用。
+- 推荐用网页版（打开即用），注意网页版要翻墙才能正常使用。
 
 ## [打开网页版请点这里](https://tern.1c7.me)
 *网页版需要翻墙的原因：后端是谷歌云的 Serverless 函数，前端是 [Render](https://render.com/)*
-
-
 
 ## 对比其他产品的差异：
 可以配置服务商的 API Key，直接使用 API。
