@@ -3,9 +3,10 @@
 ## 软件截图
 <img src="./image/2024-11-24 版本 5.3.0 的截图.jpg" width='800px'>
 
-<!--
-- [视频演示](https://www.bilibili.com/video/av82675511)：此视频发布于 2020 年，有些过时了，后续我会做新视频替换掉这个
--->
+## [桌面版下载地址](https://github.com/1c7/Translate-Subtitle-File/releases)
+* [下载版本 5.3.3 (Windows 平台) 点击这里](https://github.com/1c7/Translate-Subtitle-File/releases/download/v5.3.3/Windows-win32-x64-5.3.3.zip)   
+* [下载版本 5.3.3 (macOS 平台) 点击这里](https://github.com/1c7/Translate-Subtitle-File/releases/download/v5.3.3/macOS-darwin-arm64-5.3.3.zip)
+
 
 ## 本软件对你有什么价值
 翻译字幕文件（.srt, .vtt, .ass 文件）
@@ -18,9 +19,6 @@
 *网页版需要翻墙的原因：后端是谷歌云的 Serverless 函数，前端是 [Render](https://render.com/)*
 
 
-## [桌面版下载地址](https://github.com/1c7/Translate-Subtitle-File/releases)
-* [下载版本 5.3.3 (Windows 平台) 点击这里](https://github.com/1c7/Translate-Subtitle-File/releases/download/v5.3.3/Windows-win32-x64-5.3.3.zip)   
-* [下载版本 5.3.3 (macOS 平台) 点击这里](https://github.com/1c7/Translate-Subtitle-File/releases/download/v5.3.3/macOS-darwin-arm64-5.3.3.zip)
 
 ## 对比其他产品的差异：
 可以配置服务商的 API Key，直接使用 API。
