@@ -1,11 +1,11 @@
 # 字幕机翻
 
 ## 软件截图
-<img src="./image/2024-11-24 版本 5.3.0 的截图.jpg" width='800px'>
+<img src="https://github.com/user-attachments/assets/b67dfaae-8df3-4980-aef1-5e3180b8ed67" width='800px'>
 
 ## [桌面版下载地址](https://github.com/1c7/Translate-Subtitle-File/releases)
-* [下载版本 5.3.3 (Windows 平台) 点击这里](https://github.com/1c7/Translate-Subtitle-File/releases/download/v5.3.3/Windows-win32-x64-5.3.3.zip)   
-* [下载版本 5.3.3 (macOS 平台) 点击这里](https://github.com/1c7/Translate-Subtitle-File/releases/download/v5.3.3/macOS-darwin-arm64-5.3.3.zip)
+* [下载 Windows 版](https://github.com/1c7/Translate-Subtitle-File/releases/download/v5.3.6/Windows-win32-x64-5.3.6.zip)   
+* [下载 macOS 版](https://github.com/1c7/Translate-Subtitle-File/releases/download/v5.3.6/macOS-darwin-arm64-5.3.6.zip)
 
 
 ## 本软件对你有什么价值：翻译字幕文件（.srt, .vtt, .ass 文件）
