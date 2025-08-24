@@ -243,12 +243,10 @@ pyTranscriber 就是给 Autosub 包了一层图形界面，（用的 PyQT）
 4. 支持市面上几乎所有服务商，用户可以随意自由切换服务商使用
 
 
-## 推荐一下别人的产品
+## 和本产品功能相似（翻译字幕文件）的其他产品
 1. 字幕酱 https://www.zimujiang.com/
 2. VideoSrt Pro https://www.yuque.com/viggo-t7cdi/videosrt-pro/cpwtwl
 
-
-## 其他我看到的类似产品
 - https://github.com/machinewrapped/llm-subtrans
 Open Source project using LLMs to translate SRT subtitles
 
