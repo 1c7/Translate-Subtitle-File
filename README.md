@@ -247,6 +247,14 @@ pyTranscriber 就是给 Autosub 包了一层图形界面，（用的 PyQT）
 1. 字幕酱 https://www.zimujiang.com/
 2. VideoSrt Pro https://www.yuque.com/viggo-t7cdi/videosrt-pro/cpwtwl
 
-- https://github.com/machinewrapped/llm-subtrans
+### LLM-Subtrans
+https://github.com/machinewrapped/llm-subtrans  
+
 Open Source project using LLMs to translate SRT subtitles
+
+#### Subtitle Translator
+https://github.com/gnehs/subtitle-translator-electron   
+Translate subtitle using LLM  
+
+
 
