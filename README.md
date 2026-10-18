@@ -4,14 +4,17 @@
 
 **[打开网页版](https://zimoo.app)** · **[下载桌面版](https://zimoo.app/#/download)** · [使用教程](https://doc.tern.1c7.me/zh/)
 
-<p>
-<img src="app/image/2026-10-18-1.png" width="49%">
-<img src="app/image/2026-10-18-2.png" width="49%">
-<img src="app/image/2026-10-18-3.png" width="49%">
-<img src="app/image/2026-10-18-4.png" width="49%">
-<img src="app/image/2026-10-18-5.png" width="49%">
-<img src="app/image/2026-10-18-6.png" width="49%">
-</p>
+<img src="app/image/2026-10-18-1.png" width="800">
+
+<img src="app/image/2026-10-18-2.png" width="800">
+
+<img src="app/image/2026-10-18-3.png" width="800">
+
+<img src="app/image/2026-10-18-4.png" width="800">
+
+<img src="app/image/2026-10-18-5.png" width="800">
+
+<img src="app/image/2026-10-18-6.png" width="800">
 
 ## 开始使用
 
