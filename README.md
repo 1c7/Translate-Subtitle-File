@@ -1,6 +1,8 @@
 # 译幕 Zimoo
 
-把英文（或日文、韩文等）字幕文件一键翻译成中文，支持 .srt / .ass / .vtt，可接入 DeepSeek、Kimi、DeepL 等 38 家翻译服务商。
+这是字幕翻译软件，可以把字幕文件（文件名后缀是 .srt 或 .ass 或 .vtt）翻译成另一个语言，   
+比如 把英文（或日文、韩文等）字幕文件一键翻译成中文，
+支持 38 家翻译服务商，比如 DeepSeek、Kimi、腾讯云等
 
 **[打开网页版](https://zimoo.app)** · **[下载桌面版](https://zimoo.app/#/download)** · [使用教程](https://doc.tern.1c7.me/zh/)
 
